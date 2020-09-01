@@ -2,16 +2,17 @@
   "name": "example",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "christopherbiscardi <chris@christopherbiscardi.com> (@chrisbiscardi)",
+  "author": "Timothy Bula <timrbula@gmail.com> (@timrbula)",
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build"
   },
   "dependencies": {
+    "@boomerang-io/carbon-addons-boomerang-react": "0.0.12",
     "gatsby": "^2.24.50",
-    "gatsby-theme-minimal": "^1.0.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "gatsby-theme-boomerang-docs": "^1.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }

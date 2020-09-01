@@ -1,0 +1,144 @@
+@import "~Styles/mixins";
+
+.container {
+  margin: 0rem;
+  padding: 0rem;
+  width: auto;
+  display: grid;
+  grid-template-rows: auto;
+  column-gap: 1.5rem;
+  grid-template-columns: calc(50% - 0.5rem) calc(50% - 0.5rem);
+}
+
+.previousBtn {
+  cursor: pointer;
+  -moz-box-align: center;
+  -moz-box-direction: normal;
+  -moz-box-orient: horizontal;
+  margin: 0rem;
+  padding: 0rem;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  place-self: stretch;
+  color: rgb(36, 42, 49);
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.1875rem;
+  border: 1px solid rgb(230, 236, 241);
+  transition: border 200ms ease 0s;
+  box-shadow: 0 1px 0.25rem 0 rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+.leftArrow {
+  display: block;
+  margin: 0rem;
+  flex: 0 0 auto;
+  font-size: 1.5rem;
+  transition: color 200ms ease 0s;
+  padding: 1rem;
+  padding-right: 1rem;
+}
+
+.preRightWrapper {
+  display: block;
+  margin: 0rem;
+  flex: 1 1 0%;
+  padding: 1rem;
+  text-align: right;
+}
+
+.smallContent {
+  display: block;
+  margin: 0rem;
+  padding: 0rem;
+}
+
+.smallContent span {
+  font-size: 0.75rem;
+  line-height: 1.625;
+  font-weight: 400;
+}
+
+.nextPreviousTitle {
+  display: block;
+  margin: 0rem;
+  padding: 0rem;
+  transition: color 200ms ease 0s;
+}
+
+.nextPreviousTitle span {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.nextBtn {
+  cursor: pointer;
+  -moz-box-align: center;
+  -moz-box-direction: normal;
+  -moz-box-orient: horizontal;
+  margin: 0rem;
+  padding: 0rem;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  place-self: stretch;
+  color: rgb(36, 42, 49);
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.1875rem;
+  border: 1px solid rgb(230, 236, 241);
+  transition: border 200ms ease 0s;
+  box-shadow: 0 1px 0.25rem 0 rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+.rightArrow {
+  flex: 0 0 auto;
+  font-size: 1.5rem;
+  transition: color 200ms ease 0s;
+  padding: 1rem;
+  padding-left: 1rem;
+  display: block;
+  margin: 0rem;
+}
+
+.nextRightWrapper {
+  display: block;
+  margin: 0rem;
+  padding: 1rem;
+  flex: 1 1 0%;
+}
+
+.nextBtn:hover,
+.previousBtn:hover {
+  color: #1d364d;
+  text-decoration: none;
+}
+
+.nextBtn:hover .rightArrow,
+.previousBtn:hover .leftArrow {
+  color: #1d364d;
+}
+
+.nextBtn:focus,
+.previousBtn:focus {
+  @include focus-outline();
+}
+
+@media (max-width: 767px) {
+  .nextPreviousWrapper {
+    display: block;
+    padding: 0 1rem;
+  }
+
+  .previousBtn {
+    margin-bottom: 1.25rem;
+  }
+
+  .nextBtn {
+    margin-bottom: 1.25rem;
+  }
+}

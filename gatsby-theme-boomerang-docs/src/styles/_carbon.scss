@@ -1,0 +1,10 @@
+@import "~@boomerang-io/carbon-addons-boomerang-react/styles/scss/styles/themes/boomerang";
+$carbon--theme: $carbon--theme--boomerang;
+$carbon-addons-bmrg--theme: boomerang;
+
+@import "~@boomerang-io/carbon-addons-boomerang-react/styles/scss/styles";
+@import "~carbon-components/scss/components/loading/loading";
+
+.bx--bmrg-header-container {
+  height: 3rem;
+}

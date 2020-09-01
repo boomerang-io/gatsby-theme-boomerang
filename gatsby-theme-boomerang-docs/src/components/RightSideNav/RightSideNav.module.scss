@@ -1,0 +1,63 @@
+@import "~Styles/mixins";
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff;
+  border-right: 1px solid #ede7f3;
+  height: calc(100vh - 3rem);
+  bottom: 0;
+  padding: 0 16px 0 16px;
+  position: sticky;
+  top: 3rem;
+  @media only screen and (max-width: 48rem) {
+    width: 100%;
+    position: relative;
+  }
+}
+
+.title {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.0625rem;
+  line-height: 1.3;
+  padding: 0.5rem 1.5rem 0.5rem 1rem;
+}
+
+.list {
+  color: var(--cds-text-01);
+  border-left: 1px solid #e6ecf1;
+  border-left-color: #e6ecf1;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  overflow: auto;
+  padding: 0.25rem 0.25rem;
+}
+
+.listItem {
+  list-style-type: none;
+  position: relative;
+
+  &:active {
+    color: #40d5bb;
+  }
+
+  svg {
+    float: right;
+    margin-right: 1rem;
+  }
+}
+
+.link {
+  color: var(--cds-text-02);
+  display: block;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  position: relative;
+  margin: 1rem 0;
+
+  &:focus {
+    @include focus-outline(var(--cds-support-02));
+  }
+}

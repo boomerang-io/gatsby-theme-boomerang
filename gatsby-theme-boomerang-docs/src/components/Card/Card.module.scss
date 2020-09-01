@@ -1,0 +1,93 @@
+@import "~Styles/variables";
+@import "~Styles/mixins";
+
+@keyframes fade-up {
+  0% {
+    opacity: 0.01;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  animation: fade-up 0.15s ease-in;
+  display: flex;
+  background: white;
+  border-radius: 0.25rem;
+  height: 11rem;
+  text-decoration: none;
+  transition: all 0.15s ease-in-out;
+  width: 27rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    @include focus-outline();
+  }
+}
+
+.leftSection {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  width: 24%;
+}
+
+.rightSection {
+  position: relative;
+  width: 75%;
+}
+
+.lock {
+  position: absolute;
+  left: calc(100% - 1.25rem);
+  top: 0.75rem;
+}
+.info {
+  background-color: transparent;
+  height: 9.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  width: 100%;
+}
+
+.title {
+  background-color: transparent;
+  color: var(--cds-text-01);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0rem;
+  margin-top: 1rem;
+}
+
+.description {
+  background-color: transparent;
+  color: var(--cds-text-01);
+  font-size: 0.925rem;
+  line-height: 1.2;
+  margin: 0.5rem 1rem 0 0;
+}
+
+.icon {
+  background-color: transparent;
+  width: 3.25rem;
+}
+
+@media (max-width: 50rem) {
+  .card {
+    height: auto;
+    margin-right: 0rem;
+    width: calc(100vw - 5rem);
+  }
+
+  .title {
+    font-size: 1.125rem;
+  }
+}

@@ -1,0 +1,53 @@
+$carbon-motion--easing--productive: carbon--motion(standard, productive);
+$carbon-motion--timing--productive: 150ms;
+@import "~Styles/mixins";
+
+.button {
+  align-items: center;
+  display: none;
+  line-height: 0;
+  padding: 0;
+  @media only screen and (max-width: 48rem) {
+    background: none;
+    border: 0;
+    display: block;
+    position: fixed;
+    top: 4rem;
+    right: 0.5rem;
+    z-index: 3;
+  }
+  &:focus {
+    @include focus-outline();
+  }
+  svg {
+    fill: black;
+    height: 1rem;
+    transition: fill 0.15s ease;
+    width: 1.5rem;
+  }
+
+  .bar1 {
+    transition: all $carbon-motion--timing--productive $carbon-motion--easing--productive;
+  }
+  .bar3 {
+    transition: all $carbon-motion--timing--productive $carbon-motion--easing--productive;
+  }
+
+  .bar2 {
+    opacity: 1;
+    transition: all 50ms ease;
+  }
+
+  &.isOpen .bar1 {
+    transform: rotate(45deg) translateY(-2px) translateX(6px);
+  }
+
+  &.isOpen .bar3 {
+    transform: rotate(-45deg) translateY(-4px) translateX(-16px);
+  }
+
+  &.isOpen .bar2 {
+    opacity: 0;
+    width: 0;
+  }
+}

@@ -1,0 +1,155 @@
+@import "~Styles/mixins";
+
+.container {
+  border-right: 1px solid #e6ecf1;
+  color: var(--cds-text-01);
+  width: 100%;
+  height: calc(100vh - 3rem);
+  overflow: auto;
+  padding-bottom: 1.875rem;
+  position: sticky;
+  top: 3rem;
+  background-color: white;
+  @media only screen and (max-width: 48rem) {
+    padding: 0rem 1rem 1rem 1rem;
+    top: 0rem;
+  }
+}
+
+.header {
+  padding: 1rem 1.25rem;
+}
+
+.headerNav {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.625rem;
+}
+
+.backLink {
+  align-items: center;
+  color: var(--cds-interactive-01);
+  display: flex;
+  height: 1rem;
+  text-decoration: none;
+  width: fit-content;
+  &:focus {
+    @include focus-outline();
+  }
+  svg {
+    margin-right: 0.5rem;
+  }
+}
+
+.versionDropdown {
+  :global .bx--label {
+    color: white;
+    font-weight: 300;
+    font-size: 0.75rem;
+  }
+  :global .bx--dropdown {
+    height: 2rem;
+    border-radius: 0.125rem;
+
+    &--open {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  :global .bx--list-box__menu {
+    top: 2rem;
+    border-bottom-right-radius: 0.125rem;
+    border-bottom-left-radius: 0.125rem;
+  }
+  :global .bx--list-box__field {
+    height: 100%;
+    &:focus {
+      outline: none;
+    }
+  }
+  :global .bx--list-box__label {
+    font-weight: 400;
+    overflow: initial;
+    text-overflow: unset;
+    white-space: normal;
+  }
+
+  a {
+    color: var(--cds-text-02);
+    text-decoration: none;
+  }
+}
+@media only screen and (max-width: 48rem) {
+  .versionDropdown {
+    max-width: 12rem;
+    right: 4rem;
+    top: 1rem;
+    width: 50%;
+  }
+}
+
+.solutionTitle {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  word-break: break-word;
+}
+
+.categoryTitle {
+  color: var(--cds-text-01);
+  font-size: 1rem;
+  line-height: 1.2rem;
+  font-weight: 500;
+  margin: 0;
+  padding: 0.75rem 1.25rem;
+}
+
+.pageLink {
+  align-items: center;
+  display: flex;
+  color: #4c5359;
+  font-size: 0.875rem;
+  font-weight: 600;
+  height: 100%;
+  line-height: 1.5;
+  list-style-type: none;
+  outline-offset: -2px;
+  outline: 2px solid transparent;
+  position: relative;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  width: 100%;
+
+  &:focus {
+    outline-color: var(--cds-support-02);
+  }
+
+  &:hover {
+    background-color: var(--cds-ui-03);
+  }
+}
+
+.pageLinkText {
+  display: flex;
+  align-items: center;
+  border-left-color: rgb(230, 236, 241);
+  height: 3rem;
+  margin-left: 3rem;
+  position: relative;
+  width: 100%;
+}
+
+.isActiveLink {
+  color: var(--cds-text-01);
+  background-color: var(--cds-ui-03);
+  &:before {
+    content: "";
+    background: var(--cds-support-02);
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 0.25rem;
+  }
+}
