@@ -1,14 +1,14 @@
 {
-  "name": "gatsby-starter-theme-workspace",
+  "name": "gatsby-theme-boomerang-workspace",
   "private": true,
   "version": "0.0.1",
   "main": "index.js",
-  "license": "0BSD",
+  "license": "Apache-2",
   "scripts": {
     "build": "yarn workspace example build"
   },
   "workspaces": [
-    "gatsby-theme-boomerang-docs",
+    "gatsby-theme-boomerang",
     "example"
   ]
 }

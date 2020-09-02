@@ -1,37 +1,25 @@
 const config = {
   solutions: [
     {
-      title: "Boomerang Core",
-      description: "Whether you're new to CI or a seasoned veteran, this contains the basics and how-to guides.",
-      path: "/boomerang-core/introduction/overview",
-      solution: "boomerang-core",
-    },
-    {
-      title: "Boomerang CICD",
-      description: "Whether you're new to CI or a seasoned veteran, this contains the basics and how-to guides.",
-      path: "/boomerang-cicd/introduction/getting-started",
-      solution: "boomerang-cicd",
-      categoryOrder: ["introduction"],
-    },
-    {
-      title: "IBM Services Engineering",
-      description: "Whether you're new to CI or a seasoned veteran, this contains the basics and how-to guides.",
-      path: "/ise/standards/overview",
-      solution: "ise",
+      title: "Boomerang Flow",
+      description: "Cloud native workflow orchestration",
+      path: "/boomerang-flow/introduction/overview",
+      solution: "boomerang-flow",
+      categoryOrder: ["introduction", "architecture", "getting-to-know", "installing"],
     },
   ],
   homeNavigationLinks: [
     {
       text: "Getting Started",
-      path: "/boomerang/introduction/getting-started",
+      path: "/boomerang-flow/introduction/overview",
     },
     {
-      text: "What's New",
-      path: "/boomerang/introduction/whats-new",
+      text: "Tutorials",
+      path: "/boomerang-flow/tutorials/git-hub-issues-bot",
     },
     {
-      text: "FAQ",
-      path: "/boomerang/introduction/frequently-asked-questions",
+      text: "Installing",
+      path: "/boomerang-flow/installing/pre-requisites",
     },
   ],
 };
