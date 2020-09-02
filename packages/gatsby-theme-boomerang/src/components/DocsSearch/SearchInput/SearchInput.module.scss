@@ -1,0 +1,33 @@
+.container {
+  letter-spacing: 0.00625rem;
+  max-width: 20rem;
+  position: relative;
+  padding-top: 1rem;
+  width: 100%;
+  z-index: 1;
+}
+
+.resultsContainer {
+  margin-top: 0.5rem;
+  max-height: 80vh;
+  overflow: auto;
+  position: absolute;
+
+  &.left {
+    left: 0rem;
+  }
+  &.right {
+    right: 0rem;
+  }
+}
+
+:global .bx--search-input {
+  background: var(--cds-ui-background);
+  border-radius: 0.125rem;
+}
+
+@media (max-width: 42.5rem) {
+  .container {
+    width: 100%;
+  }
+}

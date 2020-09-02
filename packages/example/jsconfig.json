@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "Assets": ["src/assets"],
+      "Components": ["src/components"],
+      "Config": ["src/config"],
+      "Constants": ["src/constants"],
+      "Features": ["src/features"],
+      "Hooks": ["src/hooks"],
+      "Pages": ["src/pages"],
+      "State": ["src/state"],
+      "Styles": ["src/styles"],
+      "Utils": ["src/utils"],
+      "Static": ["static"],
+      "Root": ["."]
+    }
+  }
+}

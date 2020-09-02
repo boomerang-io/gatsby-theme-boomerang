@@ -1,0 +1,25 @@
+{
+  "extends": "stylelint-config-recommended-scss",
+  "rules": {
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": [
+          "global",
+          "local"
+        ]
+      }
+    ],
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": [
+          "composes"
+        ]
+      }
+    ]
+  },
+  "ignoreFiles": [
+        "packages/gatsby-theme-boomerang/src/styles/_markdown.scss"
+    ]
+}

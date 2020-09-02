@@ -1,0 +1,22 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Timothy Bula <timrbula@gmail.com> (@timrbula)",
+  "license": "MIT",
+  "scripts": {
+    "dev": "gatsby develop -H 0.0.0.0",
+    "dev:clean": "yarn clean && yarn dev",
+    "build": "gatsby build",
+    "build:clean": "yarn clean && gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@boomerang-io/carbon-addons-boomerang-react": "0.0.12",
+    "gatsby": "^2.24.50",
+    "gatsby-theme-boomerang": "^0.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}

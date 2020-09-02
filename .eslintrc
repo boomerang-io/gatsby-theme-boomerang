@@ -1,0 +1,42 @@
+{
+    "extends":["wesbos"],
+    "rules": {
+      "react/prop-types": 0,
+      "react/destructuring-assignment": 0,
+      "react/no-access-state-in-setstate": 0,
+      "react/jsx-props-no-spreading": 0,
+      "react/jsx-no-useless-fragment": 1,
+      "no-useless-escape": 0,
+      "quotes": [
+        "error",
+        "double",
+        { "avoidEscape": true, "allowTemplateLiterals": false }
+      ],
+      "prettier/prettier": [
+        "error",
+        {
+          "trailingComma": "es5",
+          "singleQuote": false,
+          "printWidth": 120
+        }
+      ]
+    },
+      "settings": {
+        "import/resolver": {
+          "alias": [
+            ["Assets","./src/assets"],
+            ["Components","./src/components"],
+            ["Config","./src/config"],
+            ["Constants","./src/constants"],
+            ["Features","./src/features"],
+            ["Hooks","./src/hooks"],
+            ["Pages","./src/pages"],
+            ["State","./src/state"],
+            ["Styles","./src/styles"],
+            ["Utils","./src/utils"],
+            ["Static","./static"],
+            ["Root","."]
+          ]
+        }
+    }
+  }
