@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-theme-boomerang",
+  "name": "@boomerang-io/gatsby-theme-boomerang",
   "version": "0.0.1",
   "main": "index.js",
   "author": "Timothy Bula <timrbula@gmail.com> (@timrbula)",
@@ -8,7 +8,7 @@
     "@boomerang-io/carbon-addons-boomerang-react": "0.0.12",
     "@boomerang-io/utils": "0.0.1",
     "@carbon/icons-react": "10.16.0",
-    "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.3.0",
+    "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.4.2",
     "app-root-path": "^2.2.1",
     "axios": "^0.19.1",
     "carbon-components": "10.12.0",
