@@ -1,8 +1,8 @@
 const contentConfig = require("./contentConfig");
 
 module.exports = {
+  pathPrefix: "/BMRG_APP_ROOT_CONTEXT",
   siteMetadata: {
-    pathPrefix: "/BMRG_APP_ROOT_CONTEXT",
     title: "Docs",
     docsLocation: "https://github.ibm.com/essentials-core/core.app.docs/tree/main/content",
     githubUrl: "https://github.ibm.com/essentials-core/core.app.docs",
