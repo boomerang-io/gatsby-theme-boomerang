@@ -44,10 +44,9 @@ function SideNav({ location, pageContext, docNodes, solutionTitle, siteMetadata 
               id="version-dropdown"
               initialSelectedItem={allDocVersions.find((item) => item.version === version)}
               items={sortBy(allDocVersions, "version", "").reverse()}
-              itemToElement={(item) => <Link to={item.slug}>{item.version}</Link>}
               itemToString={(item) => (item ? item.version : "")}
               label="versions"
-              onChange={({ selectedItem }) => navigate(selectedItem.slug)}
+              onChange={({ selectedItem }) => navigate(siteMetadata.docsContext + selectedItem.slug)}
             />
           </div>
         </div>

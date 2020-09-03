@@ -30,7 +30,8 @@ module.exports = (themeOptions) => {
   return {
     pathPrefix: "/BMRG_APP_ROOT_CONTEXT",
     siteMetadata: {
-      title: "Docs",
+      title: "Boomerang",
+      uiShellProductName: "",
       description: "Documentation for Boomerang and the IBM Automation Platform",
       docsContext: "",
       docsLocation: "https://github.ibm.com/essentials-core/core.app.docs/tree/main/content",

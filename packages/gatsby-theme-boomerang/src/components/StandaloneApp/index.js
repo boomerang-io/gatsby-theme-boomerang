@@ -8,7 +8,7 @@ const skipToContentProps = {
   href: "#content",
 };
 
-export default function StandaloneApp({ children, location, navLinks, title }) {
+export default function StandaloneApp({ children, location, navLinks, uiShellProductName }) {
   const [isSideNavMounted, setIsSideNavMounted] = React.useState(false);
   useSideNavScrollManager({ isSideNavMounted, location });
 
@@ -16,7 +16,7 @@ export default function StandaloneApp({ children, location, navLinks, title }) {
     <AppContext.Provider value={{ isSideNavMounted, setIsSideNavMounted }}>
       <UIShell
         headerConfig={{ navigation: navLinks }}
-        productName={title}
+        productName={uiShellProductName}
         renderLogo
         skipToContentProps={skipToContentProps}
       />
@@ -29,5 +29,5 @@ StandaloneApp.propTypes = {
   children: PropTypes.node.isRequired,
   location: PropTypes.object.isRequired,
   navLinks: PropTypes.array,
-  title: PropTypes.string,
+  uiShellProductName: PropTypes.string,
 };

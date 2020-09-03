@@ -4,6 +4,8 @@ module.exports = {
   pathPrefix: "/BMRG_APP_ROOT_CONTEXT",
   siteMetadata: {
     title: "Boomerang",
+    uiShellProductName: "Testing",
+    docsContext: "/docs",
     docsLocation: "https://github.ibm.com/essentials-core/core.app.docs/tree/main/content",
     githubUrl: "https://github.ibm.com/essentials-core/core.app.docs",
     siteUrl: "https://launch.boomerangplatform.net/docs",

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, graphql, StaticQuery } from "gatsby";
 import Card from "@gatsby-theme-boomerang/components/Card";
+import PageContainer from "@gatsby-theme-boomerang/components/PageContainer";
 import DocsSearch from "@gatsby-theme-boomerang/components/DocsSearch";
 import styles from "./styles/Home.module.scss";
 
@@ -40,27 +41,29 @@ function HomeContainer() {
 function Home({ data }) {
   const { siteMetadata } = data.site;
   return (
-    <main className={styles.container} id="content">
-      <header className={styles.header}>
-        <div className={styles.introContainer}>
-          <h1 className={styles.introTitle}>{siteMetadata.headerTitle}</h1>
-          <p className={styles.introSubtitle}>{siteMetadata.description}</p>
-          <DocsSearch resultsAlignment="left" />
-        </div>
-        <nav className={styles.quickLinksNav}>
-          {siteMetadata.docsQuickLinks.map((navLink) => (
-            <QuickLink key={navLink.text} title={navLink.text} href={navLink.path} />
+    <PageContainer title="Docs">
+      <main className={styles.container}>
+        <header className={styles.header}>
+          <div className={styles.introContainer}>
+            <h1 className={styles.introTitle}>{siteMetadata.headerTitle}</h1>
+            <p className={styles.introSubtitle}>{siteMetadata.description}</p>
+            <DocsSearch resultsAlignment="left" />
+          </div>
+          <nav className={styles.quickLinksNav}>
+            {siteMetadata.docsQuickLinks.map((navLink) => (
+              <QuickLink key={navLink.text} title={navLink.text} href={navLink.path} />
+            ))}
+          </nav>
+        </header>
+        <article className={styles.article}>
+          {siteMetadata.solutions.map((solution) => (
+            <Link key={`${solution.title}-${solution.solution}`} to={solution.path}>
+              <Card title={solution.title} text={solution.description} />
+            </Link>
           ))}
-        </nav>
-      </header>
-      <article className={styles.article}>
-        {siteMetadata.solutions.map((solution) => (
-          <Link key={`${solution.title}-${solution.solution}`} to={solution.path}>
-            <Card title={solution.title} text={solution.description} />
-          </Link>
-        ))}
-      </article>
-    </main>
+        </article>
+      </main>
+    </PageContainer>
   );
 }
 

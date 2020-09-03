@@ -62,7 +62,7 @@ export default function DocTemplate(props) {
   const docTitle = markdownRemark.fields.title;
   let canonicalUrl = siteUrl;
   canonicalUrl = pathPrefix !== "/" ? canonicalUrl + pathPrefix : canonicalUrl;
-  canonicalUrl += markdownRemark.fields.slug;
+  canonicalUrl += docsContext + markdownRemark.fields.slug;
 
   return (
     <Layout

@@ -26,9 +26,7 @@ export default function Layout({ children, docNodes, location, pageContext, solu
           siteMetadata={siteMetadata}
         />
       </div>
-      <div id="content" className={styles.docContainer}>
-        {children}
-      </div>
+      <div className={styles.docContainer}>{children}</div>
       <div className={styles.rightNavContainer}>
         <RightSideNav docNodes={docNodes} location={location} />
       </div>

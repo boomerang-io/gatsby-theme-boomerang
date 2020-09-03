@@ -1,6 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { ErrorBoundary } from "@boomerang-io/carbon-addons-boomerang-react";
+import PageContainer from "@gatsby-theme-boomerang/components/PageContainer";
 import ErrorDragon from "@gatsby-theme-boomerang/components/ErrorDragon";
 import App from "@gatsby-theme-boomerang/components/App";
 import StandaloneApp from "@gatsby-theme-boomerang/components/StandaloneApp";
@@ -26,6 +27,7 @@ export default function index({ location, children }) {
               siteMetadata {
                 title
                 standaloneMode
+                uiShellProductName
                 navLinks {
                   name
                   url
@@ -35,15 +37,17 @@ export default function index({ location, children }) {
           }
         `}
         render={(data) => {
-          const { navLinks, standaloneMode, title } = data.site.siteMetadata;
-          return standaloneMode ? (
-            <StandaloneApp location={location} navLinks={navLinks} title={title}>
-              {children}
-            </StandaloneApp>
-          ) : (
-            <App location={location} title={title}>
-              {children}
-            </App>
+          const { navLinks, standaloneMode, title, uiShellProductName } = data.site.siteMetadata;
+          return (
+            <PageContainer title={title}>
+              {standaloneMode ? (
+                <StandaloneApp location={location} navLinks={navLinks} uiShellProductName={uiShellProductName}>
+                  {children}
+                </StandaloneApp>
+              ) : (
+                <App location={location}>{children}</App>
+              )}
+            </PageContainer>
           );
         }}
       />
