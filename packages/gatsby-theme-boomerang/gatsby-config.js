@@ -2,7 +2,7 @@ require("dotenv").config();
 const path = require("path");
 
 module.exports = (themeOptions) => {
-  const { lunrSearch = true } = themeOptions;
+  const { lunrSearch = true, remarkImagesOptions = {} } = themeOptions;
   const optionalPlugins = [];
 
   if (lunrSearch) {
@@ -32,12 +32,13 @@ module.exports = (themeOptions) => {
     siteMetadata: {
       title: "Docs",
       description: "Documentation for Boomerang and the IBM Automation Platform",
+      docsContext: "",
       docsLocation: "https://github.ibm.com/essentials-core/core.app.docs/tree/main/content",
       headerTitle: "Docs",
       githubUrl: "https://github.ibm.com/essentials-core/core.app.docs",
       siteUrl: "https://launch.boomerangplatform.net/docs",
       standaloneMode: true,
-      homeNavigationLinks: [
+      docsQuickLinks: [
         {
           text: "Getting Started",
           path: "/boomerang-flow/introduction/overview",
@@ -75,6 +76,7 @@ module.exports = (themeOptions) => {
               resolve: "gatsby-remark-images",
               options: {
                 quality: 80,
+                ...remarkImagesOptions,
               },
             },
             { resolve: "gatsby-remark-prismjs" },
@@ -96,18 +98,18 @@ module.exports = (themeOptions) => {
         resolve: "gatsby-alias-imports",
         options: {
           aliases: {
-            Assets: path.resolve(__dirname, "src/assets"),
-            Components: path.resolve(__dirname, "src/components"),
-            Config: path.resolve(__dirname, "src/config"),
-            Constants: path.resolve(__dirname, "src/constants"),
-            Features: path.resolve(__dirname, "src/features"),
-            Hooks: path.resolve(__dirname, "src/hooks"),
-            Pages: path.resolve(__dirname, "src/pages"),
-            State: path.resolve(__dirname, "src/state"),
-            Styles: path.resolve(__dirname, "src/styles"),
-            Utils: path.resolve(__dirname, "src/utils"),
-            Static: path.resolve(__dirname, "static"),
-            Root: path.resolve(__dirname, "."),
+            "@gatsby-theme-boomerang/assets": path.resolve(__dirname, "src/assets"),
+            "@gatsby-theme-boomerang/components": path.resolve(__dirname, "src/components"),
+            "@gatsby-theme-boomerang/config": path.resolve(__dirname, "src/config"),
+            "@gatsby-theme-boomerang/constants": path.resolve(__dirname, "src/constants"),
+            "@gatsby-theme-boomerang/features": path.resolve(__dirname, "src/features"),
+            "@gatsby-theme-boomerang/hooks": path.resolve(__dirname, "src/hooks"),
+            "@gatsby-theme-boomerang/pages": path.resolve(__dirname, "src/pages"),
+            "@gatsby-theme-boomerang/state": path.resolve(__dirname, "src/state"),
+            "@gatsby-theme-boomerang/styles": path.resolve(__dirname, "src/styles"),
+            "@gatsby-theme-boomerang/utils": path.resolve(__dirname, "src/utils"),
+            "@gatsby-theme-boomerang/static": path.resolve(__dirname, "static"),
+            "@gatsby-theme-boomerang": path.resolve(__dirname, "."),
           },
         },
       },

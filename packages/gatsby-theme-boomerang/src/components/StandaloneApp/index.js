@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { AppContext } from "State";
-import { useSideNavScrollManager } from "Hooks";
-import { Helmet } from "react-helmet";
+import { AppContext } from "@gatsby-theme-boomerang/state";
+import { useSideNavScrollManager } from "@gatsby-theme-boomerang/hooks";
 import { UIShell } from "@boomerang-io/carbon-addons-boomerang-react";
 
 const skipToContentProps = {
@@ -12,14 +11,9 @@ const skipToContentProps = {
 export default function StandaloneApp({ children, location, navLinks, title }) {
   const [isSideNavMounted, setIsSideNavMounted] = React.useState(false);
   useSideNavScrollManager({ isSideNavMounted, location });
-  const resolvedTitle = title ?? "Docs | Boomerang";
 
   return (
     <AppContext.Provider value={{ isSideNavMounted, setIsSideNavMounted }}>
-      <Helmet>
-        <title>{resolvedTitle}</title>
-        <meta name="title" content={resolvedTitle} />
-      </Helmet>
       <UIShell
         headerConfig={{ navigation: navLinks }}
         productName={title}

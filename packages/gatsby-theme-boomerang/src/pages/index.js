@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, graphql, StaticQuery } from "gatsby";
-import Card from "Components/Card";
-import DocsSearch from "Components/DocsSearch";
-import styles from "./Home.module.scss";
+import Card from "@gatsby-theme-boomerang/components/Card";
+import DocsSearch from "@gatsby-theme-boomerang/components/DocsSearch";
+import styles from "./styles/Home.module.scss";
 
 const pageQuery = graphql`
   query {
@@ -12,6 +12,7 @@ const pageQuery = graphql`
         docsLocation
         siteUrl
         title
+        headerTitle
         description
         solutions {
           description
@@ -20,7 +21,7 @@ const pageQuery = graphql`
           categoryOrder
           path
         }
-        homeNavigationLinks {
+        docsQuickLinks {
           text
           path
         }
@@ -42,12 +43,12 @@ function Home({ data }) {
     <main className={styles.container} id="content">
       <header className={styles.header}>
         <div className={styles.introContainer}>
-          <h1 className={styles.introTitle}>{siteMetadata.title}</h1>
+          <h1 className={styles.introTitle}>{siteMetadata.headerTitle}</h1>
           <p className={styles.introSubtitle}>{siteMetadata.description}</p>
           <DocsSearch resultsAlignment="left" />
         </div>
         <nav className={styles.quickLinksNav}>
-          {siteMetadata.homeNavigationLinks.map((navLink) => (
+          {siteMetadata.docsQuickLinks.map((navLink) => (
             <QuickLink key={navLink.text} title={navLink.text} href={navLink.path} />
           ))}
         </nav>

@@ -1,15 +1,15 @@
 import React from "react";
 import { navigate } from "gatsby";
-import { AppContext } from "State";
-import Link from "Components/Link";
+import { AppContext } from "@gatsby-theme-boomerang/state";
+import Link from "@gatsby-theme-boomerang/components/Link";
 import { Dropdown } from "carbon-components-react";
 import cx from "classnames";
 import sortBy from "lodash.sortby";
-import { unKebabCase } from "Utils";
+import { unKebabCase } from "@gatsby-theme-boomerang/utils";
 import { ArrowLeft16 } from "@carbon/icons-react";
 import styles from "./SideNav.module.scss";
 
-function SideNav({ location, pageContext, docNodes, solutionTitle }) {
+function SideNav({ location, pageContext, docNodes, solutionTitle, siteMetadata }) {
   const { solution, version, allDocVersions } = pageContext;
   const { isSideNavMounted, setIsSideNavMounted } = React.useContext(AppContext);
 
@@ -35,7 +35,7 @@ function SideNav({ location, pageContext, docNodes, solutionTitle }) {
     <div id="sidenav" className={styles.container}>
       <header className={styles.header}>
         <div className={styles.headerNav}>
-          <Link className={styles.backLink} to="/">
+          <Link className={styles.backLink} to={siteMetadata.docsContext || "/"}>
             <ArrowLeft16 />
             Home
           </Link>
@@ -64,7 +64,7 @@ function SideNav({ location, pageContext, docNodes, solutionTitle }) {
                     location.pathname.endsWith(node.fields.slug) || location.pathname.endsWith(`${node.fields.slug}/`)
                   )}
                   key={node.fields.slug}
-                  to={node.fields.slug}
+                  to={siteMetadata.docsContext + node.fields.slug}
                 >
                   {node.fields.title}
                 </ListItem>

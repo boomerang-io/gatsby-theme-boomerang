@@ -19,6 +19,11 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           {
+            site {
+              siteMetadata {
+                docsContext
+              }
+            }
             allMarkdownRemark {
               edges {
                 node {
@@ -37,9 +42,12 @@ exports.createPages = ({ graphql, actions }) => {
         `
       ).then((result) => {
         if (result.errors) {
-          console.log(result.errors); // eslint-disable-line no-console
+          console.log(result.errors);
           reject(result.errors);
         }
+
+        // If the docs are not hosted on the root
+        const docsContext = result.data.site.siteMetadata.docsContext || "";
 
         /**
          * Create pages for docs
@@ -71,7 +79,7 @@ exports.createPages = ({ graphql, actions }) => {
             const latestVersion = semVersions.sort(semver.rcompare)[0];
             allVersionsOfEachDocMap[docId] = allVersionsOfDoc;
             const latestDoc = allVersionsOfDoc.find((doc) => doc.version === latestVersion);
-            const pathToLatestDoc = latestDoc.slug ? latestDoc.slug : "/";
+            const pathToLatestDoc = latestDoc.slug ? docsContext + latestDoc.slug : "/";
 
             createRedirect({
               fromPath: pathToLatestDoc.replace(`/${latestVersion}`, ""),
@@ -81,9 +89,9 @@ exports.createPages = ({ graphql, actions }) => {
             });
           }
 
-          const pathToDoc = node.fields.slug ? node.fields.slug : "/";
+          const pathToDoc = node.fields.slug || "/";
           createPage({
-            path: pathToDoc,
+            path: docsContext + pathToDoc,
             component: require.resolve("./src/templates/Docs/index.js"),
             context: {
               id: node.fields.id,
@@ -104,7 +112,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
   if (node.internal.type === "MarkdownRemark") {
     const parent = getNode(node.parent);
-    const log = execSync(`echo $(git log -n 1 --pretty=format:%ct ${parent.absolutePath})`);
+    const lastUpdatedTimestamp = execSync(`echo $(git log -n 1 --pretty=format:%ct ${parent.absolutePath})`);
 
     const [solution, version, category] = parent.relativeDirectory.split("/");
     const title = node.frontmatter.title || startCase(parent.name);
@@ -152,6 +160,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value: node.frontmatter.index,
     });
 
-    createNodeField({ node, name: "updatedAt", value: log.toString() });
+    createNodeField({ node, name: "updatedAt", value: lastUpdatedTimestamp.toString() });
   }
 };

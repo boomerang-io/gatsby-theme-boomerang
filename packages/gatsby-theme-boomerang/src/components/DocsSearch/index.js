@@ -8,12 +8,23 @@ const DocsSearch = ({ resultsAlignment }) => (
   <StaticQuery
     query={graphql`
       query SearchIndexQuery {
+        site {
+          siteMetadata {
+            docsContext
+          }
+        }
         siteSearchIndex {
           index
         }
       }
     `}
-    render={(data) => <SearchInput searchIndex={data.siteSearchIndex.index} resultsAlignment={resultsAlignment} />}
+    render={(data) => (
+      <SearchInput
+        docsContext={data.site.siteMetadata.docsContext}
+        searchIndex={data.siteSearchIndex.index}
+        resultsAlignment={resultsAlignment}
+      />
+    )}
   />
 );
 

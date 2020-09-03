@@ -8,7 +8,7 @@ const config = {
       categoryOrder: ["introduction", "architecture", "getting-to-know", "installing"],
     },
   ],
-  homeNavigationLinks: [
+  docsQuickLinks: [
     {
       text: "Getting Started",
       path: "/boomerang-flow/introduction/overview",

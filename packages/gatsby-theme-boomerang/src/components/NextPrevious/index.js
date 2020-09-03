@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Link from "Components/Link";
+import Link from "@gatsby-theme-boomerang/components/Link";
 import styles from "./NextPrevious.module.scss";
 
 export default function NextPrevious(props) {
-  const { markdownRemark, nav } = props;
+  const { docsContext, markdownRemark, nav } = props;
   let currentIndex;
   nav.forEach((el, index) => {
-    if (el.url === markdownRemark.fields.slug) {
+    if (el.url === docsContext + markdownRemark.fields.slug) {
       currentIndex = index;
     }
   });

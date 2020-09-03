@@ -1,12 +1,12 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { ErrorBoundary } from "@boomerang-io/carbon-addons-boomerang-react";
-import ErrorDragon from "Components/ErrorDragon";
-import App from "Components/App";
-import StandaloneApp from "Components/StandaloneApp";
+import ErrorDragon from "@gatsby-theme-boomerang/components/ErrorDragon";
+import App from "@gatsby-theme-boomerang/components/App";
+import StandaloneApp from "@gatsby-theme-boomerang/components/StandaloneApp";
 import { startApiServer } from "../apiServer";
 import "typeface-ibm-plex-sans";
-import "Styles/index.scss";
+import "@gatsby-theme-boomerang/styles/index.scss";
 
 if (process.env.NODE_ENV === "development") {
   startApiServer({ environment: "development", timing: 400 });

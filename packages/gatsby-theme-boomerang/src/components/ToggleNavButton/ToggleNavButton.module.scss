@@ -1,6 +1,6 @@
 $carbon-motion--easing--productive: carbon--motion(standard, productive);
 $carbon-motion--timing--productive: 150ms;
-@import "~Styles/mixins";
+@import "~@gatsby-theme-boomerang/styles/mixins";
 
 .button {
   align-items: center;

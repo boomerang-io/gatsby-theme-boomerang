@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { AppContext } from "State";
-import { useSideNavScrollManager } from "Hooks";
+import { AppContext } from "@gatsby-theme-boomerang/state";
+import { useSideNavScrollManager } from "@gatsby-theme-boomerang/hooks";
 import { useQuery } from "react-query";
 import { Loading } from "@boomerang-io/carbon-addons-boomerang-react";
-import ErrorDragon from "Components/ErrorDragon";
-import Header from "Components/Header";
-import { resolver, serviceUrl } from "Config/servicesConfig";
+import ErrorDragon from "@gatsby-theme-boomerang/components/ErrorDragon";
+import Header from "@gatsby-theme-boomerang/components/Header";
+import { resolver, serviceUrl } from "@gatsby-theme-boomerang/config/servicesConfig";
 
 const GET_USER_URL = serviceUrl.getUserProfile();
 const GET_NAVIGATION_URL = serviceUrl.getNavigation();

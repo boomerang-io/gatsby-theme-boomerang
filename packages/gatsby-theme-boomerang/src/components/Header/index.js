@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { UIShell } from "@boomerang-io/carbon-addons-boomerang-react";
-import { BASE_SERVICE_URL } from "Config/servicesConfig";
-import { BASE_LAUNCH_ENV_URL } from "Config/platformUrlConfig";
+import { BASE_SERVICE_URL } from "@gatsby-theme-boomerang/config/servicesConfig";
+import { BASE_LAUNCH_ENV_URL } from "@gatsby-theme-boomerang/config/platformUrlConfig";
 
 const defaultUIShellProps = {
   baseServiceUrl: BASE_SERVICE_URL,

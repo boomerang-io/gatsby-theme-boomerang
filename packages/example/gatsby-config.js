@@ -3,14 +3,14 @@ const contentConfig = require("./contentConfig");
 module.exports = {
   pathPrefix: "/BMRG_APP_ROOT_CONTEXT",
   siteMetadata: {
-    title: "Docs",
+    title: "Boomerang",
     docsLocation: "https://github.ibm.com/essentials-core/core.app.docs/tree/main/content",
     githubUrl: "https://github.ibm.com/essentials-core/core.app.docs",
     siteUrl: "https://launch.boomerangplatform.net/docs",
     headerTitle: "Boomerang Docs",
     description: "Documentation for Boomerang",
     solutions: contentConfig.solutions,
-    homeNavigationLinks: contentConfig.homeNavigationLinks,
+    docsQuickLinks: contentConfig.docsQuickLinks,
     standaloneMode: true,
     navLinks: [
       {
@@ -27,5 +27,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [{ resolve: "gatsby-theme-boomerang", options: { lunrSearch: true } }],
+  plugins: [{ resolve: "@boomerang-io/gatsby-theme-boomerang", options: { lunrSearch: true } }],
 };

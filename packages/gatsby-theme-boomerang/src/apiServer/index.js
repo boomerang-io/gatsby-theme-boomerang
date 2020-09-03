@@ -1,7 +1,7 @@
 import { Server, Serializer } from "miragejs";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { inflections } from "inflected";
-import { serviceUrl } from "Config/servicesConfig";
+import { serviceUrl } from "@gatsby-theme-boomerang/config/servicesConfig";
 import * as fixtures from "./fixtures";
 
 export function startApiServer({ environment = "test", timing = 0 } = {}) {

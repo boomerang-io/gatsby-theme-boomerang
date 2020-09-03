@@ -2,11 +2,11 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Helmet from "react-helmet";
-import Link from "Components/Link";
-import NextPrevious from "Components/NextPrevious";
+import Link from "@gatsby-theme-boomerang/components/Link";
+import NextPrevious from "@gatsby-theme-boomerang/components/NextPrevious";
 import sortBy from "lodash.sortby";
 import moment from "moment";
-import gitHubIcon from "Assets/svg/github.svg";
+import gitHubIcon from "@gatsby-theme-boomerang/assets/svg/github.svg";
 import Layout from "./Layout";
 import styles from "./Docs.module.scss";
 
@@ -28,7 +28,7 @@ export default function DocTemplate(props) {
     markdownRemark,
     pathPrefix,
     site: {
-      siteMetadata: { docsLocation, solutions: productConfigs, siteUrl },
+      siteMetadata: { docsContext, docsLocation, solutions: productConfigs, siteUrl },
     },
   } = props.data;
 
@@ -55,7 +55,7 @@ export default function DocTemplate(props) {
 
   const nav = docNodes.map((node) => ({
     title: node.fields.title,
-    url: node.fields.slug,
+    url: docsContext + node.fields.slug,
   }));
 
   // meta tags
@@ -65,7 +65,13 @@ export default function DocTemplate(props) {
   canonicalUrl += markdownRemark.fields.slug;
 
   return (
-    <Layout docNodes={docNodes} location={props.location} pageContext={props.pageContext} solutionTitle={solutionTitle}>
+    <Layout
+      docNodes={docNodes}
+      location={props.location}
+      pageContext={props.pageContext}
+      solutionTitle={solutionTitle}
+      siteMetadata={props.data.site.siteMetadata}
+    >
       <Helmet>
         <title>{`${docTitle} | ${solutionTitle} `}</title>
         <meta name="title" content={docTitle} />
@@ -81,7 +87,7 @@ export default function DocTemplate(props) {
               rel="nofollow noopener"
               to={`${docsLocation}/${markdownRemark.parent.relativePath}`}
             >
-              <img src={gitHubIcon} alt="Github logo" style={{ height: "1rem" }} /> Edit
+              <img src={gitHubIcon} alt="GitHub logo" style={{ height: "1rem" }} /> Edit
             </Link>
           </div>
           <div className={styles.metadata}>
@@ -93,7 +99,7 @@ export default function DocTemplate(props) {
         </header>
         <div className="markdown-body" dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
         <footer className={styles.nextPreviousContainer}>
-          <NextPrevious markdownRemark={markdownRemark} nav={nav} />
+          <NextPrevious docsContext={docsContext} markdownRemark={markdownRemark} nav={nav} />
         </footer>
       </article>
     </Layout>
@@ -105,6 +111,7 @@ export const pageQuery = graphql`
     site {
       pathPrefix
       siteMetadata {
+        docsContext
         docsLocation
         siteUrl
         title

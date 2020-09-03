@@ -24,18 +24,18 @@
       "settings": {
         "import/resolver": {
           "alias": [
-            ["Assets","./src/assets"],
-            ["Components","./src/components"],
-            ["Config","./src/config"],
-            ["Constants","./src/constants"],
-            ["Features","./src/features"],
-            ["Hooks","./src/hooks"],
-            ["Pages","./src/pages"],
-            ["State","./src/state"],
-            ["Styles","./src/styles"],
-            ["Utils","./src/utils"],
-            ["Static","./static"],
-            ["Root","."]
+            ["@gatsby-theme-boomerang/assets","./src/assets"],
+            ["@gatsby-theme-boomerang/components","./src/components"],
+            ["@gatsby-theme-boomerang/config","./src/config"],
+            ["@gatsby-theme-boomerang/constants","./src/constants"],
+            ["@gatsby-theme-boomerang/features","./src/features"],
+            ["@gatsby-theme-boomerang/hooks","./src/hooks"],
+            ["@gatsby-theme-boomerang/pages","./src/pages"],
+            ["@gatsby-theme-boomerang/state","./src/state"],
+            ["@gatsby-theme-boomerang/styles","./src/styles"],
+            ["@gatsby-theme-boomerang/utils","./src/utils"],
+            ["@gatsby-theme-boomerang/static","./static"],
+            ["@gatsby-theme-boomerang/root","."]
           ]
         }
     }

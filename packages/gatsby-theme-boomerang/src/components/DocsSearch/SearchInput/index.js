@@ -85,8 +85,18 @@ export default class SearchInput extends Component {
           value={this.state.query}
         />
         <div className={`${styles.resultsContainer} ${styles[this.props.resultsAlignment]}`}>
-          <SearchSection onClick={this.resetState} results={this.state.resultsTitle} title="Titles" />
-          <SearchSection onClick={this.resetState} results={this.state.resultsContent} title="Content" />
+          <SearchSection
+            docsContext={this.props.docsContext}
+            onClick={this.resetState}
+            results={this.state.resultsTitle}
+            title="Titles"
+          />
+          <SearchSection
+            docsContext={this.props.docsContext}
+            onClick={this.resetState}
+            results={this.state.resultsContent}
+            title="Content"
+          />
         </div>
       </div>
     );
