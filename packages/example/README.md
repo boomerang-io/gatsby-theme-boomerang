@@ -1,6 +1,5 @@
-# Gatsby Theme Minimal Example
+# Gatsby Theme Boomerang Example
 
 A usage of
-[gatsby-theme-minimal](https://github.com/ChristopherBiscardi/gatsby-theme-minimal)
-that does nothing but use the theme. As a result you will see `Error: Missing resources for /` when navigating to `http://localhost:8000`. To get
-rid of that, create a page in `src/pages/index.js`.
+[gatsby-theme-boomerang](https://github.com/boomerang-io/gatsby-theme-boomerang/tree/main/packages/gatsby-theme-boomerang)
+that uses the theme, shadows the `index.js` page and uses the theme `index.js` as another page. It also show how to use config options available in the theme. 
