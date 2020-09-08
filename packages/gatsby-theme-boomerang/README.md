@@ -1,4 +1,4 @@
-# The smallest possible Gatsby theme
+# Gatsby Theme Boomerang
 
 ## Quick Start
 
