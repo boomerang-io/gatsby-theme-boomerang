@@ -13,7 +13,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@boomerang-io/carbon-addons-boomerang-react": "0.0.12",
+    "@boomerang-io/carbon-addons-boomerang-react": "0.0.17",
     "@boomerang-io/gatsby-theme-boomerang": "^0.0.3",
     "gatsby": "^2.24.50",
     "react": "^16.13.1",

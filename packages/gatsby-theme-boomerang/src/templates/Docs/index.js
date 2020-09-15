@@ -1,38 +1,35 @@
 /* eslint-disable react/no-danger */
 import React from "react";
 import { graphql } from "gatsby";
-import Helmet from "react-helmet";
 import Link from "@gatsby-theme-boomerang/components/Link";
 import NextPrevious from "@gatsby-theme-boomerang/components/NextPrevious";
 import sortBy from "lodash.sortby";
 import moment from "moment";
-import gitHubIcon from "@gatsby-theme-boomerang/assets/svg/github.svg";
+import PageContainer from "@gatsby-theme-boomerang/components/PageContainer";
+import { Launch16 } from "@carbon/icons-react";
 import Layout from "./Layout";
 import styles from "./Docs.module.scss";
 
 export default function DocTemplate(props) {
-  React.useEffect(() => {
-    if (typeof window !== "undefined") {
+  if (typeof window !== "undefined") {
+    const anchor = window.location.hash;
+    if (anchor && document.querySelector(anchor)) {
       // eslint-disable-next-line global-require
       const SmoothScroll = require("smooth-scroll");
-      const anchor = window.location.hash && document.querySelector(window.location.hash);
-      if (anchor) {
-        const scroll = new SmoothScroll();
-        scroll.animateScroll(anchor, 0, { speed: 200, offset: 70 });
-      }
+      const scroll = new SmoothScroll();
+      scroll.animateScroll(document.querySelector(anchor), 0, { speed: 200, offset: 70 });
     }
-  }, []);
+  }
 
   const {
     allMarkdownRemark,
     markdownRemark,
-    pathPrefix,
     site: {
-      siteMetadata: { docsContext, docsLocation, solutions: productConfigs, siteUrl },
+      siteMetadata: { docsContext, docsLocation, solutions: solutionConfigList },
     },
   } = props.data;
 
-  const solutionConfig = productConfigs.find(
+  const solutionConfig = solutionConfigList.find(
     (productConfig) => productConfig.solution === markdownRemark.fields.solution
   );
 
@@ -58,12 +55,6 @@ export default function DocTemplate(props) {
     url: docsContext + node.fields.slug,
   }));
 
-  // meta tags
-  const docTitle = markdownRemark.fields.title;
-  let canonicalUrl = siteUrl;
-  canonicalUrl = pathPrefix !== "/" ? canonicalUrl + pathPrefix : canonicalUrl;
-  canonicalUrl += docsContext + markdownRemark.fields.slug;
-
   return (
     <Layout
       docNodes={docNodes}
@@ -72,36 +63,35 @@ export default function DocTemplate(props) {
       solutionTitle={solutionTitle}
       siteMetadata={props.data.site.siteMetadata}
     >
-      <Helmet>
-        <title>{`${docTitle} | ${solutionTitle} `}</title>
-        <meta name="title" content={docTitle} />
-        <link rel="canonical" href={canonicalUrl} />
-      </Helmet>
-      <article className={styles.container}>
-        <header>
-          <div className={styles.editContainer}>
-            <Link
-              title="Opens in new link"
-              className={styles.gitHubLink}
-              target="_blank"
-              rel="nofollow noopener"
-              to={`${docsLocation}/${markdownRemark.parent.relativePath}`}
-            >
-              <img src={gitHubIcon} alt="GitHub logo" style={{ height: "1rem" }} /> Edit
-            </Link>
-          </div>
+      <PageContainer
+        siteMetadata={{ ...props.data.site.siteMetadata, title: `${markdownRemark.fields.title} | ${solutionTitle}` }}
+      >
+        <article className={styles.container}>
           <div className={styles.metadata}>
             <span>
               Last upated: <time>{moment.unix(markdownRemark.fields.updatedAt).format("MMM DD, YYYY")}</time>
             </span>
             <span>{`Version: ${markdownRemark.fields.version}`}</span>
+            <Link
+              aria-describedby="new-window-aria-desc-0"
+              className={styles.gitHubLink}
+              target="_blank"
+              rel="nofollow noopener"
+              to={`${docsLocation}/${markdownRemark.parent.relativePath}`}
+            >
+              Edit on GitHub <Launch16 />
+            </Link>
           </div>
-        </header>
-        <div className="markdown-body" dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
-        <footer className={styles.nextPreviousContainer}>
-          <NextPrevious docsContext={docsContext} markdownRemark={markdownRemark} nav={nav} />
-        </footer>
-      </article>
+          <div
+            aria-label="Document content"
+            className="markdown-body"
+            dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
+          />
+          <footer className={styles.nextPreviousContainer}>
+            <NextPrevious docsContext={docsContext} markdownRemark={markdownRemark} nav={nav} />
+          </footer>
+        </article>
+      </PageContainer>
     </Layout>
   );
 }
@@ -115,6 +105,10 @@ export const pageQuery = graphql`
         docsLocation
         siteUrl
         title
+        socialLinks {
+          github
+          twitter
+        }
         solutions {
           title
           solution

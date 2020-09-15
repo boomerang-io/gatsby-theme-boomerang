@@ -31,13 +31,18 @@ module.exports = (themeOptions) => {
     pathPrefix: "/BMRG_APP_ROOT_CONTEXT",
     siteMetadata: {
       title: "Boomerang",
-      uiShellProductName: "",
       description: "Documentation for Boomerang and the IBM Automation Platform",
+      uiShellProductName: "",
       docsContext: "",
       docsLocation: "https://github.ibm.com/essentials-core/core.app.docs/tree/main/content",
-      headerTitle: "Docs",
+      homeTitle: "Docs",
+      homeDescription: "Documentation for Boomerang and the IBM Automation Platform",
       githubUrl: "https://github.ibm.com/essentials-core/core.app.docs",
       siteUrl: "https://launch.boomerangplatform.net/docs",
+      socialLinks: {
+        twitter: "boomerang-io",
+        github: "https://github.ibm.com/essentials-core",
+      },
       standaloneMode: true,
       docsQuickLinks: [
         {

@@ -998,10 +998,10 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@boomerang-io/carbon-addons-boomerang-react@0.0.12":
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-0.0.12.tgz#977466a0ef59c1bc478b88ef9e58cab84c6bbd4d"
-  integrity sha512-Ktd5xT535xzGGR/PMULN6KvJBwPUCnwlD8I69/f4oKwFS/ZF7xrxh9vj340nt9wVZQGSIR3JHszyHa9K+b9Z5Q==
+"@boomerang-io/carbon-addons-boomerang-react@0.0.17":
+  version "0.0.17"
+  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-0.0.17.tgz#b3e0d6555f6ba9230f1f9d82bfbd67f857df7e47"
+  integrity sha512-YVvVxA69h1KYEHz7/wN7kjwFYGU6uW3tS8Dmv8OHx6OyLtwqUpfPh9t7M7WOPqGdzUj5XV8d391A5wcWxL9I3g==
   dependencies:
     "@carbon/elements" "10.12.0"
     "@carbon/themes" "10.12.0"

@@ -3,7 +3,7 @@ import PageContainer from "@boomerang-io/gatsby-theme-boomerang/src/components/P
 
 export default function About() {
   return (
-    <PageContainer title="Home">
+    <PageContainer siteMetadata={{ title: "Home" }}>
       <div>Home Page!</div>
     </PageContainer>
   );

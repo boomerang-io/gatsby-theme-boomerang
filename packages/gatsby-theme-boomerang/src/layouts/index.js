@@ -26,6 +26,11 @@ export default function index({ location, children }) {
             site {
               siteMetadata {
                 title
+                description
+                socialLinks {
+                  github
+                  twitter
+                }
                 standaloneMode
                 uiShellProductName
                 navLinks {
@@ -37,9 +42,9 @@ export default function index({ location, children }) {
           }
         `}
         render={(data) => {
-          const { navLinks, standaloneMode, title, uiShellProductName } = data.site.siteMetadata;
+          const { navLinks, standaloneMode, uiShellProductName } = data.site.siteMetadata;
           return (
-            <PageContainer title={title}>
+            <PageContainer siteMetadata={data.site.siteMetadata}>
               {standaloneMode ? (
                 <StandaloneApp location={location} navLinks={navLinks} uiShellProductName={uiShellProductName}>
                   {children}

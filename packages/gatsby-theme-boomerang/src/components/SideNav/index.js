@@ -5,13 +5,16 @@ import Link from "@gatsby-theme-boomerang/components/Link";
 import { Dropdown } from "carbon-components-react";
 import cx from "classnames";
 import sortBy from "lodash.sortby";
+import { useWindowSize } from "@gatsby-theme-boomerang/hooks";
 import { unKebabCase } from "@gatsby-theme-boomerang/utils";
 import { ArrowLeft16 } from "@carbon/icons-react";
 import styles from "./SideNav.module.scss";
 
-function SideNav({ location, pageContext, docNodes, solutionTitle, siteMetadata }) {
+function SideNav({ location, pageContext, docNodes, isOpen, solutionTitle, siteMetadata }) {
   const { solution, version, allDocVersions } = pageContext;
   const { isSideNavMounted, setIsSideNavMounted } = React.useContext(AppContext);
+
+  const windowSize = useWindowSize();
 
   /**
    * Tell the parent that it has mounted at least once
@@ -63,6 +66,7 @@ function SideNav({ location, pageContext, docNodes, solutionTitle, siteMetadata 
                     location.pathname.endsWith(node.fields.slug) || location.pathname.endsWith(`${node.fields.slug}/`)
                   )}
                   key={node.fields.slug}
+                  tabIndex={!isOpen && windowSize.width < 768 ? -1 : 0}
                   to={siteMetadata.docsContext + node.fields.slug}
                 >
                   {node.fields.title}

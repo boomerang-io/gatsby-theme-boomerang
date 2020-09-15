@@ -9,7 +9,7 @@ import styles from "./Layout.module.scss";
 export default function Layout({ children, docNodes, location, pageContext, solutionTitle, siteMetadata }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <main className={styles.container}>
+    <main id="content" className={styles.container}>
       <ToggleNavButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? "Open" : "Collapse"}
       </ToggleNavButton>
@@ -21,6 +21,7 @@ export default function Layout({ children, docNodes, location, pageContext, solu
         <SideNav
           docNodes={docNodes}
           location={location}
+          isOpen={isOpen}
           pageContext={pageContext}
           solutionTitle={solutionTitle}
           siteMetadata={siteMetadata}

@@ -1,11 +1,11 @@
 {
   "name": "@boomerang-io/gatsby-theme-boomerang",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "index.js",
   "author": "Timothy Bula <timrbula@gmail.com> (@timrbula)",
   "license": "MIT",
   "dependencies": {
-    "@boomerang-io/carbon-addons-boomerang-react": "0.0.12",
+    "@boomerang-io/carbon-addons-boomerang-react": "0.0.17",
     "@boomerang-io/utils": "0.0.1",
     "@carbon/icons-react": "10.16.0",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.4.2",

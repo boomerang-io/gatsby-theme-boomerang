@@ -8,7 +8,7 @@
   font-size: 1rem;
   line-height: 1.5;
   word-wrap: break-word;
-  margin-top: 2rem;
+  margin-top: 1rem;
   padding: 0 1rem;
   a:not(.gatsby-resp-image-link):not(.anchor) {
     color: var(--cds-interactive-01);
@@ -568,6 +568,12 @@
   margin-bottom: 1rem;
   padding: 0 1rem;
 }
+
+.markdown-body sup, .markdown-body sub {
+  line-height: 1;
+  font-size: 0.875rem;
+}
+
 .markdown-body table {
   display: block;
   overflow: auto;

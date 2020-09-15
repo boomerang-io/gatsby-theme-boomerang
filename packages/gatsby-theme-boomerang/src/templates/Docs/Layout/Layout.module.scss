@@ -4,7 +4,6 @@
   letter-spacing: 0.00625rem;
   position: relative;
   @media only screen and (max-width: 47.9375rem) {
-    display: block;
     min-height: calc(100vh - 3rem);
   }
 }
@@ -32,7 +31,6 @@
     padding: 1rem 1.5rem;
   }
   @media only screen and (max-width: 48rem) {
-    height: 100%;
     padding: 1rem;
   }
 }

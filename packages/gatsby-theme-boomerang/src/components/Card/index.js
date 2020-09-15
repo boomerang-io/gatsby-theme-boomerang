@@ -12,7 +12,7 @@ const Card = ({ cardClass, title, text }) => (
     <div className={styles.rightSection}>
       <div className={styles.info}>
         <h3 className={styles.title}>{title}</h3>
-        <p className={styles.description}>{text}</p>
+        <p className={styles.homeDescription}>{text}</p>
       </div>
     </div>
   </div>

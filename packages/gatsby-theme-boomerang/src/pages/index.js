@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, graphql, StaticQuery } from "gatsby";
+import { Link, graphql, useStaticQuery } from "gatsby";
 import Card from "@gatsby-theme-boomerang/components/Card";
 import PageContainer from "@gatsby-theme-boomerang/components/PageContainer";
 import DocsSearch from "@gatsby-theme-boomerang/components/DocsSearch";
@@ -13,8 +13,13 @@ const pageQuery = graphql`
         docsLocation
         siteUrl
         title
-        headerTitle
         description
+        socialLinks {
+          github
+          twitter
+        }
+        homeTitle
+        homeDescription
         solutions {
           description
           title
@@ -31,22 +36,21 @@ const pageQuery = graphql`
   }
 `;
 
-// Wrap in a static query so it can be imported in Gatsby and rendered as page on a different path
+// Using a static query so it can be imported in Gatsby and rendered as page on a different path
 // Allows shadowing of the index to be something else if desired
 
-function HomeContainer() {
-  return <StaticQuery query={pageQuery} render={(data) => <Home data={data} />} />;
-}
-
-function Home({ data }) {
-  const { siteMetadata } = data.site;
+function Home() {
+  console.log("here");
+  const {
+    site: { siteMetadata },
+  } = useStaticQuery(pageQuery);
   return (
-    <PageContainer title="Docs">
-      <main className={styles.container}>
+    <PageContainer siteMetadata={siteMetadata}>
+      <main id="content" className={styles.container}>
         <header className={styles.header}>
           <div className={styles.introContainer}>
-            <h1 className={styles.introTitle}>{siteMetadata.headerTitle}</h1>
-            <p className={styles.introSubtitle}>{siteMetadata.description}</p>
+            <h1 className={styles.introTitle}>{siteMetadata.homeTitle}</h1>
+            <p className={styles.introSubtitle}>{siteMetadata.homeDescription}</p>
             <DocsSearch resultsAlignment="left" />
           </div>
           <nav className={styles.quickLinksNav}>
@@ -93,4 +97,4 @@ function QuickLinkIcon() {
   );
 }
 
-export default HomeContainer;
+export default Home;
