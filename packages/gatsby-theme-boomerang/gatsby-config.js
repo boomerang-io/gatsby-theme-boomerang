@@ -43,7 +43,12 @@ module.exports = (themeOptions) => {
         twitter: "boomerang-io",
         github: "https://github.ibm.com/essentials-core",
       },
-      standaloneMode: true,
+      navLinks: [
+        {
+          name: "Home",
+          url: "/",
+        },
+      ],
       docsQuickLinks: [
         {
           text: "Getting Started",
@@ -52,6 +57,7 @@ module.exports = (themeOptions) => {
       ],
       solutions: [],
       lunrSearch,
+      standaloneMode: true,
     },
     plugins: [
       "gatsby-plugin-catch-links",
