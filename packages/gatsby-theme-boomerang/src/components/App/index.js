@@ -36,7 +36,7 @@ export default function App({ children, location }) {
     }
   }, [userQuery]);
 
-  if (userQuery.isFetching || navigationQuery.isFetching) {
+  if (userQuery.isLoading || navigationQuery.isLoading) {
     return <Loading />;
   }
 
