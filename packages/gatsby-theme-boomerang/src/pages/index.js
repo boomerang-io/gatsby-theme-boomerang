@@ -40,7 +40,6 @@ const pageQuery = graphql`
 // Allows shadowing of the index to be something else if desired
 
 function Home() {
-  console.log("here");
   const {
     site: { siteMetadata },
   } = useStaticQuery(pageQuery);
