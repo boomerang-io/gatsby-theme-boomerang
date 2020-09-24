@@ -11,15 +11,20 @@ import Layout from "./Layout";
 import styles from "./Docs.module.scss";
 
 export default function DocTemplate(props) {
-  if (typeof window !== "undefined") {
-    const anchor = window.location.hash;
-    if (anchor && document.querySelector(anchor)) {
-      // eslint-disable-next-line global-require
-      const SmoothScroll = require("smooth-scroll");
-      const scroll = new SmoothScroll();
-      scroll.animateScroll(document.querySelector(anchor), 0, { speed: 200, offset: 70 });
+  React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      const anchor = window.location.hash;
+      if (anchor) {
+        // eslint-disable-next-line global-require
+        const SmoothScroll = require("smooth-scroll");
+        const scroll = new SmoothScroll();
+        const element = document.querySelector(anchor);
+        if (element) {
+          scroll.animateScroll(element, 0, { speed: 200, offset: 70 });
+        }
+      }
     }
-  }
+  }, []);
 
   const {
     allMarkdownRemark,
