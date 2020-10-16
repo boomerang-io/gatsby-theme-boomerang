@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { navigate } from "gatsby";
 import { Index } from "elasticlunr";
 import { Search } from "carbon-components-react";
+import Downshift from "downshift";
+import kebab from "lodash.kebabcase";
 import SearchSection from "./SearchSection";
 import styles from "./SearchInput.module.scss";
 
@@ -76,28 +79,43 @@ export default class SearchInput extends Component {
   render() {
     return (
       <div className={styles.container} ref={this.ref}>
-        <Search
-          autoComplete="off"
-          labelText="Search all docs"
-          onChange={this.handleOnSearch}
-          onCancel={this.resetState}
-          placeHolderText="Search all docs"
-          value={this.state.query}
-        />
-        <div className={`${styles.resultsContainer} ${styles[this.props.resultsAlignment]}`}>
-          <SearchSection
-            docsContext={this.props.docsContext}
-            onClick={this.resetState}
-            results={this.state.resultsTitle}
-            title="Titles"
-          />
-          <SearchSection
-            docsContext={this.props.docsContext}
-            onClick={this.resetState}
-            results={this.state.resultsContent}
-            title="Content"
-          />
-        </div>
+        <Downshift
+          itemToString={(doc) => `${doc.solution}/${doc.category}/${kebab(doc.title)}`}
+          onChange={(doc) => navigate(`${this.props.docsContext}/${doc.solution}/${doc.category}/${kebab(doc.title)}`)}
+        >
+          {(downshiftProps) => {
+            const { getInputProps, getRootProps } = downshiftProps;
+            return (
+              <div className={styles.searchContainer}>
+                <div {...getRootProps({ style: { width: "100%" } }, { suppressRefError: true })}>
+                  <Search
+                    {...getInputProps({
+                      autoComplete: "off",
+                      labelText: "Search all docs",
+                      onChange: this.handleOnSearch,
+                      onCancel: this.resetState,
+                      placeHolderText: "Search all docs",
+                      value: this.state.query,
+                    })}
+                  />
+                </div>
+                <div
+                  className={`${styles.resultsContainer} ${styles[this.props.resultsAlignment]} ${
+                    styles[this.state.resultsTitle.length || this.state.resultsContent.length ? "open" : "closed"]
+                  }`}
+                >
+                  <SearchSection
+                    downshiftProps={downshiftProps}
+                    docsContext={this.props.docsContext}
+                    onClick={this.resetState}
+                    results={[...this.state.resultsTitle, ...this.state.resultsContent]}
+                    title="Titles"
+                  />
+                </div>
+              </div>
+            );
+          }}
+        </Downshift>
       </div>
     );
   }

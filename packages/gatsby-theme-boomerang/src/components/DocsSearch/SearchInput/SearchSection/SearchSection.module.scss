@@ -2,9 +2,6 @@
 @import "~@gatsby-theme-boomerang/styles/mixins";
 
 .list {
-  background-color: white;
-  border: 1px solid var(--cds-text-02);
-  padding: 1rem 1.5rem;
   &:first-of-type {
     border-top-left-radius: 0.125rem;
     border-top-right-radius: 0.125rem;
@@ -15,35 +12,48 @@
   }
   ul {
     padding: 0;
+
   }
 
   li {
     list-style: none;
+    &[aria-selected=true] {
+      background: #c1c7cd;
+    }
   }
 }
 
 .title {
-  border-bottom: 1px solid #eaecef;
   color: var(--cds-text-01);
   font-size: 1rem;
   font-weight: 500;
+  line-height: 1.2;
   margin: 0;
-  padding-bottom: 0.25rem;
+  padding: 1.5rem 1.5rem 0.5rem 1rem;
+  border-bottom: 1px solid var(--cds-text-03);
 }
 
 .link {
   border-radius: 0.125rem;
-  color: var(--cds-text-01);
+  border-bottom: 1px solid var(--cds-text-03);
   display: block;
-  font-size: 0.875rem;
   max-width: 28rem;
-  padding: 0.875rem 0.5rem;
+  padding: .5rem 1rem;
   text-decoration: none;
-  width: calc(100vw - 8rem);
-  &:hover {
-    color: var(--cds-interactive-01);
-  }
+  width: 100%;
   &:focus {
     @include focus-outline();
   }
+}
+
+.linkValue {
+  color: var(--cds-text-01);
+  font-size: .875rem;
+  line-height: 1.125rem;
+}
+
+.linkLabel {
+  color: var(--cds-text-02);
+  font-size: .75rem;
+  line-height: .93rem;
 }

@@ -1,6 +1,6 @@
 .container {
   letter-spacing: 0.00625rem;
-  max-width: 20rem;
+  max-width: 24rem;
   position: relative;
   padding-top: 1rem;
   width: 100%;
@@ -8,10 +8,16 @@
 }
 
 .resultsContainer {
-  margin-top: 0.5rem;
+  background: var(--cds-ui-background);
+ 
   max-height: 80vh;
+  width: 100%;
   overflow: auto;
   position: absolute;
+
+  &.open {
+    border: 1px solid var(--cds-text-03);
+  }
 
   &.left {
     left: 0rem;
@@ -24,6 +30,11 @@
 :global .bx--search-input {
   background: var(--cds-ui-background);
   border-radius: 0.125rem;
+}
+
+:global .bx--search-close::before {
+  background-color: var(--cds-text-03);
+  width: 1px;
 }
 
 @media (max-width: 42.5rem) {
