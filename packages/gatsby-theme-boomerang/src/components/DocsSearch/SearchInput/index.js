@@ -82,7 +82,7 @@ export default class SearchInput extends Component {
         <Downshift
           itemToString={(doc) => doc && `${doc.solution}/${doc.category}/${kebab(doc.title)}`}
           onChange={(doc) =>
-            doc && navigate(`${this.props.docsContext}/${doc.solution}/${doc.category}/${kebab(doc.title)}`)
+            doc && navigate(`${this.props.docsContext}/${doc.solution}/${kebab(doc.category)}/${kebab(doc.title)}`)
           }
         >
           {(downshiftProps) => {
