@@ -1,11 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
-import kebab from "lodash.kebabcase";
 import { unKebabCase } from "@gatsby-theme-boomerang/utils";
 import styles from "./SearchSection.module.scss";
 
-function SearchSection({ downshiftProps, docsContext, onClick, results = [] }) {
+function SearchSection({ downshiftProps, docsContext, onClick, results = [], solutionsConfig = [] }) {
   const { getMenuProps, getItemProps } = downshiftProps;
   const uniqueDocList = [];
   const uniqueDocVersionlessSlugList = [];
@@ -18,6 +17,12 @@ function SearchSection({ downshiftProps, docsContext, onClick, results = [] }) {
       }
     });
   }
+
+  const findSolutionTitle = (docSolution) =>
+    console.log(solutionsConfig) ||
+    solutionsConfig.find((config) => config.solution === docSolution)?.title ||
+    unKebabCase(docSolution);
+
   return uniqueDocList.length > 0 ? (
     <div className={styles.list}>
       <ul {...getMenuProps()}>
@@ -26,12 +31,10 @@ function SearchSection({ downshiftProps, docsContext, onClick, results = [] }) {
             doc.solution &&
             doc.title && (
               <li key={doc.id} {...getItemProps({ item: doc, index })}>
-                <Link
-                  className={styles.link}
-                  to={`${docsContext}/${doc.solution}/${doc.category}/${kebab(doc.title)}`}
-                  onClick={onClick}
-                >
-                  <p className={styles.linkLabel}>{`${unKebabCase(doc.solution)} / ${unKebabCase(doc.category)}`}</p>
+                <Link className={styles.link} to={`${docsContext}/${doc.slug}`} onClick={onClick}>
+                  <p className={styles.linkLabel}>{`${findSolutionTitle(doc.solution)} / ${unKebabCase(
+                    doc.category
+                  )}`}</p>
                   <p className={styles.linkValue}>{doc.title}</p>
                 </Link>
               </li>

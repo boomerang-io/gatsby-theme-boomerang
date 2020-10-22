@@ -80,8 +80,10 @@ export default class SearchInput extends Component {
     return (
       <div className={styles.container} ref={this.ref}>
         <Downshift
-          itemToString={(doc) => `${doc.solution}/${doc.category}/${kebab(doc.title)}`}
-          onChange={(doc) => navigate(`${this.props.docsContext}/${doc.solution}/${doc.category}/${kebab(doc.title)}`)}
+          itemToString={(doc) => doc && `${doc.solution}/${doc.category}/${kebab(doc.title)}`}
+          onChange={(doc) =>
+            doc && navigate(`${this.props.docsContext}/${doc.solution}/${doc.category}/${kebab(doc.title)}`)
+          }
         >
           {(downshiftProps) => {
             const { getInputProps, getRootProps } = downshiftProps;
@@ -109,6 +111,7 @@ export default class SearchInput extends Component {
                     docsContext={this.props.docsContext}
                     onClick={this.resetState}
                     results={[...this.state.resultsTitle, ...this.state.resultsContent]}
+                    solutionsConfig={this.props.solutionsConfig}
                     title="Titles"
                   />
                 </div>

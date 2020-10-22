@@ -10,6 +10,10 @@ const DocsSearch = ({ resultsAlignment }) => (
         site {
           siteMetadata {
             docsContext
+            solutions {
+              title
+              solution
+            }
           }
         }
         siteSearchIndex {
@@ -22,6 +26,7 @@ const DocsSearch = ({ resultsAlignment }) => (
         docsContext={data.site.siteMetadata.docsContext}
         searchIndex={data.siteSearchIndex.index}
         resultsAlignment={resultsAlignment}
+        solutionsConfig={data.site.siteMetadata.solutions}
       />
     )}
   />
