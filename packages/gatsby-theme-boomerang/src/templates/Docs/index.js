@@ -140,7 +140,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       filter: { fields: { solution: { eq: $solution }, version: { eq: $version } } }
-      sort: { fields: [fields___category, fields___index], order: ASC }
+      sort: { fields: [fields___category, fields___title], order: ASC }
     ) {
       edges {
         node {
