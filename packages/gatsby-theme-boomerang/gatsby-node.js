@@ -157,7 +157,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       name: "index",
       node,
-      value: node.frontmatter.index,
+      value: node.frontmatter.index ? `${node.frontmatter.index}` : "0",
     });
 
     createNodeField({ node, name: "updatedAt", value: lastUpdatedTimestamp.toString() });
