@@ -1,6 +1,6 @@
 {
   "name": "@boomerang-io/gatsby-theme-boomerang",
-  "version": "0.0.19-beta.1",
+  "version": "0.0.20",
   "main": "index.js",
   "author": "Timothy Bula <timrbula@gmail.com> (@timrbula)",
   "license": "MIT",
