@@ -41,6 +41,7 @@ export default function DocTemplate(props) {
   const solutionTitle = solutionConfig?.title;
   const productCategoryOrder = solutionConfig?.categoryOrder;
   let docNodes = allMarkdownRemark.edges.map(({ node }) => node);
+  docNodes = sortBy(docNodes, [(node) => node.fields.category, (node) => parseInt(node.fields.index)]);
 
   /**
    * if user provides a category order for the docs, use it to sort the nodes
@@ -140,11 +141,11 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       filter: { fields: { solution: { eq: $solution }, version: { eq: $version } } }
-      sort: { fields: [fields___category, fields___index], order: ASC }
     ) {
       edges {
         node {
           fields {
+            index
             slug
             title
             solution
