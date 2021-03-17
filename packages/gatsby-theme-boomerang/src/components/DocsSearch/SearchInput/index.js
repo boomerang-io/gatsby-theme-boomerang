@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import cx from "classnames";
 import { navigate } from "gatsby";
 import { Index } from "elasticlunr";
 import { Search } from "carbon-components-react";
@@ -77,8 +78,10 @@ export default class SearchInput extends Component {
   }
 
   render() {
+    const { theme } = this.props;
+
     return (
-      <div className={styles.container} ref={this.ref}>
+      <div className={cx(styles.container, styles[theme])} ref={this.ref}>
         <Downshift
           itemToString={(doc) => doc && `${doc.solution}/${doc.category}/${kebab(doc.title)}`}
           onChange={(doc) =>
@@ -111,8 +114,9 @@ export default class SearchInput extends Component {
                     docsContext={this.props.docsContext}
                     onClick={this.resetState}
                     results={[...this.state.resultsTitle, ...this.state.resultsContent]}
-                    solutionsConfig={this.props.solutionsConfig}
+                    contentConfig={this.props.contentConfig}
                     title="Titles"
+                    theme={theme}
                   />
                 </div>
               </div>

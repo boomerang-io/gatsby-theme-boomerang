@@ -6,7 +6,7 @@ import ToggleNavButton from "@gatsby-theme-boomerang/components/ToggleNavButton"
 import cx from "classnames";
 import styles from "./Layout.module.scss";
 
-export default function Layout({ children, docNodes, location, pageContext, solutionTitle, siteMetadata }) {
+export default function Layout({ children, docNodes, location, pageContext, productTitle, siteMetadata }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <main id="content" className={styles.container}>
@@ -23,7 +23,7 @@ export default function Layout({ children, docNodes, location, pageContext, solu
           location={location}
           isOpen={isOpen}
           pageContext={pageContext}
-          solutionTitle={solutionTitle}
+          productTitle={productTitle}
           siteMetadata={siteMetadata}
         />
       </div>
@@ -40,5 +40,5 @@ Layout.propTypes = {
   docNodes: PropTypes.array,
   location: PropTypes.object.isRequired,
   pageContext: PropTypes.object.isRequired,
-  solutionTitle: PropTypes.string,
+  platformTitle: PropTypes.string,
 };

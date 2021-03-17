@@ -49,13 +49,17 @@ module.exports = (themeOptions) => {
           url: "/",
         },
       ],
-      docsQuickLinks: [
+      contentConfig: [
         {
-          text: "Getting Started",
-          path: "/boomerang-flow/introduction/overview",
+          title: "Quick Links",
+          links: [
+            {
+              title: "Getting Started",
+              path: "/boomerang-flow/introduction/overview",
+            },
+          ],
         },
       ],
-      solutions: [],
       lunrSearch,
       standaloneMode: true,
     },

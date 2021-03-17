@@ -30,16 +30,16 @@ export default function DocTemplate(props) {
     allMarkdownRemark,
     markdownRemark,
     site: {
-      siteMetadata: { docsContext, docsLocation, solutions: solutionConfigList },
+      siteMetadata: { docsContext, docsLocation, contentConfig },
     },
   } = props.data;
 
-  const solutionConfig = solutionConfigList.find(
-    (productConfig) => productConfig.solution === markdownRemark.fields.solution
-  );
+  const product = contentConfig
+    .reduce((prev, next) => prev.concat(next.links), [])
+    .find((productConfig) => productConfig.solution === markdownRemark.fields.solution);
 
-  const solutionTitle = solutionConfig?.title;
-  const productCategoryOrder = solutionConfig?.categoryOrder;
+  const productTitle = product?.title;
+  const productCategoryOrder = product?.categoryOrder;
   let docNodes = allMarkdownRemark.edges.map(({ node }) => node);
   docNodes = sortBy(docNodes, [(node) => node.fields.category, (node) => parseInt(node.fields.index)]);
 
@@ -66,11 +66,11 @@ export default function DocTemplate(props) {
       docNodes={docNodes}
       location={props.location}
       pageContext={props.pageContext}
-      solutionTitle={solutionTitle}
+      productTitle={productTitle}
       siteMetadata={props.data.site.siteMetadata}
     >
       <PageContainer
-        siteMetadata={{ ...props.data.site.siteMetadata, title: `${markdownRemark.fields.title} | ${solutionTitle}` }}
+        siteMetadata={{ ...props.data.site.siteMetadata, title: `${markdownRemark.fields.title} | ${productTitle}` }}
       >
         <article className={styles.container}>
           <div className={styles.metadata}>
@@ -115,10 +115,13 @@ export const pageQuery = graphql`
           github
           twitter
         }
-        solutions {
+        contentConfig {
           title
-          solution
-          categoryOrder
+          links {
+            title
+            solution
+            categoryOrder
+          }
         }
       }
     }
@@ -139,9 +142,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(
-      filter: { fields: { solution: { eq: $solution }, version: { eq: $version } } }
-    ) {
+    allMarkdownRemark(filter: { fields: { solution: { eq: $solution }, version: { eq: $version } } }) {
       edges {
         node {
           fields {

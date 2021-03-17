@@ -1,8 +1,12 @@
+/* eslint-disable import/no-unresolved */
 import React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
-import Card from "@gatsby-theme-boomerang/components/Card";
+import cx from "classnames";
 import PageContainer from "@gatsby-theme-boomerang/components/PageContainer";
 import DocsSearch from "@gatsby-theme-boomerang/components/DocsSearch";
+import Footer from "@gatsby-theme-boomerang/components/Footer";
+import { ContentLabels, contentLabelsToImageMap } from "@gatsby-theme-boomerang/constants";
+import { ArrowRight24, Launch24 } from "@carbon/icons-react";
 import styles from "./styles/Home.module.scss";
 
 const pageQuery = graphql`
@@ -20,16 +24,16 @@ const pageQuery = graphql`
         }
         homeTitle
         homeDescription
-        solutions {
-          description
+        contentConfig {
           title
-          solution
-          categoryOrder
-          path
-        }
-        docsQuickLinks {
-          text
-          path
+          links {
+            title
+            description
+            path
+            solution
+            categoryOrder
+            image
+          }
         }
       }
     }
@@ -43,56 +47,137 @@ function Home() {
   const {
     site: { siteMetadata },
   } = useStaticQuery(pageQuery);
+
+  const { homeTitle, homeDescription, contentConfig } = siteMetadata;
+
   return (
     <PageContainer siteMetadata={siteMetadata}>
       <main id="content" className={styles.container}>
-        <header className={styles.header}>
-          <div className={styles.introContainer}>
-            <h1 className={styles.introTitle}>{siteMetadata.homeTitle}</h1>
-            <p className={styles.introSubtitle}>{siteMetadata.homeDescription}</p>
-            <DocsSearch resultsAlignment="left" />
-          </div>
-          <nav className={styles.quickLinksNav}>
-            {siteMetadata.docsQuickLinks.map((navLink) => (
-              <QuickLink key={navLink.text} title={navLink.text} href={navLink.path} />
+        <div className={styles.headerAndContent}>
+          <header className={styles.header}>
+            <div className={styles.headerText}>
+              <div className={styles.headerTitle}>
+                <h1 className={styles.headerTitleMetadata}>
+                  {`${homeTitle} `}
+                  <span className={styles.headerTitleDocs}>Docs</span>
+                </h1>
+              </div>
+              <p className={styles.headerSubtitle}>{homeDescription}</p>
+            </div>
+            <div className={styles.headerSearch}>
+              <DocsSearch resultsAlignment="left" theme="dark" />
+            </div>
+          </header>
+          <div className={styles.content}>
+            {contentConfig.map((config) => (
+              <Section title={config.title}>
+                <nav className={styles.sectionLinks}>
+                  {config.links.map((link, index) =>
+                    link.image ? (
+                      <ImageCard
+                        key={`${link.title}-${link.path}-${index}`}
+                        id={`${link.title}-${link.path}-${index}`}
+                        image={link.image}
+                        title={link.title}
+                        description={link.description}
+                        path={link.path}
+                      />
+                    ) : (
+                      <SimpleCard
+                        key={`${link.title}-${link.path}-${index}`}
+                        id={`${link.title}-${link.path}-${index}`}
+                        title={link.title}
+                        description={link.description}
+                        path={link.path}
+                      />
+                    )
+                  )}
+                </nav>
+              </Section>
             ))}
-          </nav>
-        </header>
-        <article className={styles.article}>
-          {siteMetadata.solutions.map((solution) => (
-            <Link key={`${solution.title}-${solution.solution}`} to={solution.path}>
-              <Card title={solution.title} text={solution.description} />
-            </Link>
-          ))}
-        </article>
+          </div>
+        </div>
+        <Footer />
       </main>
     </PageContainer>
   );
 }
 
-function QuickLink({ href, title }) {
+function Section({ children, title }) {
   return (
-    <Link className={styles.quickLink} to={href}>
-      <div className={styles.quickLinkTitle}>
-        <span>{title}</span>
-      </div>
-      <div className={styles.quickLinkIconContainer}>
-        <QuickLinkIcon />
-      </div>
+    <section className={styles.section}>
+      <h1 className={styles.sectionTitle}>{title}</h1>
+      {children}
+    </section>
+  );
+}
+
+function SimpleCard({ id, path, description, title }) {
+  const isExternal = path.includes("http://") || path.includes("https://");
+  const hasDescription = Boolean(description);
+
+  const titleHeight = document.getElementById(id)?.offsetHeight ?? 0;
+  const titleLineHeight = 25;
+  const titleLineNumber = Math.round(titleHeight / titleLineHeight);
+
+  const Content = () => (
+    <>
+      <h2 id={id} className={cx(styles.simpleCardTitle, { [styles.simpleCardTitleWithDescription]: hasDescription })}>
+        {title}
+      </h2>
+      {hasDescription && (
+        <p className={styles.simpleCardDescription} style={{ "-webkit-line-clamp": `${5 - titleLineNumber}` }}>
+          {description}
+        </p>
+      )}
+    </>
+  );
+
+  return isExternal ? (
+    <a className={cx(styles.card, styles.simpleCard)} href={path}>
+      <Content />
+      <Launch24 className={styles.cardLaunchIcon} />
+    </a>
+  ) : (
+    <Link className={cx(styles.card, styles.simpleCard)} to={path}>
+      <Content />
+      <ArrowRight24 className={styles.cardArrowIcon} />
     </Link>
   );
 }
 
-function QuickLinkIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" role="presentation" className={styles.quickLinkIcon}>
-      id="icon" viewBox="0 0 16 16" version="1.1">
-      <g id="Artboard" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-        <g id="icon-color" fill="black">
-          <polygon id="path-1" points="9 3 8.295 3.705 12.085 7.5 1.5 7.5 1.5 8.5 12.085 8.5 8.295 12.295 9 13 14 8" />
-        </g>
-      </g>
-    </svg>
+function ImageCard({ id, image, path, description, title }) {
+  const isExternal = path.includes("http://") || path.includes("https://");
+  const img = contentLabelsToImageMap[image] ?? contentLabelsToImageMap[ContentLabels.ProcessDeliveryAccelerator];
+
+  const titleHeight = document.getElementById(id)?.offsetHeight ?? 0;
+  const titleLineHeight = 25;
+  const titleLineNumber = Math.round(titleHeight / titleLineHeight);
+
+  const Content = () => (
+    <>
+      <div className={styles.imageCardImage} style={{ backgroundImage: `url("${img}")` }} />
+      <div className={styles.imageCardInfo}>
+        <h3 id={id} className={styles.imageCardTitle}>
+          {title}
+        </h3>
+        <p className={styles.imageCardDescription} style={{ "-webkit-line-clamp": `${4 - titleLineNumber}` }}>
+          {description}
+        </p>
+      </div>
+    </>
+  );
+
+  return isExternal ? (
+    <a className={cx(styles.card, styles.imageCard)} href={path}>
+      <Content />
+      <Launch24 className={styles.cardLaunchIcon} />
+    </a>
+  ) : (
+    <Link className={cx(styles.card, styles.imageCard)} to={path}>
+      <Content />
+      <ArrowRight24 className={styles.cardArrowIcon} />
+    </Link>
   );
 }
 
