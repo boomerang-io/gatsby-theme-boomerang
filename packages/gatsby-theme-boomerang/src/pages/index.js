@@ -24,14 +24,12 @@ const pageQuery = graphql`
         }
         homeTitle
         homeDescription
-        contentConfig {
+        linksConfig {
           title
           links {
             title
             description
             path
-            solution
-            categoryOrder
             image
           }
         }
@@ -48,7 +46,7 @@ function Home() {
     site: { siteMetadata },
   } = useStaticQuery(pageQuery);
 
-  const { homeTitle, homeDescription, contentConfig } = siteMetadata;
+  const { homeTitle, homeDescription, linksConfig } = siteMetadata;
 
   return (
     <PageContainer siteMetadata={siteMetadata}>
@@ -69,7 +67,7 @@ function Home() {
             </div>
           </header>
           <div className={styles.content}>
-            {contentConfig.map((config) => (
+            {linksConfig.map((config) => (
               <Section title={config.title}>
                 <nav className={styles.sectionLinks}>
                   {config.links.map((link, index) =>

@@ -114,7 +114,7 @@ export default class SearchInput extends Component {
                     docsContext={this.props.docsContext}
                     onClick={this.resetState}
                     results={[...this.state.resultsTitle, ...this.state.resultsContent]}
-                    contentConfig={this.props.contentConfig}
+                    solutionsConfig={this.props.solutionsConfig}
                     title="Titles"
                     theme={theme}
                   />

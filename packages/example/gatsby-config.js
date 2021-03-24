@@ -16,7 +16,8 @@ module.exports = {
     },
     homeTitle: "IBM Services Essentials",
     homeDescription: "Documentation for the Platform",
-    contentConfig,
+    linksConfig: contentConfig.linksConfig,
+    solutionsConfig: contentConfig.solutionsConfig,
     standaloneMode: true,
     navLinks: [
       {

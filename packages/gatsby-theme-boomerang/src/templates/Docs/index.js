@@ -30,13 +30,11 @@ export default function DocTemplate(props) {
     allMarkdownRemark,
     markdownRemark,
     site: {
-      siteMetadata: { docsContext, docsLocation, contentConfig },
+      siteMetadata: { docsContext, docsLocation, solutionsConfig },
     },
   } = props.data;
 
-  const product = contentConfig
-    .reduce((prev, next) => prev.concat(next.links), [])
-    .find((productConfig) => productConfig.solution === markdownRemark.fields.solution);
+  const product = solutionsConfig.find((productConfig) => productConfig.solution === markdownRemark.fields.solution);
 
   const productTitle = product?.title;
   const productCategoryOrder = product?.categoryOrder;
@@ -115,13 +113,10 @@ export const pageQuery = graphql`
           github
           twitter
         }
-        contentConfig {
+        solutionsConfig {
           title
-          links {
-            title
-            solution
-            categoryOrder
-          }
+          solution
+          categoryOrder
         }
       }
     }

@@ -10,12 +10,9 @@ const DocsSearch = ({ resultsAlignment, theme = "light" }) => (
         site {
           siteMetadata {
             docsContext
-            contentConfig {
+            solutionsConfig {
               title
-              links {
-                title
-                solution
-              }
+              solution
             }
           }
         }
@@ -29,7 +26,7 @@ const DocsSearch = ({ resultsAlignment, theme = "light" }) => (
         docsContext={data.site.siteMetadata.docsContext}
         searchIndex={data.siteSearchIndex.index}
         resultsAlignment={resultsAlignment}
-        contentConfig={data.site.siteMetadata.contentConfig}
+        solutionsConfig={data.site.siteMetadata.solutionsConfig}
         theme={theme}
       />
     )}
