@@ -7,7 +7,7 @@ import DocsSearch from "@gatsby-theme-boomerang/components/DocsSearch";
 import Footer from "@gatsby-theme-boomerang/components/Footer";
 import { ContentLabels, contentLabelsToImageMap } from "@gatsby-theme-boomerang/constants";
 import { ArrowRight24, Launch24 } from "@carbon/icons-react";
-import styles from "./styles/Home.module.scss";
+import * as styles from "./styles/Home.module.scss";
 
 const pageQuery = graphql`
   query {
@@ -51,11 +51,11 @@ function Home() {
   return (
     <PageContainer siteMetadata={siteMetadata}>
       <main id="content" className={styles.container}>
-        <div className={styles.headerAndContent}>
+        <div>
           <header className={styles.header}>
             <div className={styles.headerText}>
               <div className={styles.headerTitle}>
-                <h1 className={styles.headerTitleMetadata}>
+                <h1>
                   {`${homeTitle} `}
                   <span className={styles.headerTitleDocs}>Docs</span>
                 </h1>

@@ -8,7 +8,7 @@ import sortBy from "lodash.sortby";
 import { useWindowSize } from "@gatsby-theme-boomerang/hooks";
 import { unKebabCase } from "@gatsby-theme-boomerang/utils";
 import { ArrowLeft16 } from "@carbon/icons-react";
-import styles from "./SideNav.module.scss";
+import * as styles from "./SideNav.module.scss";
 
 function SideNav({ location, pageContext, docNodes, isOpen, productTitle, siteMetadata }) {
   const { solution, version, allDocVersions } = pageContext;

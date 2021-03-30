@@ -28,6 +28,7 @@ module.exports = (themeOptions) => {
   }
 
   return {
+    flags: { PRESERVE_WEBPACK_CACHE: true },
     pathPrefix: "/BMRG_APP_ROOT_CONTEXT",
     siteMetadata: {
       title: "Boomerang",
@@ -56,19 +57,23 @@ module.exports = (themeOptions) => {
     },
     plugins: [
       "gatsby-plugin-catch-links",
-      "gatsby-plugin-favicon",
       "gatsby-plugin-meta-redirect",
       "gatsby-plugin-react-helmet",
       "gatsby-plugin-sitemap",
       "gatsby-plugin-sharp",
       "gatsby-plugin-sass",
       {
+        resolve: "gatsby-plugin-manifest",
+        options: {
+          icon: "./src/favicon.png"
+        },
+      },
+      {
         resolve: "gatsby-plugin-layout",
         options: {
           component: require.resolve("./src/layouts/index.js"),
         },
       },
-
       {
         resolve: "gatsby-transformer-remark",
         options: {

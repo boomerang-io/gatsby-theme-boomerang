@@ -2,7 +2,7 @@ import React from "react";
 import Link from "@gatsby-theme-boomerang/components/Link";
 import DocsSearch from "@gatsby-theme-boomerang/components/DocsSearch";
 import { kebabCaseUrlComponent } from "@gatsby-theme-boomerang/utils";
-import styles from "./RightSideNav.module.scss";
+import * as styles from "./RightSideNav.module.scss";
 
 export default function RightSideNav({ docNodes, location }) {
   const [activeSection, setActiveSection] = React.useState(location.hash);

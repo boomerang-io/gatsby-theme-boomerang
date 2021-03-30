@@ -1,6 +1,6 @@
 import React from "react";
 import { Email16, LogoLinkedin16, LogoTwitter16, Wikis16 } from "@carbon/icons-react";
-import styles from "./Footer.module.scss";
+import * as styles from "./Footer.module.scss";
 
 function Footer() {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import styles from "./ToggleNavButton.module.scss";
+import * as styles from "./ToggleNavButton.module.scss";
 
 function ToggleNavButton({ isOpen, ...other }) {
   return (

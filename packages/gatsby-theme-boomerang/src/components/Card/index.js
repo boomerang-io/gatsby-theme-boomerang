@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import styles from "./Card.module.scss";
+import * as styles from "./Card.module.scss";
 
 const Card = ({ cardClass, title, text }) => (
   <div className={cx(styles.container, { [cardClass]: cardClass })}>
