@@ -7,7 +7,7 @@
 5. Cognitive Assistant disambiguates their question to provides a relevant solution.
 
 ### Please refer below ppt file for detail assistance:-
-[IAP_Assistance for Agents_AA_v4.pptx](https://ibm.box.com/s/vn7lez12cqo65mg4bx5yeg7j4i7pksmr).
+[IAP_Assistance for Agents_AA_v5.pptx](https://ibm.box.com/s/zqy45rjaf5dhlm2t1gz4k6bxr4luna6y).
 
 ### Please refer below recording for details assistance:-
 [IAP_Assistance for Agents_AA_Recording](https://ibm.box.com/s/ze7tu69bc2hlsi8wu4pxw4d73bnzhyj4).
@@ -19,7 +19,7 @@ Knowledge Base in the form of Question-Answer pairs, artifacts resolved tickets 
 
 ### Please refer below ppt file for detail assistance:-
 
-[IAP_Corpus_Curator](https://ibm.box.com/s/a8qul8wi2ldxru7a4lfwfu28hkjn4zh1).
+[IAP_Corpus_Curator](https://ibm.box.com/s/5xp3l4j66qgsfeokrjlgiyiv4xjwuqpg).
 
 
 # 3)Project Onboarding 
@@ -27,7 +27,7 @@ Knowledge Base in the form of Question-Answer pairs, artifacts resolved tickets 
 Project Onboarding Portal allows Accounts/Company to onboard their Projects to use the ‘IBM services Intelligent Assistance for Agents’ solution.
 
 ### Please refer below ppt file for detail assistance:-
-[IAP_Project_Onboarding](https://ibm.box.com/s/5dcd8cb7hx1ca8hzvq7n18jrq8qpyzzk).
+[IAP_Project_Onboarding](https://ibm.box.com/s/nlk35mhf105nh6ysdfmrym62fjh86nuj).
 
 ### Pleae refer below recording for details assistance:-
 [IAP_Project_Onboarding_Recording](https://ibm.box.com/s/nf4ld8ljswhmys4lflfgageh0o9k1bqg)
