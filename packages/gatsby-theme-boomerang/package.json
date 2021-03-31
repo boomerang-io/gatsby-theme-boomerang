@@ -1,6 +1,6 @@
 {
   "name": "@boomerang-io/gatsby-theme-boomerang",
-  "version": "0.1.0-beta.3",
+  "version": "0.1.0-beta.4",
   "main": "index.js",
   "author": "Timothy Bula <timrbula@gmail.com> (@timrbula)",
   "license": "MIT",
@@ -26,7 +26,7 @@
     "gatsby-plugin-meta-redirect": "1.1.1",
     "gatsby-plugin-react-helmet": "4.1.0",
     "gatsby-plugin-sass": "4.1.0",
-    "gatsby-plugin-sharp": "3.1.2",
+    "gatsby-plugin-sharp": "3.2.0",
     "gatsby-plugin-sitemap": "3.1.0",
     "gatsby-remark-autolink-headers": "3.1.0",
     "gatsby-remark-copy-linked-files": "3.1.0",
