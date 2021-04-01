@@ -114,7 +114,7 @@ function SimpleCard({ id, path, description, title }) {
   const isExternal = path.includes("http://") || path.includes("https://");
   const hasDescription = Boolean(description);
 
-  const titleHeight = document.getElementById(id)?.offsetHeight ?? 0;
+  const titleHeight = document?.getElementById(id)?.offsetHeight ?? 0;
   const titleLineHeight = 25;
   const titleLineNumber = Math.round(titleHeight / titleLineHeight);
 
@@ -148,7 +148,7 @@ function ImageCard({ id, image, path, description, title }) {
   const isExternal = path.includes("http://") || path.includes("https://");
   const img = contentLabelsToImageMap[image] ?? contentLabelsToImageMap[ContentLabels.ProcessDeliveryAccelerator];
 
-  const titleHeight = document.getElementById(id)?.offsetHeight ?? 0;
+  const titleHeight = document?.getElementById(id)?.offsetHeight ?? 0;
   const titleLineHeight = 25;
   const titleLineNumber = Math.round(titleHeight / titleLineHeight);
 

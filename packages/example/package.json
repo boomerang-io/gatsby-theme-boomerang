@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@boomerang-io/carbon-addons-boomerang-react": "0.0.17",
-    "@boomerang-io/gatsby-theme-boomerang": "^0.1.0-beta.4",
+    "@boomerang-io/gatsby-theme-boomerang": "^0.1.0-beta.5",
     "gatsby": "^3.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

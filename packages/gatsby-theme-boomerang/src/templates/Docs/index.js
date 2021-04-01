@@ -18,7 +18,7 @@ export default function DocTemplate(props) {
         // eslint-disable-next-line global-require
         const SmoothScroll = require("smooth-scroll");
         const scroll = new SmoothScroll();
-        const element = document.querySelector(anchor);
+        const element = document?.querySelector(anchor);
         if (element) {
           scroll.animateScroll(element, 0, { speed: 200, offset: 70 });
         }
