@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Link from "@gatsby-theme-boomerang/components/Link";
-import styles from "./NextPrevious.module.scss";
+import * as styles from "./NextPrevious.module.scss";
 
 export default function NextPrevious(props) {
   const { docsContext, markdownRemark, nav } = props;

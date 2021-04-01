@@ -7,7 +7,7 @@ import DocsSearch from "@gatsby-theme-boomerang/components/DocsSearch";
 import Footer from "@gatsby-theme-boomerang/components/Footer";
 import { ContentLabels, contentLabelsToImageMap } from "@gatsby-theme-boomerang/constants";
 import { ArrowRight24, Launch24 } from "@carbon/icons-react";
-import styles from "./styles/Home.module.scss";
+import * as styles from "./styles/Home.module.scss";
 
 const pageQuery = graphql`
   query {
@@ -51,11 +51,11 @@ function Home() {
   return (
     <PageContainer siteMetadata={siteMetadata}>
       <main id="content" className={styles.container}>
-        <div className={styles.headerAndContent}>
+        <div>
           <header className={styles.header}>
             <div className={styles.headerText}>
               <div className={styles.headerTitle}>
-                <h1 className={styles.headerTitleMetadata}>
+                <h1>
                   {`${homeTitle} `}
                   <span className={styles.headerTitleDocs}>Docs</span>
                 </h1>
@@ -114,8 +114,13 @@ function SimpleCard({ id, path, description, title }) {
   const isExternal = path.includes("http://") || path.includes("https://");
   const hasDescription = Boolean(description);
 
-  const titleHeight = document.getElementById(id)?.offsetHeight ?? 0;
+  let titleHeight = 0;
   const titleLineHeight = 25;
+
+  if (typeof window !== "undefined" && Boolean(window.document)) {
+    titleHeight = document?.getElementById(id)?.offsetHeight;
+  }
+
   const titleLineNumber = Math.round(titleHeight / titleLineHeight);
 
   const Content = () => (
@@ -148,8 +153,13 @@ function ImageCard({ id, image, path, description, title }) {
   const isExternal = path.includes("http://") || path.includes("https://");
   const img = contentLabelsToImageMap[image] ?? contentLabelsToImageMap[ContentLabels.ProcessDeliveryAccelerator];
 
-  const titleHeight = document.getElementById(id)?.offsetHeight ?? 0;
+  let titleHeight = 0;
   const titleLineHeight = 25;
+
+  if (typeof window !== "undefined" && Boolean(window.document)) {
+    titleHeight = document?.getElementById(id)?.offsetHeight;
+  }
+
   const titleLineNumber = Math.round(titleHeight / titleLineHeight);
 
   const Content = () => (

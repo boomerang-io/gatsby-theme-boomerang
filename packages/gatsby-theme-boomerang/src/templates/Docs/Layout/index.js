@@ -4,7 +4,7 @@ import SideNav from "@gatsby-theme-boomerang/components/SideNav";
 import RightSideNav from "@gatsby-theme-boomerang/components/RightSideNav";
 import ToggleNavButton from "@gatsby-theme-boomerang/components/ToggleNavButton";
 import cx from "classnames";
-import styles from "./Layout.module.scss";
+import * as styles from "./Layout.module.scss";
 
 export default function Layout({ children, docNodes, location, pageContext, productTitle, siteMetadata }) {
   const [isOpen, setIsOpen] = useState(false);
