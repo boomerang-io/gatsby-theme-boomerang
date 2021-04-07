@@ -23,8 +23,8 @@ const pageQuery = graphql`
           twitter
         }
         footerLinksConfig {
-          title
           link
+          title
           type
         }
         homeTitle

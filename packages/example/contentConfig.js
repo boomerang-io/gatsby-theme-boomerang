@@ -61,6 +61,28 @@ const config = {
       categoryOrder: ["kawaii", "dragonwarrior"],
     },
   ],
+  footerLinksConfig: [
+    {
+      link: "https://ibm.com/",
+      title: "IBM.com",
+      type: "website",
+    },
+    {
+      link: "https://twitter.com/IBM/",
+      title: "Follow IBM on Twitter",
+      type: "twitter",
+    },
+    {
+      link: "https://www.linkedin.com/company/ibm",
+      title: "Connect with IBM on LinkedIn",
+      type: "linkedin",
+    },
+    {
+      link: "mailto:isesupp@us.ibm.com?subject=IBM Services Essentials",
+      title: "isesupp@us.ibm.com",
+      type: "email",
+    },
+  ],
 };
 
 module.exports = config;

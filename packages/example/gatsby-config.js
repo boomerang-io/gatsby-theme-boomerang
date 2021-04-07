@@ -19,6 +19,7 @@ module.exports = {
     linksConfig: contentConfig.linksConfig,
     solutionsConfig: contentConfig.solutionsConfig,
     standaloneMode: true,
+    footerLinksConfig: contentConfig.footerLinksConfig,
     navLinks: [
       {
         name: "Home",
