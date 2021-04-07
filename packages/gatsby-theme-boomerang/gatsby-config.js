@@ -31,7 +31,7 @@ module.exports = (themeOptions) => {
     flags: { PRESERVE_WEBPACK_CACHE: true },
     pathPrefix: "/BMRG_APP_ROOT_CONTEXT",
     siteMetadata: {
-      title: "Boomerang",
+      title: "IBM Services Essentials",
       description: "Documentation for Boomerang and the IBM Automation Platform",
       uiShellProductName: "",
       docsContext: "",
@@ -52,6 +52,7 @@ module.exports = (themeOptions) => {
       ],
       linksConfig: [],
       solutionsConfig: [],
+      footerLinksConfig: [],
       lunrSearch,
       standaloneMode: true,
     },

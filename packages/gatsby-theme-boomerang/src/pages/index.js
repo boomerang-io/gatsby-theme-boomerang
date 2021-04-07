@@ -22,6 +22,11 @@ const pageQuery = graphql`
           github
           twitter
         }
+        footerLinksConfig {
+          title
+          link
+          type
+        }
         homeTitle
         homeDescription
         linksConfig {
@@ -46,7 +51,7 @@ function Home() {
     site: { siteMetadata },
   } = useStaticQuery(pageQuery);
 
-  const { homeTitle, homeDescription, linksConfig } = siteMetadata;
+  const { homeTitle, homeDescription, linksConfig, footerLinksConfig } = siteMetadata;
 
   return (
     <PageContainer siteMetadata={siteMetadata}>
@@ -95,7 +100,7 @@ function Home() {
             ))}
           </div>
         </div>
-        <Footer />
+        <Footer footerLinksConfig={footerLinksConfig} />
       </main>
     </PageContainer>
   );

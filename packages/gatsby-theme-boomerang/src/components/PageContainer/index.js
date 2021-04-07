@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import Boomerang from "./boomerang.png";
 
 export default function PageContainer({ children, siteMetadata = {} }) {
-  const resolvedTitle = siteMetadata?.title ? `${siteMetadata?.title} | Boomerang` : "Boomerang";
+  const resolvedTitle = siteMetadata?.title ? `${siteMetadata?.title} | IBM Services Essentials` : "IBM Services Essentials";
   return (
     <>
       <SEO description={siteMetadata.description} title={resolvedTitle} socialLinks={siteMetadata.socialLinks} />

@@ -2,34 +2,80 @@ import React from "react";
 import { Email16, LogoLinkedin16, LogoTwitter16, Wikis16 } from "@carbon/icons-react";
 import * as styles from "./Footer.module.scss";
 
-function Footer() {
+const LinkType = {
+  Twitter: "twitter",
+  Website: "website",
+  Linkedin: "linkedin",
+  Email: "email",
+};
+
+const DefaultLinks = [
+  {
+    link: "https://ibm.com/",
+    title: "IBM.com",
+    type: LinkType.Website,
+  },
+  {
+    link: "https://twitter.com/IBM/",
+    title: "Follow IBM on Twitter",
+    type: LinkType.Twitter,
+  },
+  {
+    link: "https://www.linkedin.com/company/ibm",
+    title: "Connect with IBM on LinkedIn",
+    type: LinkType.Linkedin,
+  },
+  {
+    link: "mailto:isesupp@us.ibm.com?subject=IBM Services Essentials",
+    title: "isesupp@us.ibm.com",
+    type: LinkType.Email,
+  },
+];
+
+const TypeToIcon = {
+  [LinkType.Twitter]: LogoTwitter16,
+  [LinkType.Website]: Wikis16,
+  [LinkType.Linkedin]: LogoLinkedin16,
+  [LinkType.Email]: Email16,
+};
+
+function Footer({ footerLinksConfig }) {
+  const socialLinks = [];
+  const emailLinks = [];
+  const footerLinks = footerLinksConfig.length ? footerLinksConfig : DefaultLinks;
+  footerLinks.forEach((link) => (link.type === LinkType.Email ? emailLinks.push(link) : socialLinks.push(link)));
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
         <div className={styles.footerLinks}>
-          <p className={styles.footerLink}>
-            <a href="https://ibm.com/">
-              <Wikis16 className={styles.footerIcon} /> IBM.com
-            </a>
-          </p>
-          <p className={styles.footerLink}>
-            <a href="https://twitter.com/IBM/">
-              <LogoTwitter16 className={styles.footerIcon} /> Follow IBM on Twitter
-            </a>
-          </p>
-          <p className={styles.footerLink}>
-            <a href="https://www.linkedin.com/company/ibm">
-              <LogoLinkedin16 className={styles.footerIcon} /> Connect with IBM on LinkedIn
-            </a>
-          </p>
+          {socialLinks.map((link) => {
+            const Icon = TypeToIcon[link.type];
+            return (
+              <p className={styles.footerLink}>
+                <a href={link.link}>
+                  <Icon className={styles.footerIcon} /> {link.title}
+                </a>
+              </p>
+            );
+          })}
         </div>
         <div className={styles.footerContact}>
-          <p className={styles.footerText}>Questions? Send us an email!</p>
-          <p className={styles.footerLink}>
-            <a href="mailto:isesupp@us.ibm.com?subject=IBM Services Essentials">
-              <Email16 className={styles.footerIcon} /> isesupp@us.ibm.com
-            </a>
-          </p>
+          {emailLinks.length && (
+            <>
+              <p className={styles.footerText}>Questions? Send us an email!</p>
+              {emailLinks.map((link) => {
+                const Icon = TypeToIcon[link.type];
+                return (
+                  <p className={styles.footerLink}>
+                    <a href={link.link}>
+                      <Icon className={styles.footerIcon} /> {link.title}
+                    </a>
+                  </p>
+                );
+              })}
+            </>
+          )}
         </div>
       </div>
     </footer>
