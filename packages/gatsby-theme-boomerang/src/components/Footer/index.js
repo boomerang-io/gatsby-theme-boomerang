@@ -9,29 +9,6 @@ const LinkType = {
   Email: "email",
 };
 
-const DefaultLinks = [
-  {
-    link: "https://ibm.com/",
-    title: "IBM.com",
-    type: LinkType.Website,
-  },
-  {
-    link: "https://twitter.com/IBM/",
-    title: "Follow IBM on Twitter",
-    type: LinkType.Twitter,
-  },
-  {
-    link: "https://www.linkedin.com/company/ibm",
-    title: "Connect with IBM on LinkedIn",
-    type: LinkType.Linkedin,
-  },
-  {
-    link: "mailto:isesupp@us.ibm.com?subject=IBM Services Essentials",
-    title: "isesupp@us.ibm.com",
-    type: LinkType.Email,
-  },
-];
-
 const TypeToIcon = {
   [LinkType.Twitter]: LogoTwitter16,
   [LinkType.Website]: Wikis16,
@@ -42,8 +19,7 @@ const TypeToIcon = {
 function Footer({ footerLinksConfig }) {
   const socialLinks = [];
   const emailLinks = [];
-  const footerLinks = footerLinksConfig.length ? footerLinksConfig : DefaultLinks;
-  footerLinks.forEach((link) => (link.type === LinkType.Email ? emailLinks.push(link) : socialLinks.push(link)));
+  footerLinksConfig.forEach((link) => (link.type === LinkType.Email ? emailLinks.push(link) : socialLinks.push(link)));
 
   return (
     <footer className={styles.footer}>
