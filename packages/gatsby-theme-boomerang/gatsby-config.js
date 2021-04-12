@@ -30,13 +30,13 @@ module.exports = (themeOptions) => {
   return {
     pathPrefix: "/BMRG_APP_ROOT_CONTEXT",
     siteMetadata: {
-      title: "Boomerang",
-      description: "Documentation for Boomerang and the IBM Automation Platform",
+      title: "IBM Services Essentials",
+      description: "Documentation for IBM Services Essentials",
       uiShellProductName: "",
       docsContext: "",
       docsLocation: "https://github.ibm.com/essentials-core/core.app.docs/tree/main/content",
       homeTitle: "Docs",
-      homeDescription: "Documentation for Boomerang and the IBM Automation Platform",
+      homeDescription: "Documentation for IBM Services Essentials",
       githubUrl: "https://github.ibm.com/essentials-core/core.app.docs",
       siteUrl: "https://launch.boomerangplatform.net/docs",
       socialLinks: {
@@ -51,6 +51,7 @@ module.exports = (themeOptions) => {
       ],
       linksConfig: [],
       solutionsConfig: [],
+      footerLinksConfig: [],
       lunrSearch,
       standaloneMode: true,
     },

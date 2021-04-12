@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
@@ -18,7 +19,7 @@ const skipToContentProps = {
 class Header extends Component {
   render() {
     const { navigation, user } = this.props;
-    const title = `Docs | ${navigation?.platform?.platformName ?? "Boomerang"}`;
+    const title = `Docs | ${navigation?.platform?.platformName ?? "IBM Services Essentials"}`;
     return (
       <>
         <Helmet>
@@ -30,7 +31,7 @@ class Header extends Component {
           headerConfig={navigation}
           user={user}
           renderLogo={navigation?.platform?.displayLogo}
-          companyName={navigation?.platform?.platformName ?? "Boomerang"}
+          companyName={navigation?.platform?.platformName ?? "IBM Services Essentials"}
           skipToContentProps={skipToContentProps}
         />
       </>
