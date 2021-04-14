@@ -14,13 +14,12 @@
 
 .container {
   animation: fade-up 0.15s ease-in;
-  display: flex;
-  background: white;
+  background: var(--cds-ui-01);
   border-radius: 0.25rem;
-  height: 11rem;
+  height: 25rem;
   text-decoration: none;
   transition: all 0.15s ease-in-out;
-  width: 27rem;
+  width: 20.5rem;
 
   &:hover {
     cursor: pointer;
@@ -31,64 +30,30 @@
   }
 }
 
-.leftSection {
-  align-items: center;
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  width: 24%;
+.image {
+  height: 16.75rem;
 }
 
-.rightSection {
-  position: relative;
-  width: 75%;
-}
-
-.lock {
-  position: absolute;
-  left: calc(100% - 1.25rem);
-  top: 0.75rem;
-}
 .info {
-  background-color: transparent;
-  height: 9.5rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: normal;
-  width: 100%;
+  padding: 1rem 1rem 1.4375rem 1rem;
 }
 
 .title {
-  background-color: transparent;
   color: var(--cds-text-01);
-  font-size: 1.25rem;
-  font-weight: 600;
-  line-height: 2.25rem;
-  margin: 0rem;
-  margin-top: 1rem;
+  font-size: 1.125rem;
+  letter-spacing: 0;
+  line-height: 1.4375rem;
+  margin-bottom: 1rem;
 }
 
-.homeDescription {
-  background-color: transparent;
+.description {
   color: var(--cds-text-01);
-  font-size: 0.925rem;
-  line-height: 1.2;
-  margin: 0.5rem 1rem 0 0;
-}
-
-.icon {
-  background-color: transparent;
-  width: 3.25rem;
-}
-
-@media (max-width: 50rem) {
-  .card {
-    height: auto;
-    margin-right: 0rem;
-    width: calc(100vw - 5rem);
-  }
-
-  .title {
-    font-size: 1.125rem;
-  }
+  display: -webkit-box;
+  font-size: 0.875rem;
+  letter-spacing: 0;
+  line-height: 1.125rem;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
 }

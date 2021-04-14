@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 import SearchInput from "./SearchInput";
 
-const DocsSearch = ({ resultsAlignment }) => (
+const DocsSearch = ({ resultsAlignment, theme = "light" }) => (
   <StaticQuery
     query={graphql`
       query SearchIndexQuery {
         site {
           siteMetadata {
             docsContext
-            solutions {
+            solutionsConfig {
               title
               solution
             }
@@ -26,7 +26,8 @@ const DocsSearch = ({ resultsAlignment }) => (
         docsContext={data.site.siteMetadata.docsContext}
         searchIndex={data.siteSearchIndex.index}
         resultsAlignment={resultsAlignment}
-        solutionsConfig={data.site.siteMetadata.solutions}
+        solutionsConfig={data.site.siteMetadata.solutionsConfig}
+        theme={theme}
       />
     )}
   />
@@ -34,6 +35,7 @@ const DocsSearch = ({ resultsAlignment }) => (
 
 DocsSearch.propTypes = {
   resultsAlignment: PropTypes.oneOf(["left", "right"]),
+  theme: PropTypes.oneOf(["light", "dark"]),
 };
 
 export default DocsSearch;

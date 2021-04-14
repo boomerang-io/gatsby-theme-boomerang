@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import cx from "classnames";
 import { navigate } from "gatsby";
 import { Index } from "elasticlunr";
 import { Search } from "carbon-components-react";
@@ -9,6 +10,7 @@ import SearchSection from "./SearchSection";
 import styles from "./SearchInput.module.scss";
 
 // Search component
+/* eslint-disable no-unused-expressions */
 
 export default class SearchInput extends Component {
   constructor(props) {
@@ -23,11 +25,16 @@ export default class SearchInput extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener("mousedown", this.handleClickOutside);
+    if (document) {
+      document?.addEventListener("mousedown", this.handleClickOutside);
+    }
   }
 
   componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleClickOutside);
+    // document?.removeEventListener("mousedown", this.handleClickOutside);
+    if (document) {
+      document?.removeEventListener("mousedown", this.handleClickOutside);
+    }
   }
 
   handleClickOutside = (event) => {
@@ -77,8 +84,10 @@ export default class SearchInput extends Component {
   }
 
   render() {
+    const { theme } = this.props;
+
     return (
-      <div className={styles.container} ref={this.ref}>
+      <div className={cx(styles.container, styles[theme])} ref={this.ref}>
         <Downshift
           itemToString={(doc) => doc && `${doc.solution}/${doc.category}/${kebab(doc.title)}`}
           onChange={(doc) =>
@@ -113,6 +122,7 @@ export default class SearchInput extends Component {
                     results={[...this.state.resultsTitle, ...this.state.resultsContent]}
                     solutionsConfig={this.props.solutionsConfig}
                     title="Titles"
+                    theme={theme}
                   />
                 </div>
               </div>

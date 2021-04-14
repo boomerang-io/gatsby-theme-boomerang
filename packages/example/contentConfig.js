@@ -1,93 +1,87 @@
 const config = {
-  solutions: [
+  linksConfig: [
     {
-      title: "Boomerang Platform",
-      description: "Overview, Architecture, and general information of the Boomerang Platform.",
-      path: "/docs/boomerang/introduction/overview",
-      solution: "boomerang",
-      categoryOrder: ["introduction", "architecture"],
+      title: "Quick links",
+      links: [
+        {
+          title: "Dogs",
+          path: "/docs/dogs/anatomy/why-four-paws",
+        },
+        {
+          title: "Pandas",
+          path: "/docs/pandas/dragonwarrior/big-yin-yang",
+        },
+      ],
     },
     {
-      title: "Essentials Core",
-      description: "Core capabilities and services for a common, centralized, and secure platform.",
-      path: "/docs/essentials-core/introduction/overview",
-      solution: "essentials-core",
-      categoryOrder: ["introduction", "architecture", "how-to-guide", "how-to-admin", "installing", "extending"],
-    },
-    {
-      title: "Boomerang Core",
-      description:
-        "Core capabilities and services for a common, centralized, and secure platform. For the latest, please visit Essentials Core.",
-      path: "/docs/boomerang-core/introduction/overview",
-      solution: "boomerang-core",
-      categoryOrder: ["introduction", "architecture", "how-to-guide", "how-to-admin", "installing", "extending"],
-    },
-    {
-      title: "Boomerang CICD",
-      description:
-        "Whether you're new to CICD or a seasoned veteran, this contains the guidance for Components, Pipelines, Insights, Scorecard, Lib, and Bosun Policies.",
-      path: "/docs/boomerang-cicd/introduction/getting-started",
-      solution: "boomerang-cicd",
-      categoryOrder: ["introduction", "architecture", "getting-to-know", "how-to-guide"],
-    },
-    {
-      title: "Boomerang Flow",
-      description: "Cloud native workflow orchestration.",
-      path: "/docs/boomerang-flow/introduction/overview",
-      solution: "boomerang-flow",
-      categoryOrder: ["introduction", "architecture", "getting-to-know", "installing"],
-    },
-    {
-      title: "IBM Automation Platform",
-      description:
-        "A fully integrated enterprise-ready ecosystem designed to accelerate the development, implementation, governance, and operations of intelligent workflow and automated environments.",
-      path: "/docs/iap/introduction/overview",
-      solution: "iap",
-      categoryOrder: ["introduction"],
-    },
-    {
-      title: "Automation Control Center",
-      description:
-        "Allows business managers to monitor their hybrid workforces and automated business processes and understand current workloads and performance.",
-      path: "/docs/acc/introduction/overview",
-      solution: "acc",
-      categoryOrder: ["introduction"],
-    },
-    {
-      title: "Process Discovery Accelerator",
-      description: "PDA empowers automation consultants to quickly build business process models from client data.",
-      path: "/docs/pda/introduction/overview",
-      solution: "pda",
-      categoryOrder: ["introduction"],
-    },
-    {
-      title: "IBM Automation with Watson",
-      description: "Enterprise Intelligent Automation Solutions",
-      path: "/docs/iaw/introduction/overview",
-      solution: "iaw",
-      categoryOrder: ["introduction"],
-    },
-    {
-      title: "IBM Services Engineering",
-      description:
-        "Standards, guidance, and best-practices to help projects managed and developed by the IBM Services Engineering teams.",
-      path: "/docs/ise/standards/overview",
-      solution: "ise",
-      categoryOrder: ["standards"],
+      title: "Discover our Animals",
+      links: [
+        {
+          title: "Koalas",
+          description: "Climbing trees and eating leaves",
+          path: "/docs/dogs/anatomy/why-four-paws",
+          image: "cicd",
+        },
+        {
+          title: "Fishes",
+          description: "Blub blub",
+          path: "/docs/dogs/anatomy/why-four-paws",
+          image: "flow",
+        },
+        {
+          title: "Waves",
+          description: "Where fishes hide",
+          path: "/docs/dogs/anatomy/why-four-paws",
+          image: "automation-control-center",
+        },
+        {
+          title: "Blue Lines",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          path: "/docs/dogs/anatomy/why-four-paws",
+          image: "process-delivery-accelerator",
+        },
+        {
+          title: "Watson",
+          description: "Enterprise Intelligent Automation Solutions",
+          path: "/docs/dogs/anatomy/why-four-paws",
+          image: "watson",
+        },
+      ],
     },
   ],
-  docsQuickLinks: [
+  solutionsConfig: [
     {
-      text: "Getting Started",
-      path: "/docs/docs/boomerang-flow/introduction/overview",
+      title: "Dogs",
+      solution: "dogs",
+      categoryOrder: ["speaking, anatomy"],
     },
     {
-      text: "Tutorials",
-      path: "/docs/docs/boomerang-flow/tutorials/git-hub-issues-bot",
+      title: "Pandas",
+      solution: "pandas",
+      categoryOrder: ["kawaii", "dragonwarrior"],
+    },
+  ],
+  footerLinksConfig: [
+    {
+      link: "https://ibm.com/",
+      title: "IBM.com",
+      type: "website",
     },
     {
-      text: "Installing",
-      path: "/docs/docs/boomerang-flow/installing/pre-requisites",
+      link: "https://twitter.com/IBM/",
+      title: "Follow IBM on Twitter",
+      type: "twitter",
+    },
+    {
+      link: "https://www.linkedin.com/company/ibm",
+      title: "Connect with IBM on LinkedIn",
+      type: "linkedin",
+    },
+    {
+      link: "mailto:isesupp@us.ibm.com?subject=IBM Services Essentials",
+      title: "isesupp@us.ibm.com",
+      type: "email",
     },
   ],
 };

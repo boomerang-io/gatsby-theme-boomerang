@@ -16,7 +16,7 @@ export default function useSidebarScrollManager({ isSideNavMounted, location }) 
   function handleScroll() {
     if (!tickingRef.current) {
       window.requestAnimationFrame(() => {
-        const sideNav = document.querySelector("#sidenav");
+        const sideNav = document?.querySelector("#sidenav");
         setScrollPosition(sideNav.scrollTop);
         tickingRef.current = false;
       });
@@ -27,7 +27,7 @@ export default function useSidebarScrollManager({ isSideNavMounted, location }) 
 
   // Add event listener for when the sidenav is mounted
   React.useEffect(() => {
-    const sideNav = document.querySelector("#sidenav");
+    const sideNav = document?.querySelector("#sidenav");
     if (typeof window !== "undefined" && isSideNavMounted && sideNav) {
       sideNav.addEventListener("scroll", handleScroll);
     }
@@ -37,7 +37,7 @@ export default function useSidebarScrollManager({ isSideNavMounted, location }) 
 
   // Use layout effect here to prevent flickering
   React.useLayoutEffect(() => {
-    const sideNav = document.querySelector("#sidenav");
+    const sideNav = document?.querySelector("#sidenav");
     if (typeof window !== "undefined" && isSideNavMounted && sideNav) {
       sideNav.scrollTop = scrollPosition;
     }
@@ -45,8 +45,8 @@ export default function useSidebarScrollManager({ isSideNavMounted, location }) 
 
   // Scroll into view the sidenav if its below the fold on initial load
   React.useLayoutEffect(() => {
-    const sideNav = document.querySelector("#sidenav");
-    const activeElementRef = document.querySelector("#active-sidenav-page-link");
+    const sideNav = document?.querySelector("#sidenav");
+    const activeElementRef = document?.querySelector("#active-sidenav-page-link");
 
     if (sideNav && activeElementRef && activeElementRef.getBoundingClientRect().bottom - 48 >= sideNav.offsetHeight) {
       activeElementRef.scrollIntoView();

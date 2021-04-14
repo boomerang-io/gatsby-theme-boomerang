@@ -14,10 +14,11 @@ module.exports = {
       twitter: "boomerang-io",
       github: "https://github.ibm.com/essentials-core",
     },
-    headerTitle: "Boomerang Docs",
-    homeDescription: "Documentation for Boomerang",
-    solutions: contentConfig.solutions,
-    docsQuickLinks: contentConfig.docsQuickLinks,
+    homeTitle: "IBM Services Essentials",
+    homeDescription: "Documentation for the Platform",
+    linksConfig: contentConfig.linksConfig,
+    solutionsConfig: contentConfig.solutionsConfig,
+    footerLinksConfig: contentConfig.footerLinksConfig,
     standaloneMode: true,
     navLinks: [
       {

@@ -10,7 +10,7 @@ import { unKebabCase } from "@gatsby-theme-boomerang/utils";
 import { ArrowLeft16 } from "@carbon/icons-react";
 import styles from "./SideNav.module.scss";
 
-function SideNav({ location, pageContext, docNodes, isOpen, solutionTitle, siteMetadata }) {
+function SideNav({ location, pageContext, docNodes, isOpen, productTitle, siteMetadata }) {
   const { solution, version, allDocVersions } = pageContext;
   const { isSideNavMounted, setIsSideNavMounted } = React.useContext(AppContext);
 
@@ -53,7 +53,7 @@ function SideNav({ location, pageContext, docNodes, isOpen, solutionTitle, siteM
             />
           </div>
         </div>
-        <h1 className={styles.solutionTitle}>{solutionTitle || unKebabCase(solution)}</h1>
+        <h1 className={styles.productTitle}>{productTitle || unKebabCase(solution)}</h1>
       </header>
       <nav>
         {Object.entries(categoriesWithLinks).map(([category, nodes]) => (

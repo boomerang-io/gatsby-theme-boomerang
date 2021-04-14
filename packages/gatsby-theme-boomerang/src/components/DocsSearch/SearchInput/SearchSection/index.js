@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import cx from "classnames";
 import { Link } from "gatsby";
 import { unKebabCase } from "@gatsby-theme-boomerang/utils";
 import styles from "./SearchSection.module.scss";
 
-function SearchSection({ downshiftProps, docsContext, onClick, results = [], solutionsConfig = [] }) {
+function SearchSection({ downshiftProps, docsContext, onClick, results = [], solutionsConfig = [], theme }) {
   const { getMenuProps, getItemProps } = downshiftProps;
   const uniqueDocList = [];
   const uniqueDocVersionlessSlugList = [];
@@ -19,12 +20,10 @@ function SearchSection({ downshiftProps, docsContext, onClick, results = [], sol
   }
 
   const findSolutionTitle = (docSolution) =>
-    console.log(solutionsConfig) ||
-    solutionsConfig.find((config) => config.solution === docSolution)?.title ||
-    unKebabCase(docSolution);
+    solutionsConfig.find((config) => config.solution === docSolution)?.title || unKebabCase(docSolution);
 
   return uniqueDocList.length > 0 ? (
-    <div className={styles.list}>
+    <div className={cx(styles.list, styles[theme])}>
       <ul {...getMenuProps()}>
         {uniqueDocList.slice(0, 10).map(
           (doc, index) =>

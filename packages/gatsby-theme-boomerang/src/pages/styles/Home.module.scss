@@ -6,149 +6,226 @@
   display: flex;
   flex-direction: column;
   height: calc(100vh - 3rem);
+  justify-content: space-between;
+  min-width: 42rem;
 }
 
+
+/**
+ * Header
+ */
+
 .header {
-  background: white;
-  height: 24rem;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-  grid-template-columns: 1fr minmax(auto, 50rem) 1fr 30% 1fr;
-  display: grid;
+  align-items: flex-end;
+  background: linear-gradient(0deg, #04386D 0%, #061727 100%);;
+  display: flex;
+  justify-content: space-between;
+  height: 16rem;
+  padding: 7.9375rem 2.5rem 2.5rem 2.5rem;
 
   @media only screen and (max-width: 60rem) {
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
     height: auto;
+    justify-content: space-between;
   }
 }
 
-.introContainer {
-  display: flex;
-  flex-direction: column;
-  grid-column-start: 2;
-  grid-column-end: 4;
-  justify-content: center;
-  padding-left: 2rem;
-  padding-right: 4rem;
-  position: relative;
-}
-
-.introTitle {
-  position: relative;
-  font-size: 4.5rem;
-  font-weight: 500;
-  line-height: 1.1;
-  margin-bottom: 0.5rem;
-  margin-left: -0.25rem;
-}
-
-.introSubtitle {
-  font-size: 1.5rem;
+.headerText {
+  color: var(--cds-ui-02);
   font-weight: 300;
-  line-break: normal;
-  line-height: 1.2;
-  position: relative;
-  text-shadow: rgba(0, 0, 0, 0.15) 0rem 0.0625rem 0rem;
-  word-wrap: wrap;
-  z-index: 1;
+  letter-spacing: 0;
+  line-height: 2.3125rem;
 }
 
-.quickLinksNav {
-  flex-basis: 30%;
-  flex-shrink: 1;
+.headerTitle {
+  align-items: baseline;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  transition: all 0.15s ease;
-  max-width: 30rem;
-  padding-right: 4rem;
-  @media only screen and (max-width: 60rem) {
-    max-width: initial;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin-left: -0.5rem;
-    margin-right: -0.5rem;
-    flex-shrink: 0;
-    flex-basis: auto;
-    padding: 1rem;
+  font-size: 2.5rem;
+}
+
+.headerTitleDocs {
+  color: #38AFFF;
+  font-style: italic;
+}
+
+.headerSubtitle {
+  font-size: 1.75rem;
+}
+
+.headerSearch {
+  width: 20.5rem;
+}
+
+
+/**
+ * Content
+ */
+
+.content {
+  padding: 0 2.5rem;
+  width: 100%;
+}
+
+
+/**
+ * Section
+ */
+
+.section {
+  align-items: flex-start;
+  display: flex;
+  margin-bottom: 2.5rem;
+  padding-top: 2.5rem;
+  width: 100%;
+
+  &+ .section {
+    border-top: 0.0625rem solid var(--cds-active-ui);
   }
 }
 
-.quickLink {
-  border-bottom: 1px solid var(--cds-text-03);
-  border-top-right-radius: 0.125rem;
-  border-top-left-radius: 0.125rem;
-  flex-basis: 25%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.15s ease-in-out;
+.sectionTitle {
+  color: var(--cds-text-01);
+  font-size: 1.125rem;
+  letter-spacing: 0;
+  line-height: 1.4375rem;
+  margin-right: 1rem;
+  width: 20.5rem;
+}
+
+.sectionLinks {
+  display: grid;
+  flex-grow: 1;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, 20.5rem);
+}
+
+/**
+ * Cards
+ */
+
+ @keyframes fade-up {
+  0% {
+    opacity: 0.01;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fade-up 0.15s ease-in;
+  background-color: var(--cds-ui-01);
+  border-radius: 0.25rem;
+  color: var(--cds-text-01);
+  position: relative;
+  transition: all 0.15s ease-in-out;
+  width: 20.5rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+
   &:focus {
     @include focus-outline();
   }
-  @media only screen and (max-width: 60rem) {
-    flex-basis: 47%;
-    flex-grow: 1;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
 }
 
-.quickLinkTitle {
-  flex-grow: 1;
-  span {
-    font-size: 0.925rem;
-    color: var(--cds-interactive-01);
-    text-decoration: none;
-  }
+.cardLaunchIcon {
+  bottom: 1rem;
+  height: 1.25rem;
+  position: absolute;
+  right: 1rem;
+  width: 1.25rem;
 }
 
-.quickLinkIconContainer {
-  justify-self: flex-end;
+.cardArrowIcon {
+  bottom: 1rem;
+  position: absolute;
+  right: 1rem;
+  width: 1.125rem;
 }
 
-.quickLinkIcon {
-  height: 1.5rem;
-  width: 1.5rem;
-  display: inline-block;
-  fill: white;
-  line-height: 1;
-  position: relative;
-  top: -0.1em;
-  vertical-align: middle;
+
+/**
+ * SimpleCard
+ */
+
+.simpleCard {
+  height: 12.5rem;
+  padding: 1rem 4.125rem 1rem 1rem;
 }
 
-.article {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 27rem);
-  column-gap: 1.25rem;
-  row-gap: 1.25rem;
-  padding: 1rem 2rem;
-  background-color: var(--cds-ui-background);
+.simpleCardTitle {
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 1.5625rem;
 }
+
+.simpleCardTitleWithDescription {
+  font-size: 1.125rem;
+  line-height: 1.4375rem;
+}
+
+.simpleCardDescription {
+  display: -webkit-box;
+  font-size: 0.875rem;
+  letter-spacing: 0;
+  line-height: 1.125rem;
+  margin-top: 1rem;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+}
+
+
+/**
+ * Image Card
+ */
+
+.imageCard {
+  height: 27.3125rem;
+}
+
+.imageCardImage {
+  background-size: cover;
+  background-position: top;
+  border-radius: 0.25rem 0.25rem 0 0;
+  height: 16.75rem;
+}
+
+.imageCardInfo {
+  padding: 1rem 4.125rem 1rem 1rem;
+}
+
+.imageCardTitle {
+  font-size: 1.125rem;
+  letter-spacing: 0;
+  line-height: 1.4375rem;
+  margin-bottom: 1rem;
+}
+
+.imageCardDescription {
+  display: -webkit-box;
+  font-size: 0.875rem;
+  letter-spacing: 0;
+  line-height: 1.125rem;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+}
+
+
+/**
+ * Responsiveness
+ */
 
 @media (max-width: 42.5rem) {
   .header {
     padding: 2rem 1rem;
-  }
-
-  .introContainer {
-    padding-right: 2rem;
-  }
-
-  .introSubtitle {
-    min-width: 75%;
-  }
-
-  .quickLinksNav {
-    margin: 0;
-    padding: 2rem 1.5rem;
   }
 }

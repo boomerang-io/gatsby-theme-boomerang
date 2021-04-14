@@ -1,4 +1,5 @@
 /* eslint-disable react/no-danger */
+/* eslint-disable import/no-unresolved */
 import React from "react";
 import { graphql } from "gatsby";
 import Link from "@gatsby-theme-boomerang/components/Link";
@@ -18,7 +19,7 @@ export default function DocTemplate(props) {
         // eslint-disable-next-line global-require
         const SmoothScroll = require("smooth-scroll");
         const scroll = new SmoothScroll();
-        const element = document.querySelector(anchor);
+        const element = document?.querySelector(anchor);
         if (element) {
           scroll.animateScroll(element, 0, { speed: 200, offset: 70 });
         }
@@ -30,16 +31,14 @@ export default function DocTemplate(props) {
     allMarkdownRemark,
     markdownRemark,
     site: {
-      siteMetadata: { docsContext, docsLocation, solutions: solutionConfigList },
+      siteMetadata: { docsContext, docsLocation, solutionsConfig },
     },
   } = props.data;
 
-  const solutionConfig = solutionConfigList.find(
-    (productConfig) => productConfig.solution === markdownRemark.fields.solution
-  );
+  const product = solutionsConfig.find((productConfig) => productConfig.solution === markdownRemark.fields.solution);
 
-  const solutionTitle = solutionConfig?.title;
-  const productCategoryOrder = solutionConfig?.categoryOrder;
+  const productTitle = product?.title;
+  const productCategoryOrder = product?.categoryOrder;
   let docNodes = allMarkdownRemark.edges.map(({ node }) => node);
   docNodes = sortBy(docNodes, [(node) => node.fields.category, (node) => parseInt(node.fields.index)]);
 
@@ -66,11 +65,11 @@ export default function DocTemplate(props) {
       docNodes={docNodes}
       location={props.location}
       pageContext={props.pageContext}
-      solutionTitle={solutionTitle}
+      productTitle={productTitle}
       siteMetadata={props.data.site.siteMetadata}
     >
       <PageContainer
-        siteMetadata={{ ...props.data.site.siteMetadata, title: `${markdownRemark.fields.title} | ${solutionTitle}` }}
+        siteMetadata={{ ...props.data.site.siteMetadata, title: `${markdownRemark.fields.title} | ${productTitle}` }}
       >
         <article className={styles.container}>
           <div className={styles.metadata}>
@@ -115,7 +114,7 @@ export const pageQuery = graphql`
           github
           twitter
         }
-        solutions {
+        solutionsConfig {
           title
           solution
           categoryOrder
@@ -139,9 +138,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(
-      filter: { fields: { solution: { eq: $solution }, version: { eq: $version } } }
-    ) {
+    allMarkdownRemark(filter: { fields: { solution: { eq: $solution }, version: { eq: $version } } }) {
       edges {
         node {
           fields {
