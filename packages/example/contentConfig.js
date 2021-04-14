@@ -4,140 +4,84 @@ const config = {
       title: "Quick links",
       links: [
         {
-          title: "Getting Started",
-          path: "/essentials-core/introduction/getting-started",
+          title: "Dogs",
+          path: "/docs/dogs/anatomy/why-four-paws",
         },
         {
-          title: "What's New with IBM Services Essentials",
-          path: "/essentials-core/introduction/whats-new",
-        },
-        {
-          title: "Frequently Ask Questions",
-          path: "/essentials-core/introduction/frequently-asked-questions",
+          title: "Pandas",
+          path: "/docs/pandas/dragonwarrior/big-yin-yang",
         },
       ],
     },
     {
-      title: "Discover our Platform",
+      title: "Discover our Animals",
       links: [
         {
-          title: "Introduction",
-          description:
-            "Get to know IBM Services Essentials Core capabilities and common services for a centralized, and secure platform.",
-          path: "/essentials-core/introduction/overview",
-        },
-        {
-          title: "Architecture",
-          description:
-            "Provides the architecture of IBM Services Essentials Core and the patterns, technologies, and implementation.",
-          path: "/essentials-core/architecture/overview",
-        },
-        {
-          title: "How to Guide",
-          description: "Familiarize yourself with the platform functionality and each of the major functions.",
-          path: "/essentials-core/how-to-guide/launchpad",
-        },
-        {
-          title: "Administration",
-          description: "Deep dive into how to operator and run the platform, particularly your own instance.",
-          path: "/essentials-core/how-to-admin/admin",
-        },
-        {
-          title: "Extending",
-          description: "Explore how to extend the platform through the Frameworks and APIs.",
-          path: "/essentials-core/extending/getting-started",
-        },
-        {
-          title: "Installing",
-          description: "Learn what it takes, and how, to install your own instance.",
-          path: "/essentials-core/extending/getting-started",
-        },
-      ],
-    },
-    {
-      title: "Discover our Services",
-      links: [
-        {
-          title: "Boomerang CICD",
-          description:
-            "Whether you're new to CICD or a seasoned veteran, this contains the guidance for Components, Pipelines, Workflows, Insights, Scorecard, Lib, and Policies.",
-          path: "/boomerang-cicd/introduction/overview",
+          title: "Koalas",
+          description: "Climbing trees and eating leaves",
+          path: "/docs/dogs/anatomy/why-four-paws",
           image: "cicd",
         },
         {
-          title: "Boomerang Flow",
-          description: "Cloud native workflow orchestration.",
-          path: "/boomerang-flow/introduction/overview",
+          title: "Fishes",
+          description: "Blub blub",
+          path: "/docs/dogs/anatomy/why-four-paws",
           image: "flow",
         },
         {
-          title: "Automation Control Center",
-          description:
-            "Allows business managers to monitor their hybrid workforces and automated business processes and understand current workloads and performance.",
-          path: "/acc/introduction/overview",
+          title: "Waves",
+          description: "Where fishes hide",
+          path: "/docs/dogs/anatomy/why-four-paws",
           image: "automation-control-center",
         },
         {
-          title: "Process Discovery Accelerator",
-          description: "PDA empowers automation consultants to quickly build business process models from client data.",
-          path: "/pda/introduction/overview",
+          title: "Blue Lines",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          path: "/docs/dogs/anatomy/why-four-paws",
           image: "process-delivery-accelerator",
         },
         {
-          title: "IBM Automation with Watson",
+          title: "Watson",
           description: "Enterprise Intelligent Automation Solutions",
-          path: "/iaw/introduction/overview",
+          path: "/docs/dogs/anatomy/why-four-paws",
           image: "watson",
-        },
-      ],
-    },
-    {
-      title: "Standards and playbooks",
-      links: [
-        {
-          title: "Standards",
-          description:
-            "Software engineering standards as used by the IBM Services Engineering in developing IBM Services Essentials and Services",
-          path: "/ise/standards/overview",
-        },
-        {
-          title: "Developer Playbook",
-          description: "Assets, recommendations, and guidance for developers building for and using the platform",
-          path: "/ise/development/playbook",
         },
       ],
     },
   ],
   solutionsConfig: [
     {
-      title: "Essentials Core",
-      solution: "essentials-core",
-      categoryOrder: ["introduction", "architecture", "how-to-guide", "how-to-admin", "installing", "extending"],
+      title: "Dogs",
+      solution: "dogs",
+      categoryOrder: ["speaking, anatomy"],
     },
     {
-      title: "Boomerang CICD",
-      solution: "boomerang-cicd",
-      categoryOrder: ["introduction", "architecture", "getting-to-know", "how-to-guide", "how-to-guide-for-modes"],
+      title: "Pandas",
+      solution: "pandas",
+      categoryOrder: ["kawaii", "dragonwarrior"],
+    },
+  ],
+  footerLinksConfig: [
+    {
+      link: "https://ibm.com/",
+      title: "IBM.com",
+      type: "website",
     },
     {
-      title: "Boomerang Flow",
-      solution: "boomerang-flow",
-      categoryOrder: ["introduction", "architecture", "getting-to-know", "installing"],
+      link: "https://twitter.com/IBM/",
+      title: "Follow IBM on Twitter",
+      type: "twitter",
     },
     {
-      title: "Automation Control Center",
-      solution: "acc",
-      categoryOrder: ["introduction"],
+      link: "https://www.linkedin.com/company/ibm",
+      title: "Connect with IBM on LinkedIn",
+      type: "linkedin",
     },
     {
-      title: "Process Discovery Accelerator",
-      solution: "pda",
-      categoryOrder: ["introduction"],
-    },
-    {
-      title: "IBM Automation with Watson",
-      solution: "iaw",
-      categoryOrder: ["introduction"],
+      link: "mailto:isesupp@us.ibm.com?subject=IBM Services Essentials",
+      title: "isesupp@us.ibm.com",
+      type: "email",
     },
   ],
 };
