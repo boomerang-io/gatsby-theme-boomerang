@@ -18,8 +18,8 @@ module.exports = {
     homeDescription: "Documentation for the Platform",
     linksConfig: contentConfig.linksConfig,
     solutionsConfig: contentConfig.solutionsConfig,
-    standaloneMode: true,
     footerLinksConfig: contentConfig.footerLinksConfig,
+    standaloneMode: true,
     navLinks: [
       {
         name: "Home",

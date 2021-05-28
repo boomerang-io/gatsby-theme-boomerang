@@ -32,12 +32,12 @@ module.exports = (themeOptions) => {
     pathPrefix: "/BMRG_APP_ROOT_CONTEXT",
     siteMetadata: {
       title: "IBM Services Essentials",
-      description: "Documentation for Boomerang and the IBM Automation Platform",
+      description: "Documentation for IBM Services Essentials",
       uiShellProductName: "",
       docsContext: "",
       docsLocation: "https://github.ibm.com/essentials-core/core.app.docs/tree/main/content",
       homeTitle: "Docs",
-      homeDescription: "Documentation for Boomerang and the IBM Automation Platform",
+      homeDescription: "Documentation for IBM Services Essentials",
       githubUrl: "https://github.ibm.com/essentials-core/core.app.docs",
       siteUrl: "https://launch.boomerangplatform.net/docs",
       socialLinks: {
@@ -66,7 +66,7 @@ module.exports = (themeOptions) => {
       {
         resolve: "gatsby-plugin-manifest",
         options: {
-          icon: "./src/favicon.png"
+          icon: "./src/favicon.png",
         },
       },
       {

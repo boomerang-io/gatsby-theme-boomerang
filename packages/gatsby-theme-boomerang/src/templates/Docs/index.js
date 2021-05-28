@@ -1,4 +1,5 @@
 /* eslint-disable react/no-danger */
+/* eslint-disable import/no-unresolved */
 import React from "react";
 import { graphql } from "gatsby";
 import Link from "@gatsby-theme-boomerang/components/Link";

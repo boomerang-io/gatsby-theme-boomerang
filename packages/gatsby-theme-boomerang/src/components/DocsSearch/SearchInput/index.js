@@ -10,6 +10,7 @@ import SearchSection from "./SearchSection";
 import * as styles from "./SearchInput.module.scss";
 
 // Search component
+/* eslint-disable no-unused-expressions */
 
 export default class SearchInput extends Component {
   constructor(props) {
@@ -24,11 +25,16 @@ export default class SearchInput extends Component {
   }
 
   componentDidMount() {
-    document?.addEventListener("mousedown", this.handleClickOutside);
+    if (document) {
+      document?.addEventListener("mousedown", this.handleClickOutside);
+    }
   }
 
   componentWillUnmount() {
-    document?.removeEventListener("mousedown", this.handleClickOutside);
+    // document?.removeEventListener("mousedown", this.handleClickOutside);
+    if (document) {
+      document?.removeEventListener("mousedown", this.handleClickOutside);
+    }
   }
 
   handleClickOutside = (event) => {
