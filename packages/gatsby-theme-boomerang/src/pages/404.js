@@ -54,7 +54,7 @@ export default function FourOhFour({ location }) {
       if (!checkedDocIds.includes(docId)) {
         checkedDocIds.push(docId);
 
-        if (docConfigPath === pagePathname) {
+        if (pagePathname.includes(docConfigPath)) {
           const allVersionsOfDoc = [];
           docNodes.forEach(({ node: comparisonNode }) => {
             if (
@@ -73,7 +73,6 @@ export default function FourOhFour({ location }) {
           const latestVersion = semVersions.sort(semver.rcompare)[0];
           const latestDoc = allVersionsOfDoc.find((doc) => doc.version === latestVersion);
           const pathToLatestDoc = latestDoc.slug ? docsContext + latestDoc.slug : "/";
-          console.log("Navigate to: ", pathToLatestDoc);
           navigate(pathToLatestDoc);
           return true;
         }
