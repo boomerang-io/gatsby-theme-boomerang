@@ -2,7 +2,6 @@ const fs = require("fs");
 const { execSync } = require("child_process");
 const startCase = require("lodash.startcase");
 const kebabcase = require("lodash.kebabcase");
-const semver = require("semver");
 
 exports.onPreBootstrap = ({ reporter }) => {
   const contentPath = "content";
@@ -13,7 +12,7 @@ exports.onPreBootstrap = ({ reporter }) => {
 };
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage, createRedirect } = actions;
+  const { createPage } = actions;
   return new Promise((resolve, reject) => {
     resolve(
       graphql(
@@ -75,18 +74,18 @@ exports.createPages = ({ graphql, actions }) => {
               }
             });
 
-            const semVersions = allVersionsOfDoc.map((nodes) => nodes.version);
-            const latestVersion = semVersions.sort(semver.rcompare)[0];
             allVersionsOfEachDocMap[docId] = allVersionsOfDoc;
-            const latestDoc = allVersionsOfDoc.find((doc) => doc.version === latestVersion);
-            const pathToLatestDoc = latestDoc.slug ? docsContext + latestDoc.slug : "/";
+            // const semVersions = allVersionsOfDoc.map((nodes) => nodes.version);
+            // const latestVersion = semVersions.sort(semver.rcompare)[0];
+            // const latestDoc = allVersionsOfDoc.find((doc) => doc.version === latestVersion);
+            // const pathToLatestDoc = latestDoc.slug ? docsContext + latestDoc.slug : "/";
 
-            createRedirect({
-              fromPath: pathToLatestDoc.replace(`/${latestVersion}`, ""),
-              toPath: pathToLatestDoc,
-              isPermanent: false,
-              redirectInBrowser: true,
-            });
+            // createRedirect({
+            //   fromPath: pathToLatestDoc.replace(`/${latestVersion}`, ""),
+            //   toPath: pathToLatestDoc,
+            //   isPermanent: false,
+            //   redirectInBrowser: true,
+            // });
           }
 
           const pathToDoc = node.fields.slug || "/";
@@ -157,7 +156,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       name: "index",
       node,
-      value: typeof node.frontmatter.index === "number" ? `${node.frontmatter.index + 1}` : `${Number.MAX_SAFE_INTEGER}`,
+      value:
+        typeof node.frontmatter.index === "number" ? `${node.frontmatter.index + 1}` : `${Number.MAX_SAFE_INTEGER}`,
     });
 
     createNodeField({ node, name: "updatedAt", value: lastUpdatedTimestamp.toString() });

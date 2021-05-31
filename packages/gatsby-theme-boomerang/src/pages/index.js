@@ -1,6 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
+import semver from "semver";
 import cx from "classnames";
 import PageContainer from "@gatsby-theme-boomerang/components/PageContainer";
 import DocsSearch from "@gatsby-theme-boomerang/components/DocsSearch";
@@ -14,6 +15,7 @@ const pageQuery = graphql`
     site {
       pathPrefix
       siteMetadata {
+        docsContext
         docsLocation
         siteUrl
         title
@@ -40,6 +42,19 @@ const pageQuery = graphql`
         }
       }
     }
+    allMarkdownRemark {
+      edges {
+        node {
+          fields {
+            category
+            solution
+            title
+            slug
+            version
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -49,7 +64,43 @@ const pageQuery = graphql`
 function Home() {
   const {
     site: { siteMetadata },
+    allMarkdownRemark: { edges: docNodes },
   } = useStaticQuery(pageQuery);
+
+  /**
+   * Get latest versions of each doc
+   * so we can get the path with the version
+   */
+  const latestDocVersions = [];
+  docNodes.forEach(({ node }) => {
+    const docId = `${node.fields.category}-${node.fields.solution}-${node.fields.title}`;
+
+    if (!latestDocVersions.find((doc) => doc.docId === docId)) {
+      const allVersionsOfDoc = [];
+      docNodes.forEach(({ node: comparisonNode }) => {
+        if (
+          comparisonNode.fields.category === node.fields.category &&
+          comparisonNode.fields.solution === node.fields.solution &&
+          comparisonNode.fields.title === node.fields.title
+        ) {
+          allVersionsOfDoc.push({
+            docId,
+            version: comparisonNode.fields.version,
+            slug: comparisonNode.fields.slug,
+          });
+        }
+      });
+
+      const semVersions = allVersionsOfDoc.map((nodes) => nodes.version);
+      const latestVersion = semVersions.sort(semver.rcompare)[0];
+      const latestDoc = allVersionsOfDoc.find((doc) => doc.version === latestVersion);
+      const pathToLatestDoc = latestDoc.slug ? siteMetadata.docsContext + latestDoc.slug : "/";
+
+      latestDoc.path = pathToLatestDoc;
+      latestDoc.configPath = pathToLatestDoc.replace(`/${latestVersion}`, "");
+      latestDocVersions.push(latestDoc);
+    }
+  });
 
   const { homeTitle, homeDescription, linksConfig, footerLinksConfig } = siteMetadata;
 
@@ -75,26 +126,35 @@ function Home() {
             {linksConfig.map((config) => (
               <Section title={config.title}>
                 <nav className={styles.sectionLinks}>
-                  {config.links.map((link, index) =>
-                    link.image ? (
+                  {config.links.map((link, index) => {
+                    let linkPath = link.path;
+                    const isExternal = linkPath.includes("http://") || linkPath.includes("https://");
+
+                    if (!isExternal) {
+                      linkPath = latestDocVersions.find((doc) => doc.configPath === linkPath)?.path ?? linkPath;
+                    }
+
+                    return link.image ? (
                       <ImageCard
                         key={`${link.title}-${link.path}-${index}`}
                         id={`${link.title}-${link.path}-${index}`}
+                        isExternal={isExternal}
                         image={link.image}
                         title={link.title}
                         description={link.description}
-                        path={link.path}
+                        path={linkPath}
                       />
                     ) : (
                       <SimpleCard
                         key={`${link.title}-${link.path}-${index}`}
                         id={`${link.title}-${link.path}-${index}`}
+                        isExternal={isExternal}
                         title={link.title}
                         description={link.description}
-                        path={link.path}
+                        path={linkPath}
                       />
-                    )
-                  )}
+                    );
+                  })}
                 </nav>
               </Section>
             ))}
@@ -115,8 +175,7 @@ function Section({ children, title }) {
   );
 }
 
-function SimpleCard({ id, path, description, title }) {
-  const isExternal = path.includes("http://") || path.includes("https://");
+function SimpleCard({ id, isExternal, path, description, title }) {
   const hasDescription = Boolean(description);
 
   let titleHeight = 0;
@@ -154,8 +213,7 @@ function SimpleCard({ id, path, description, title }) {
   );
 }
 
-function ImageCard({ id, image, path, description, title }) {
-  const isExternal = path.includes("http://") || path.includes("https://");
+function ImageCard({ id, isExternal, image, path, description, title }) {
   const img = contentLabelsToImageMap[image] ?? contentLabelsToImageMap[ContentLabels.ProcessDeliveryAccelerator];
 
   let titleHeight = 0;
