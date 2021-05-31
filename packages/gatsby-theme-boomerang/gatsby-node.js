@@ -2,6 +2,7 @@ const fs = require("fs");
 const { execSync } = require("child_process");
 const startCase = require("lodash.startcase");
 const kebabcase = require("lodash.kebabcase");
+const semver = require("semver");
 
 exports.onPreBootstrap = ({ reporter }) => {
   const contentPath = "content";
@@ -12,7 +13,7 @@ exports.onPreBootstrap = ({ reporter }) => {
 };
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
   return new Promise((resolve, reject) => {
     resolve(
       graphql(
@@ -75,17 +76,17 @@ exports.createPages = ({ graphql, actions }) => {
             });
 
             allVersionsOfEachDocMap[docId] = allVersionsOfDoc;
-            // const semVersions = allVersionsOfDoc.map((nodes) => nodes.version);
-            // const latestVersion = semVersions.sort(semver.rcompare)[0];
-            // const latestDoc = allVersionsOfDoc.find((doc) => doc.version === latestVersion);
-            // const pathToLatestDoc = latestDoc.slug ? docsContext + latestDoc.slug : "/";
+            const semVersions = allVersionsOfDoc.map((nodes) => nodes.version);
+            const latestVersion = semVersions.sort(semver.rcompare)[0];
+            const latestDoc = allVersionsOfDoc.find((doc) => doc.version === latestVersion);
+            const pathToLatestDoc = latestDoc.slug ? docsContext + latestDoc.slug : "/";
 
-            // createRedirect({
-            //   fromPath: pathToLatestDoc.replace(`/${latestVersion}`, ""),
-            //   toPath: pathToLatestDoc,
-            //   isPermanent: false,
-            //   redirectInBrowser: true,
-            // });
+            createRedirect({
+              fromPath: pathToLatestDoc.replace(`/${latestVersion}`, ""),
+              toPath: pathToLatestDoc,
+              isPermanent: false,
+              redirectInBrowser: true,
+            });
           }
 
           const pathToDoc = node.fields.slug || "/";
