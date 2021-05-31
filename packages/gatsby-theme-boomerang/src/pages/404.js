@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 // eslint-disable-next-line import/no-unresolved
 import { navigate } from "@reach/router";
 // eslint-disable-next-line import/no-unresolved
 import PageContainer from "@gatsby-theme-boomerang/components/PageContainer";
-import { Error404 } from "@boomerang-io/carbon-addons-boomerang-react";
+// eslint-disable-next-line import/no-unresolved
+import { APP_ROOT } from "@gatsby-theme-boomerang/config/appConfig";
+import { Error404, Loading } from "@boomerang-io/carbon-addons-boomerang-react";
 import semver from "semver";
 
 const pageQuery = graphql`
@@ -31,6 +33,7 @@ const pageQuery = graphql`
 `;
 
 export default function FourOhFour({ location }) {
+  const [isLoading, setIsLoading] = useState(true);
   const {
     site: {
       siteMetadata: { docsContext },
@@ -46,7 +49,7 @@ export default function FourOhFour({ location }) {
      * and redirect to correct path with latest version
      */
     const checkedDocIds = [];
-    docNodes.some(({ node }) => {
+    const docFound = docNodes.some(({ node }) => {
       const docId = `${node.fields.category}-${node.fields.solution}-${node.fields.title}`;
       const pathToDoc = node.fields.slug ? docsContext + node.fields.slug : "/";
       const docConfigPath = pathToDoc.replace(`/${node.fields.version}`, "");
@@ -73,16 +76,20 @@ export default function FourOhFour({ location }) {
           const latestVersion = semVersions.sort(semver.rcompare)[0];
           const latestDoc = allVersionsOfDoc.find((doc) => doc.version === latestVersion);
           const pathToLatestDoc = latestDoc.slug ? docsContext + latestDoc.slug : "/";
-          navigate(pathToLatestDoc);
+          navigate(`${APP_ROOT}${pathToLatestDoc}`);
           return true;
         }
       }
 
       return false;
     });
+
+    if (!docFound) setIsLoading(false);
   }, [docNodes, docsContext, pagePathname]);
 
-  return (
+  return isLoading ? (
+    <Loading />
+  ) : (
     <PageContainer siteMetadata={{ title: "404 - Not Found" }}>
       <Error404 />;
     </PageContainer>
