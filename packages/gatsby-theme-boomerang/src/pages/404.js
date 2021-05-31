@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 // eslint-disable-next-line import/no-unresolved
 import { navigate } from "@reach/router";
@@ -40,45 +40,48 @@ export default function FourOhFour({ location }) {
 
   const { pathname: pagePathname } = location;
 
-  /**
-   * Find doc with corresponding config path
-   * and redirect to correct path with latest version
-   */
-  const checkedDocIds = [];
-  docNodes.some(({ node }) => {
-    const docId = `${node.fields.category}-${node.fields.solution}-${node.fields.title}`;
-    const pathToDoc = node.fields.slug ? docsContext + node.fields.slug : "/";
-    const docConfigPath = pathToDoc.replace(`/${node.fields.version}`, "");
+  useEffect(() => {
+    /**
+     * Find doc with corresponding config path
+     * and redirect to correct path with latest version
+     */
+    const checkedDocIds = [];
+    docNodes.some(({ node }) => {
+      const docId = `${node.fields.category}-${node.fields.solution}-${node.fields.title}`;
+      const pathToDoc = node.fields.slug ? docsContext + node.fields.slug : "/";
+      const docConfigPath = pathToDoc.replace(`/${node.fields.version}`, "");
 
-    if (!checkedDocIds.includes(docId)) {
-      checkedDocIds.push(docId);
+      if (!checkedDocIds.includes(docId)) {
+        checkedDocIds.push(docId);
 
-      if (docConfigPath === pagePathname) {
-        const allVersionsOfDoc = [];
-        docNodes.forEach(({ node: comparisonNode }) => {
-          if (
-            comparisonNode.fields.category === node.fields.category &&
-            comparisonNode.fields.solution === node.fields.solution &&
-            comparisonNode.fields.title === node.fields.title
-          ) {
-            allVersionsOfDoc.push({
-              docId,
-              version: comparisonNode.fields.version,
-              slug: comparisonNode.fields.slug,
-            });
-          }
-        });
-        const semVersions = allVersionsOfDoc.map((nodes) => nodes.version);
-        const latestVersion = semVersions.sort(semver.rcompare)[0];
-        const latestDoc = allVersionsOfDoc.find((doc) => doc.version === latestVersion);
-        const pathToLatestDoc = latestDoc.slug ? docsContext + latestDoc.slug : "/";
-        navigate(pathToLatestDoc);
-        return true;
+        if (docConfigPath === pagePathname) {
+          const allVersionsOfDoc = [];
+          docNodes.forEach(({ node: comparisonNode }) => {
+            if (
+              comparisonNode.fields.category === node.fields.category &&
+              comparisonNode.fields.solution === node.fields.solution &&
+              comparisonNode.fields.title === node.fields.title
+            ) {
+              allVersionsOfDoc.push({
+                docId,
+                version: comparisonNode.fields.version,
+                slug: comparisonNode.fields.slug,
+              });
+            }
+          });
+          const semVersions = allVersionsOfDoc.map((nodes) => nodes.version);
+          const latestVersion = semVersions.sort(semver.rcompare)[0];
+          const latestDoc = allVersionsOfDoc.find((doc) => doc.version === latestVersion);
+          const pathToLatestDoc = latestDoc.slug ? docsContext + latestDoc.slug : "/";
+          console.log("Navigate to: ", pathToLatestDoc);
+          navigate(pathToLatestDoc);
+          return true;
+        }
       }
-    }
 
-    return false;
-  });
+      return false;
+    });
+  }, [docNodes, docsContext, pagePathname]);
 
   return (
     <PageContainer siteMetadata={{ title: "404 - Not Found" }}>
