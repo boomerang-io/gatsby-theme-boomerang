@@ -75,9 +75,9 @@ exports.createPages = ({ graphql, actions }) => {
               }
             });
 
+            allVersionsOfEachDocMap[docId] = allVersionsOfDoc;
             const semVersions = allVersionsOfDoc.map((nodes) => nodes.version);
             const latestVersion = semVersions.sort(semver.rcompare)[0];
-            allVersionsOfEachDocMap[docId] = allVersionsOfDoc;
             const latestDoc = allVersionsOfDoc.find((doc) => doc.version === latestVersion);
             const pathToLatestDoc = latestDoc.slug ? docsContext + latestDoc.slug : "/";
 
@@ -157,7 +157,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       name: "index",
       node,
-      value: typeof node.frontmatter.index === "number" ? `${node.frontmatter.index + 1}` : `${Number.MAX_SAFE_INTEGER}`,
+      value:
+        typeof node.frontmatter.index === "number" ? `${node.frontmatter.index + 1}` : `${Number.MAX_SAFE_INTEGER}`,
     });
 
     createNodeField({ node, name: "updatedAt", value: lastUpdatedTimestamp.toString() });

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import { Link } from "gatsby";
 import { unKebabCase } from "@gatsby-theme-boomerang/utils";
-import styles from "./SearchSection.module.scss";
+import * as styles from "./SearchSection.module.scss";
 
 function SearchSection({ downshiftProps, docsContext, onClick, results = [], solutionsConfig = [], theme }) {
   const { getMenuProps, getItemProps } = downshiftProps;

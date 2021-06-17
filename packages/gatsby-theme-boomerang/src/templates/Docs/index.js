@@ -9,7 +9,7 @@ import moment from "moment";
 import PageContainer from "@gatsby-theme-boomerang/components/PageContainer";
 import { Launch16 } from "@carbon/icons-react";
 import Layout from "./Layout";
-import styles from "./Docs.module.scss";
+import * as styles from "./Docs.module.scss";
 
 export default function DocTemplate(props) {
   React.useEffect(() => {

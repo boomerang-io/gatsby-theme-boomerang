@@ -7,7 +7,7 @@ import DocsSearch from "@gatsby-theme-boomerang/components/DocsSearch";
 import Footer from "@gatsby-theme-boomerang/components/Footer";
 import { ContentLabels, contentLabelsToImageMap } from "@gatsby-theme-boomerang/constants";
 import { ArrowRight24, Launch24 } from "@carbon/icons-react";
-import styles from "./styles/Home.module.scss";
+import * as styles from "./styles/Home.module.scss";
 
 const pageQuery = graphql`
   query {
@@ -56,11 +56,11 @@ function Home() {
   return (
     <PageContainer siteMetadata={siteMetadata}>
       <main id="content" className={styles.container}>
-        <div className={styles.headerAndContent}>
+        <div>
           <header className={styles.header}>
             <div className={styles.headerText}>
               <div className={styles.headerTitle}>
-                <h1 className={styles.headerTitleMetadata}>
+                <h1>
                   {`${homeTitle} `}
                   <span className={styles.headerTitleDocs}>Docs</span>
                 </h1>
@@ -75,11 +75,14 @@ function Home() {
             {linksConfig.map((config) => (
               <Section title={config.title}>
                 <nav className={styles.sectionLinks}>
-                  {config.links.map((link, index) =>
-                    link.image ? (
+                  {config.links.map((link, index) => {
+                    const isExternal = link.path.includes("http://") || link.path.includes("https://");
+
+                    return link.image ? (
                       <ImageCard
                         key={`${link.title}-${link.path}-${index}`}
                         id={`${link.title}-${link.path}-${index}`}
+                        isExternal={isExternal}
                         image={link.image}
                         title={link.title}
                         description={link.description}
@@ -89,12 +92,13 @@ function Home() {
                       <SimpleCard
                         key={`${link.title}-${link.path}-${index}`}
                         id={`${link.title}-${link.path}-${index}`}
+                        isExternal={isExternal}
                         title={link.title}
                         description={link.description}
                         path={link.path}
                       />
-                    )
-                  )}
+                    );
+                  })}
                 </nav>
               </Section>
             ))}
@@ -115,8 +119,7 @@ function Section({ children, title }) {
   );
 }
 
-function SimpleCard({ id, path, description, title }) {
-  const isExternal = path.includes("http://") || path.includes("https://");
+function SimpleCard({ id, isExternal, path, description, title }) {
   const hasDescription = Boolean(description);
 
   let titleHeight = 0;
@@ -154,8 +157,7 @@ function SimpleCard({ id, path, description, title }) {
   );
 }
 
-function ImageCard({ id, image, path, description, title }) {
-  const isExternal = path.includes("http://") || path.includes("https://");
+function ImageCard({ id, isExternal, image, path, description, title }) {
   const img = contentLabelsToImageMap[image] ?? contentLabelsToImageMap[ContentLabels.ProcessDeliveryAccelerator];
 
   let titleHeight = 0;

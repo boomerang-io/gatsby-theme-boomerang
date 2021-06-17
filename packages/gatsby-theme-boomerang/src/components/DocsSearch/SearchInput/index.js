@@ -7,7 +7,7 @@ import { Search } from "carbon-components-react";
 import Downshift from "downshift";
 import kebab from "lodash.kebabcase";
 import SearchSection from "./SearchSection";
-import styles from "./SearchInput.module.scss";
+import * as styles from "./SearchInput.module.scss";
 
 // Search component
 /* eslint-disable no-unused-expressions */
@@ -97,7 +97,7 @@ export default class SearchInput extends Component {
           {(downshiftProps) => {
             const { getInputProps, getRootProps } = downshiftProps;
             return (
-              <div className={styles.searchContainer}>
+              <div>
                 <div {...getRootProps({ style: { width: "100%" } }, { suppressRefError: true })}>
                   <Search
                     {...getInputProps({

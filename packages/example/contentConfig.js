@@ -19,26 +19,26 @@ const config = {
         {
           title: "Koalas",
           description: "Climbing trees and eating leaves",
-          path: "/docs/dogs/anatomy/why-four-paws",
+          path: "/docs/dogs/speaking/woof-woof",
           image: "cicd",
         },
         {
           title: "Fishes",
           description: "Blub blub",
-          path: "/docs/dogs/anatomy/why-four-paws",
+          path: "/docs/dogs/anatomy/so-much-hair",
           image: "flow",
         },
         {
           title: "Waves",
           description: "Where fishes hide",
-          path: "/docs/dogs/anatomy/why-four-paws",
+          path: "/docs/pandas/dragonwarrior/po",
           image: "automation-control-center",
         },
         {
           title: "Blue Lines",
           description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          path: "/docs/dogs/anatomy/why-four-paws",
+          path: "/docs/pandas/kawaii/why-so-cute",
           image: "process-delivery-accelerator",
         },
         {
@@ -46,6 +46,15 @@ const config = {
           description: "Enterprise Intelligent Automation Solutions",
           path: "/docs/dogs/anatomy/why-four-paws",
           image: "watson",
+        },
+      ],
+    },
+    {
+      title: "External links",
+      links: [
+        {
+          title: "External",
+          path: "https://www.google.com",
         },
       ],
     },
