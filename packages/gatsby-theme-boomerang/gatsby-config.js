@@ -58,7 +58,6 @@ module.exports = (themeOptions) => {
     },
     plugins: [
       "gatsby-plugin-catch-links",
-      "gatsby-plugin-meta-redirect",
       "gatsby-plugin-react-helmet",
       "gatsby-plugin-sitemap",
       "gatsby-plugin-sharp",
@@ -127,6 +126,7 @@ module.exports = (themeOptions) => {
           },
         },
       },
+      "gatsby-plugin-client-side-redirect",
     ].concat(optionalPlugins),
   };
 };
