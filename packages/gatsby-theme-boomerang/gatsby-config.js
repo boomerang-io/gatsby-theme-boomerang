@@ -67,6 +67,7 @@ module.exports = (themeOptions) => {
         resolve: "gatsby-plugin-manifest",
         options: {
           icon: "./src/favicon.png",
+          crossOrigin: "use-credentials",
         },
       },
       {
