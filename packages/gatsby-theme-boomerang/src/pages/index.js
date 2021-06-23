@@ -150,7 +150,7 @@ function SimpleCard({ id, isExternal, path, description, title }) {
       <Launch24 className={styles.cardLaunchIcon} />
     </a>
   ) : (
-    <Link className={cx(styles.card, styles.simpleCard)} to={path}>
+    <Link className={cx(styles.card, styles.simpleCard)} to={path} crossorigin="use-credentials">
       <Content />
       <ArrowRight24 className={styles.cardArrowIcon} />
     </Link>
@@ -189,7 +189,7 @@ function ImageCard({ id, isExternal, image, path, description, title }) {
       <Launch24 className={styles.cardLaunchIcon} />
     </a>
   ) : (
-    <Link className={cx(styles.card, styles.imageCard)} to={path}>
+    <Link className={cx(styles.card, styles.imageCard)} to={path} crossorigin="use-credentials">
       <Content />
       <ArrowRight24 className={styles.cardArrowIcon} />
     </Link>
