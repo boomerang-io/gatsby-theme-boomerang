@@ -49,7 +49,6 @@ exports.createPages = ({ graphql, actions }) => {
 
         // If the docs are not hosted on the root
         const docsContext = result.data.site.siteMetadata.docsContext || "";
-        const appRoot = result.data.site.pathPrefix || "";
 
         /**
          * Create pages for docs
@@ -91,9 +90,9 @@ exports.createPages = ({ graphql, actions }) => {
               redirectInBrowser: true,
             });
 
-            // create another redirect with APP_ROOT
+            // create another redirect ending with "/"
             createRedirect({
-              fromPath: `${appRoot}${pathToLatestDocWithoutVersion}`,
+              fromPath: `${pathToLatestDocWithoutVersion}/`,
               toPath: pathToLatestDoc,
               isPermanent: false,
               redirectInBrowser: true,
