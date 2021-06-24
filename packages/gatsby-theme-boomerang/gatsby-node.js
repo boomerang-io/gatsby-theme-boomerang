@@ -20,6 +20,7 @@ exports.createPages = ({ graphql, actions }) => {
         `
           {
             site {
+              pathPrefix
               siteMetadata {
                 docsContext
               }
@@ -48,6 +49,7 @@ exports.createPages = ({ graphql, actions }) => {
 
         // If the docs are not hosted on the root
         const docsContext = result.data.site.siteMetadata.docsContext || "";
+        const appRoot = result.data.site.pathPrefix || "";
 
         /**
          * Create pages for docs
@@ -80,9 +82,18 @@ exports.createPages = ({ graphql, actions }) => {
             const latestVersion = semVersions.sort(semver.rcompare)[0];
             const latestDoc = allVersionsOfDoc.find((doc) => doc.version === latestVersion);
             const pathToLatestDoc = latestDoc.slug ? docsContext + latestDoc.slug : "/";
+            const pathToLatestDocWithoutVersion = pathToLatestDoc.replace(`/${latestVersion}`, "");
 
             createRedirect({
-              fromPath: pathToLatestDoc.replace(`/${latestVersion}`, ""),
+              fromPath: pathToLatestDocWithoutVersion,
+              toPath: pathToLatestDoc,
+              isPermanent: false,
+              redirectInBrowser: true,
+            });
+
+            // create another redirect with APP_ROOT
+            createRedirect({
+              fromPath: `${appRoot}${pathToLatestDocWithoutVersion}`,
               toPath: pathToLatestDoc,
               isPermanent: false,
               redirectInBrowser: true,
