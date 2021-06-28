@@ -1,7 +1,9 @@
 /* eslint-disable import/no-unresolved */
 import React from "react";
-import { Link, graphql, useStaticQuery } from "gatsby";
+import isAbsoluteUrl from "is-absolute-url";
+import { graphql, useStaticQuery } from "gatsby";
 import cx from "classnames";
+import Link from "@gatsby-theme-boomerang/components/Link";
 import PageContainer from "@gatsby-theme-boomerang/components/PageContainer";
 import DocsSearch from "@gatsby-theme-boomerang/components/DocsSearch";
 import Footer from "@gatsby-theme-boomerang/components/Footer";
@@ -75,14 +77,11 @@ function Home() {
             {linksConfig.map((config) => (
               <Section title={config.title}>
                 <nav className={styles.sectionLinks}>
-                  {config.links.map((link, index) => {
-                    const isExternal = link.path.includes("http://") || link.path.includes("https://");
-
-                    return link.image ? (
+                  {config.links.map((link, index) =>
+                    link.image ? (
                       <ImageCard
                         key={`${link.title}-${link.path}-${index}`}
                         id={`${link.title}-${link.path}-${index}`}
-                        isExternal={isExternal}
                         image={link.image}
                         title={link.title}
                         description={link.description}
@@ -92,13 +91,12 @@ function Home() {
                       <SimpleCard
                         key={`${link.title}-${link.path}-${index}`}
                         id={`${link.title}-${link.path}-${index}`}
-                        isExternal={isExternal}
                         title={link.title}
                         description={link.description}
                         path={link.path}
                       />
-                    );
-                  })}
+                    )
+                  )}
                 </nav>
               </Section>
             ))}
@@ -119,7 +117,7 @@ function Section({ children, title }) {
   );
 }
 
-function SimpleCard({ id, isExternal, path, description, title }) {
+function SimpleCard({ id, path, description, title }) {
   const hasDescription = Boolean(description);
 
   let titleHeight = 0;
@@ -144,20 +142,19 @@ function SimpleCard({ id, isExternal, path, description, title }) {
     </>
   );
 
-  return isExternal ? (
-    <a className={cx(styles.card, styles.simpleCard)} href={path}>
-      <Content />
-      <Launch24 className={styles.cardLaunchIcon} />
-    </a>
-  ) : (
+  return (
     <Link className={cx(styles.card, styles.simpleCard)} to={path}>
       <Content />
-      <ArrowRight24 className={styles.cardArrowIcon} />
+      {isAbsoluteUrl(path) ? (
+        <Launch24 className={styles.cardLaunchIcon} />
+      ) : (
+        <ArrowRight24 className={styles.cardArrowIcon} />
+      )}
     </Link>
   );
 }
 
-function ImageCard({ id, isExternal, image, path, description, title }) {
+function ImageCard({ id, image, path, description, title }) {
   const img = contentLabelsToImageMap[image] ?? contentLabelsToImageMap[ContentLabels.ProcessDeliveryAccelerator];
 
   let titleHeight = 0;
@@ -183,15 +180,14 @@ function ImageCard({ id, isExternal, image, path, description, title }) {
     </>
   );
 
-  return isExternal ? (
-    <a className={cx(styles.card, styles.imageCard)} href={path}>
-      <Content />
-      <Launch24 className={styles.cardLaunchIcon} />
-    </a>
-  ) : (
+  return (
     <Link className={cx(styles.card, styles.imageCard)} to={path}>
       <Content />
-      <ArrowRight24 className={styles.cardArrowIcon} />
+      {isAbsoluteUrl(path) ? (
+        <Launch24 className={styles.cardLaunchIcon} />
+      ) : (
+        <ArrowRight24 className={styles.cardArrowIcon} />
+      )}
     </Link>
   );
 }

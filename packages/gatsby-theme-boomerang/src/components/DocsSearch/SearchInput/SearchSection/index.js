@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import { Link } from "gatsby";
+// eslint-disable-next-line import/no-unresolved
+import Link from "@gatsby-theme-boomerang/components/Link";
+// eslint-disable-next-line import/no-unresolved
 import { unKebabCase } from "@gatsby-theme-boomerang/utils";
 import * as styles from "./SearchSection.module.scss";
 
