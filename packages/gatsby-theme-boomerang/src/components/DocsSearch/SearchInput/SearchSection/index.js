@@ -32,11 +32,13 @@ function SearchSection({ downshiftProps, docsContext, onClick, results = [], sol
             doc.solution &&
             doc.title && (
               <li key={doc.id} {...getItemProps({ item: doc, index })}>
-                <Link className={styles.link} to={`${docsContext}${doc.slug}`} onClick={onClick}>
-                  <p className={styles.linkLabel}>{`${findSolutionTitle(doc.solution)} / ${unKebabCase(
-                    doc.category
-                  )}`}</p>
-                  <p className={styles.linkValue}>{doc.title}</p>
+                <Link className={styles.link} to={`${docsContext}${doc.slug}`}>
+                  <button className={styles.linkButton} onClick={onClick} type="button">
+                    <p className={styles.linkLabel}>{`${findSolutionTitle(doc.solution)} / ${unKebabCase(
+                      doc.category
+                    )}`}</p>
+                    <p className={styles.linkValue}>{doc.title}</p>
+                  </button>
                 </Link>
               </li>
             )

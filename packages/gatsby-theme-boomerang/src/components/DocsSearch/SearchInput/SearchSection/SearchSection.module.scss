@@ -24,7 +24,7 @@
       background: #c1c7cd;
     }
 
-    .link {
+    .linkButton {
       border-bottom: 0.0625rem solid var(--cds-text-03);
     }
 
@@ -42,7 +42,7 @@
       background: lighten(#061727, 5%);
     }
 
-    .link {
+    .linkButton {
       border-bottom: 0.0625rem solid #04386D;
     }
 
@@ -57,14 +57,24 @@
 }
 
 .link {
+  &:focus {
+    @include focus-outline($offset: -0.125rem);
+  }
+}
+
+.linkButton {
+  background: transparent;
+  border: none;
   border-radius: 0.125rem;
-  display: block;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
   max-width: 28rem;
   padding: .5rem 1rem;
   text-decoration: none;
   width: 100%;
   &:focus {
-    @include focus-outline();
+    @include focus-outline($offset: -0.125rem);
   }
 }
 
