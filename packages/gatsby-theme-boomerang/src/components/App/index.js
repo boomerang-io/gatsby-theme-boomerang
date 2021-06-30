@@ -4,7 +4,7 @@ import { AppContext } from "@gatsby-theme-boomerang/state";
 import { useSideNavScrollManager } from "@gatsby-theme-boomerang/hooks";
 import { useQuery } from "react-query";
 import { Loading } from "@boomerang-io/carbon-addons-boomerang-react";
-import ErrorDragon from "@gatsby-theme-boomerang/components/ErrorDragon";
+import ErrorFullPage from "@gatsby-theme-boomerang/components/ErrorFullPage";
 import Header from "@gatsby-theme-boomerang/components/Header";
 import { resolver, serviceUrl } from "@gatsby-theme-boomerang/config/servicesConfig";
 
@@ -44,7 +44,7 @@ export default function App({ children, location }) {
     return (
       <>
         <Header />
-        <ErrorDragon />
+        <ErrorFullPage />
       </>
     );
   }

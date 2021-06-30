@@ -2,7 +2,7 @@ import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { ErrorBoundary } from "@boomerang-io/carbon-addons-boomerang-react";
 import PageContainer from "@gatsby-theme-boomerang/components/PageContainer";
-import ErrorDragon from "@gatsby-theme-boomerang/components/ErrorDragon";
+import ErrorFullPage from "@gatsby-theme-boomerang/components/ErrorFullPage";
 import App from "@gatsby-theme-boomerang/components/App";
 import StandaloneApp from "@gatsby-theme-boomerang/components/StandaloneApp";
 import { startApiServer } from "../apiServer";
@@ -19,7 +19,7 @@ export default function index({ location, children }) {
     require("smooth-scroll")('a[href*="#"]', { speed: 200, offset: 70 });
   }
   return (
-    <ErrorBoundary errorComponent={ErrorDragon}>
+    <ErrorBoundary errorComponent={() => <ErrorFullPage style={{ marginTop: "10rem" }} />}>
       <StaticQuery
         query={graphql`
           query {

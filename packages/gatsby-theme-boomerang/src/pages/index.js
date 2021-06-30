@@ -1,7 +1,10 @@
 /* eslint-disable import/no-unresolved */
 import React from "react";
-import { Link, graphql, useStaticQuery } from "gatsby";
+import isAbsoluteUrl from "is-absolute-url";
+import { graphql, useStaticQuery } from "gatsby";
+import semver from "semver";
 import cx from "classnames";
+import Link from "@gatsby-theme-boomerang/components/Link";
 import PageContainer from "@gatsby-theme-boomerang/components/PageContainer";
 import DocsSearch from "@gatsby-theme-boomerang/components/DocsSearch";
 import Footer from "@gatsby-theme-boomerang/components/Footer";
@@ -14,6 +17,7 @@ const pageQuery = graphql`
     site {
       pathPrefix
       siteMetadata {
+        docsContext
         docsLocation
         siteUrl
         title
@@ -40,6 +44,19 @@ const pageQuery = graphql`
         }
       }
     }
+    allMarkdownRemark {
+      edges {
+        node {
+          fields {
+            category
+            solution
+            title
+            slug
+            version
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -49,9 +66,48 @@ const pageQuery = graphql`
 function Home() {
   const {
     site: { siteMetadata },
+    allMarkdownRemark: { edges: docNodes },
   } = useStaticQuery(pageQuery);
 
-  const { homeTitle, homeDescription, linksConfig, footerLinksConfig } = siteMetadata;
+  const { docsContext, homeTitle, homeDescription, linksConfig, footerLinksConfig } = siteMetadata;
+
+  /**
+   * Search for all versions of each doc so we can insert the latest one in the links config paths
+   */
+  const checkedDocIds = [];
+  const allDocsPaths = [];
+  docNodes.forEach(({ node }) => {
+    const docId = `${node.fields.category}-${node.fields.solution}-${node.fields.title}`;
+
+    if (!checkedDocIds.includes(docId)) {
+      checkedDocIds.push(docId);
+
+      const allVersionsOfDoc = [];
+      docNodes.forEach(({ node: comparisonNode }) => {
+        if (
+          comparisonNode.fields.category === node.fields.category &&
+          comparisonNode.fields.solution === node.fields.solution &&
+          comparisonNode.fields.title === node.fields.title
+        ) {
+          allVersionsOfDoc.push({
+            docId,
+            version: comparisonNode.fields.version,
+            slug: comparisonNode.fields.slug,
+          });
+        }
+      });
+
+      const semVersions = allVersionsOfDoc.map((nodes) => nodes.version);
+      const latestVersion = semVersions.sort(semver.rcompare)[0];
+      const latestDoc = allVersionsOfDoc.find((doc) => doc.version === latestVersion);
+      const pathToLatestDoc = latestDoc.slug ? docsContext + latestDoc.slug : "/";
+      const docConfigPath = pathToLatestDoc.replace(`/${latestVersion}`, "");
+      allDocsPaths.push({ configPath: docConfigPath, path: pathToLatestDoc });
+    }
+  });
+
+  const returnDocPathWithVersion = ({ configPath }) =>
+    allDocsPaths.find((doc) => doc.configPath === configPath)?.path ?? configPath;
 
   return (
     <PageContainer siteMetadata={siteMetadata}>
@@ -76,7 +132,10 @@ function Home() {
               <Section title={config.title}>
                 <nav className={styles.sectionLinks}>
                   {config.links.map((link, index) => {
-                    const isExternal = link.path.includes("http://") || link.path.includes("https://");
+                    const isExternal = isAbsoluteUrl(link.path);
+                    let linkPath = link.path;
+
+                    if (!isExternal) linkPath = returnDocPathWithVersion({ configPath: link.path });
 
                     return link.image ? (
                       <ImageCard
@@ -86,7 +145,7 @@ function Home() {
                         image={link.image}
                         title={link.title}
                         description={link.description}
-                        path={link.path}
+                        path={linkPath}
                       />
                     ) : (
                       <SimpleCard
@@ -95,7 +154,7 @@ function Home() {
                         isExternal={isExternal}
                         title={link.title}
                         description={link.description}
-                        path={link.path}
+                        path={linkPath}
                       />
                     );
                   })}
@@ -144,20 +203,15 @@ function SimpleCard({ id, isExternal, path, description, title }) {
     </>
   );
 
-  return isExternal ? (
-    <a className={cx(styles.card, styles.simpleCard)} href={path}>
-      <Content />
-      <Launch24 className={styles.cardLaunchIcon} />
-    </a>
-  ) : (
+  return (
     <Link className={cx(styles.card, styles.simpleCard)} to={path}>
       <Content />
-      <ArrowRight24 className={styles.cardArrowIcon} />
+      {isExternal ? <Launch24 className={styles.cardLaunchIcon} /> : <ArrowRight24 className={styles.cardArrowIcon} />}
     </Link>
   );
 }
 
-function ImageCard({ id, isExternal, image, path, description, title }) {
+function ImageCard({ id, image, isExternal, path, description, title }) {
   const img = contentLabelsToImageMap[image] ?? contentLabelsToImageMap[ContentLabels.ProcessDeliveryAccelerator];
 
   let titleHeight = 0;
@@ -183,15 +237,10 @@ function ImageCard({ id, isExternal, image, path, description, title }) {
     </>
   );
 
-  return isExternal ? (
-    <a className={cx(styles.card, styles.imageCard)} href={path}>
-      <Content />
-      <Launch24 className={styles.cardLaunchIcon} />
-    </a>
-  ) : (
+  return (
     <Link className={cx(styles.card, styles.imageCard)} to={path}>
       <Content />
-      <ArrowRight24 className={styles.cardArrowIcon} />
+      {isExternal ? <Launch24 className={styles.cardLaunchIcon} /> : <ArrowRight24 className={styles.cardArrowIcon} />}
     </Link>
   );
 }
