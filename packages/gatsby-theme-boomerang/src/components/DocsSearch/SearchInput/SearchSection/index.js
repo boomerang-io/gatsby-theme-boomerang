@@ -7,7 +7,7 @@ import Link from "@gatsby-theme-boomerang/components/Link";
 import { unKebabCase } from "@gatsby-theme-boomerang/utils";
 import * as styles from "./SearchSection.module.scss";
 
-function SearchSection({ downshiftProps, docsContext, results = [], solutionsConfig = [], theme }) {
+function SearchSection({ downshiftProps, docsContext, onClick, results = [], solutionsConfig = [], theme }) {
   const { getMenuProps, getItemProps } = downshiftProps;
   const uniqueDocList = [];
   const uniqueDocVersionlessSlugList = [];
@@ -32,7 +32,7 @@ function SearchSection({ downshiftProps, docsContext, results = [], solutionsCon
             doc.solution &&
             doc.title && (
               <li {...getItemProps({ item: doc, index })} key={doc.id}>
-                <Link className={styles.link} to={`${docsContext}${doc.slug}`}>
+                <Link className={styles.link} to={`${docsContext}${doc.slug}`} onClick={onClick}>
                   <p className={styles.linkLabel}>{`${findSolutionTitle(doc.solution)} / ${unKebabCase(
                     doc.category
                   )}`}</p>
