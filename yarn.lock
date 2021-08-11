@@ -1920,10 +1920,10 @@
     warning "^4.0.3"
     window-or-global "^1.0.1"
 
-"@boomerang-io/carbon-addons-boomerang-react@1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-1.2.2.tgz#a8a7d6855edd82c6d932ba81cb1ad46089403a9a"
-  integrity sha512-xJUUwfip3jXEWeCALjVCapRTC67Pjh9vKerMyDqocaxChCBrhnLeicHvDviGvjjxumITlw3lKIXkPJ5m9Gm6Tg==
+"@boomerang-io/carbon-addons-boomerang-react@1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-1.2.3.tgz#d54633fcf7691b2cc48a59a01994173ab52d960c"
+  integrity sha512-2LF8M2zm8IGkDMwwlMcIoqAIhvWFCsQFU7FCv0KHkEZ8onEbqLwyZqG32F/76KNnruDhfhQBKIJ2ozyO46YADA==
   dependencies:
     "@carbon/elements" "^10.21.0"
     "@carbon/themes" "^10.21.0"
