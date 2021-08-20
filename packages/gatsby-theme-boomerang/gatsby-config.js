@@ -55,6 +55,7 @@ module.exports = (themeOptions) => {
       footerLinksConfig: [],
       lunrSearch,
       standaloneMode: true,
+      isGaActive: true,
     },
     plugins: [
       "gatsby-plugin-catch-links",

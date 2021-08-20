@@ -40,5 +40,5 @@ Layout.propTypes = {
   docNodes: PropTypes.array,
   location: PropTypes.object.isRequired,
   pageContext: PropTypes.object.isRequired,
-  platformTitle: PropTypes.string,
+  productTitle: PropTypes.string,
 };
