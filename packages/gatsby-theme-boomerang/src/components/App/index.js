@@ -14,7 +14,7 @@ const GET_NAVIGATION_URL = serviceUrl.getNavigation();
 
 export default function App({ children, location, isGaActive }) {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  if (isGaActive) useTracking();
+  if (isGaActive) useTracking(location);
   const [isSideNavMounted, setIsSideNavMounted] = React.useState(false);
   useSideNavScrollManager({ isSideNavMounted, location });
 
