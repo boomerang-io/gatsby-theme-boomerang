@@ -6,12 +6,15 @@ import { useQuery } from "react-query";
 import { Loading } from "@boomerang-io/carbon-addons-boomerang-react";
 import ErrorDragon from "@gatsby-theme-boomerang/components/ErrorDragon";
 import Header from "@gatsby-theme-boomerang/components/Header";
+import { useTracking } from "@gatsby-theme-boomerang/hooks";
 import { resolver, serviceUrl } from "@gatsby-theme-boomerang/config/servicesConfig";
 
 const GET_USER_URL = serviceUrl.getUserProfile();
 const GET_NAVIGATION_URL = serviceUrl.getNavigation();
 
-export default function App({ children, location }) {
+export default function App({ children, location, isGaActive }) {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  if (isGaActive) useTracking(location);
   const [isSideNavMounted, setIsSideNavMounted] = React.useState(false);
   useSideNavScrollManager({ isSideNavMounted, location });
 
@@ -32,6 +35,13 @@ export default function App({ children, location }) {
         if (hasConsented) {
           window.newrelic.setCustomAttribute("userId", id);
         }
+      }
+    }
+    if (typeof window !== "undefined" && window._appInfo) {
+      if (userQuery.data) {
+        window._appInfo.attribute1 = userQuery.data?.id;
+        window._appInfo.attribute2 = userQuery.data?.email;
+        window._appInfo.attribute3 = userQuery.data?.type;
       }
     }
   }, [userQuery]);
@@ -63,5 +73,6 @@ export default function App({ children, location }) {
 
 App.propTypes = {
   children: PropTypes.node.isRequired,
+  isGaActive: PropTypes.bool,
   location: PropTypes.object.isRequired,
 };
