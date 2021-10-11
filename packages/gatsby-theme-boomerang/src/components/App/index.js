@@ -59,6 +59,10 @@ export default function App({ children, location, isGaActive }) {
     );
   }
 
+  if (!Boolean(userQuery?.data.hasConsented)) {
+    return null;
+  }
+
   if (userQuery.data && navigationQuery.data) {
     return (
       <AppContext.Provider value={{ isSideNavMounted, setIsSideNavMounted }}>
