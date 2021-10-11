@@ -59,6 +59,7 @@ export default function App({ children, location, isGaActive }) {
     );
   }
 
+  console.log("userQuery?.data: ", userQuery?.data);
   if (!Boolean(userQuery?.data.hasConsented)) {
     return null;
   }
