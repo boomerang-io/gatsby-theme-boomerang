@@ -1013,32 +1013,6 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@boomerang-io/carbon-addons-boomerang-react@1.1.7":
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-1.1.7.tgz#a56f11ad68c22213d15c0f0f44815b2ad5332866"
-  integrity sha512-mRfwQHBPqF/NZjZOI+ss5veqiPzutboHlT6o+SAVcR9auLyulQ/lOsBjlC4FDgNMYA9Frgd3rRyFXbT13wlDCw==
-  dependencies:
-    "@carbon/elements" "^10.21.0"
-    "@carbon/themes" "^10.21.0"
-    "@stomp/stompjs" "^5.4.2"
-    "@tippyjs/react" "^4.0.2"
-    carbon-icons "^7.0.7"
-    classnames "^2.2.5"
-    date-fns "^1.30.1"
-    dompurify "^2.0.6"
-    downshift "^5.2.1"
-    invariant "^2.2.3"
-    js-file-download "^0.4.7"
-    lodash.isequal "^4.5.0"
-    match-sorter "^4.2.1"
-    react-autosuggest "^9.4.3"
-    react-dropzone "^10.0.6"
-    react-focus-trap "^2.7.1"
-    react-modal "^3.10.1"
-    react-toastify "^5.3.2"
-    warning "^4.0.3"
-    window-or-global "^1.0.1"
-
 "@boomerang-io/carbon-addons-boomerang-react@1.2.3":
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-1.2.3.tgz#d54633fcf7691b2cc48a59a01994173ab52d960c"
@@ -1091,12 +1065,10 @@
     warning "^4.0.3"
     window-or-global "^1.0.1"
 
-"@boomerang-io/gatsby-theme-boomerang@0.1.0-beta.18":
-  version "0.1.0-beta.18"
-  resolved "https://registry.yarnpkg.com/@boomerang-io/gatsby-theme-boomerang/-/gatsby-theme-boomerang-0.1.0-beta.18.tgz#173653ec32ce59fb97c10f631305156b2e6fa487"
-  integrity sha512-bx6csKtJWmhMrIscf65MORhMJc0vENG4KWBQczbAL9oGMHLqhZNtnFtLdnMW+KUaNTIoIMmBnRH1INU/wGG0Kg==
+"@boomerang-io/gatsby-theme-boomerang@0.1.0-beta.26":
+  version "0.2.0-beta.26"
   dependencies:
-    "@boomerang-io/carbon-addons-boomerang-react" "1.1.7"
+    "@boomerang-io/carbon-addons-boomerang-react" "1.2.4"
     "@carbon/icons-react" "10.22.0"
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search" "3.0.2"
     app-root-path "2.2.1"
@@ -1136,7 +1108,7 @@
     moment "2.29.1"
     node-html-parser "^1.1.15"
     node-sass "^4.14.0"
-    postcss "7.0.35"
+    postcss "8.3.0"
     prismjs "1.23.0"
     prop-types "15.7.2"
     react-helmet "6.1.0"
@@ -13617,15 +13589,6 @@ postcss@7.0.21:
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-postcss@7.0.35, postcss@^7.0.14, postcss@^7.0.2, postcss@^7.0.21, postcss@^7.0.26, postcss@^7.0.27, postcss@^7.0.32, postcss@^7.0.35, postcss@^7.0.6:
-  version "7.0.35"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.35.tgz#d2be00b998f7f211d8a276974079f2e92b970e24"
-  integrity sha512-3QT8bBJeX/S5zKTTjTCIjRF3If4avAT6kqxcASlTWEtAFCb9NH0OUxNDfgZSWdP5fJnBYCMEWkIFfWeugjzYMg==
-  dependencies:
-    chalk "^2.4.2"
-    source-map "^0.6.1"
-    supports-color "^6.1.0"
-
 postcss@8.2.6:
   version "8.2.6"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.2.6.tgz#5d69a974543b45f87e464bc4c3e392a97d6be9fe"
@@ -13643,6 +13606,15 @@ postcss@8.3.0, postcss@^8.2.9:
     colorette "^1.2.2"
     nanoid "^3.1.23"
     source-map-js "^0.6.2"
+
+postcss@^7.0.14, postcss@^7.0.2, postcss@^7.0.21, postcss@^7.0.26, postcss@^7.0.27, postcss@^7.0.32, postcss@^7.0.35, postcss@^7.0.6:
+  version "7.0.35"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.35.tgz#d2be00b998f7f211d8a276974079f2e92b970e24"
+  integrity sha512-3QT8bBJeX/S5zKTTjTCIjRF3If4avAT6kqxcASlTWEtAFCb9NH0OUxNDfgZSWdP5fJnBYCMEWkIFfWeugjzYMg==
+  dependencies:
+    chalk "^2.4.2"
+    source-map "^0.6.1"
+    supports-color "^6.1.0"
 
 postcss@^8.2.8:
   version "8.2.8"

@@ -4,7 +4,7 @@ export default {
   name: "Timothy Bula",
   isFirstVisit: false,
   type: "admin",
-  hasConsented: true,
+  hasConsented: false,
   isShowHelp: true,
   teams: null,
   firstLoginDate: 1504649578000,
