@@ -59,16 +59,11 @@ export default function App({ children, location, isGaActive }) {
     );
   }
 
-  console.log("userQuery?.data: ", userQuery?.data);
-  if (!Boolean(userQuery?.data.hasConsented)) {
-    return null;
-  }
-
   if (userQuery.data && navigationQuery.data) {
     return (
       <AppContext.Provider value={{ isSideNavMounted, setIsSideNavMounted }}>
         <Header navigation={navigationQuery.data} user={userQuery.data} />
-        {children}
+        {!Boolean(userQuery?.data.hasConsented) ? null : children}
       </AppContext.Provider>
     );
   }
