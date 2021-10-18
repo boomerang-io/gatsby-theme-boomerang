@@ -1065,6 +1065,32 @@
     warning "^4.0.3"
     window-or-global "^1.0.1"
 
+"@boomerang-io/carbon-addons-boomerang-react@1.2.4":
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-1.2.4.tgz#d244be50d01c915a0220409030b75bf8ed831f07"
+  integrity sha512-JfWXmX7noE0RrhzgAyjFT0qvrvxa2Mwh0HYkvt9TigmYorfC1CPJzmf2MwcKQ0Jad13Q5a1lNLw8rocMF3KqIw==
+  dependencies:
+    "@carbon/elements" "^10.21.0"
+    "@carbon/themes" "^10.21.0"
+    "@stomp/stompjs" "^5.4.2"
+    "@tippyjs/react" "^4.0.2"
+    carbon-icons "^7.0.7"
+    classnames "^2.2.5"
+    date-fns "^1.30.1"
+    dompurify "^2.0.6"
+    downshift "^5.2.1"
+    invariant "^2.2.3"
+    js-file-download "^0.4.7"
+    lodash.isequal "^4.5.0"
+    match-sorter "^4.2.1"
+    react-autosuggest "^9.4.3"
+    react-dropzone "^10.0.6"
+    react-focus-trap "^2.7.1"
+    react-modal "^3.10.1"
+    react-toastify "^5.3.2"
+    warning "^4.0.3"
+    window-or-global "^1.0.1"
+
 "@boomerang-io/gatsby-theme-boomerang@0.1.0-beta.18":
   version "0.1.0-beta.18"
   resolved "https://registry.yarnpkg.com/@boomerang-io/gatsby-theme-boomerang/-/gatsby-theme-boomerang-0.1.0-beta.18.tgz#173653ec32ce59fb97c10f631305156b2e6fa487"
@@ -3805,6 +3831,13 @@ axios@0.21.1, axios@^0.21.0, axios@^0.21.1:
   integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   dependencies:
     follow-redirects "^1.10.0"
+
+axios@^0.22.0:
+  version "0.22.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.22.0.tgz#bf702c41fb50fbca4539589d839a077117b79b25"
+  integrity sha512-Z0U3uhqQeg1oNcihswf4ZD57O3NrR1+ZXhxaROaWpDmsDTx7T2HNBV2ulBtie2hwJptu8UvgnJoK+BIqdzh/1w==
+  dependencies:
+    follow-redirects "^1.14.4"
 
 axobject-query@^2.2.0:
   version "2.2.0"
@@ -7423,6 +7456,11 @@ follow-redirects@^1.0.0, follow-redirects@^1.10.0:
   version "1.13.3"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.3.tgz#e5598ad50174c1bc4e872301e82ac2cd97f90267"
   integrity sha512-DUgl6+HDzB0iEptNQEXLx/KhTmDb8tZUHSeLqpnjpknR70H0nC2t9N73BK6fN4hOvJ84pKlIQVQ4k5FFlBedKA==
+
+follow-redirects@^1.14.4:
+  version "1.14.4"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.4.tgz#838fdf48a8bbdd79e52ee51fb1c94e3ed98b9379"
+  integrity sha512-zwGkiSXC1MUJG/qmeIFH2HBJx9u0V46QGUe3YR1fXG8bXQxq7fLj0RjLZQ5nubr9qNJUZrH+xUcwXEoXNpfS+g==
 
 for-each@^0.3.3:
   version "0.3.3"
@@ -13718,6 +13756,11 @@ prismjs@1.23.0:
   integrity sha512-c29LVsqOaLbBHuIbsTxaKENh1N2EQBOHaWv7gkHN4dgRbxSREqDnDbtFJYdpPauS4YCplMSNCABQ6Eeor69bAA==
   optionalDependencies:
     clipboard "^2.0.0"
+
+prismjs@^1.25.0:
+  version "1.25.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.25.0.tgz#6f822df1bdad965734b310b315a23315cf999756"
+  integrity sha512-WCjJHl1KEWbnkQom1+SzftbtXMKQoezOCYs5rECqMN+jP+apI7ftoflyqigqzopSO3hMhTEb0mFClA8lkolgEg==
 
 probe-image-size@^6.0.0:
   version "6.0.0"
