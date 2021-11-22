@@ -32,6 +32,7 @@ export default function index({ location, children }) {
                   twitter
                 }
                 standaloneMode
+                isGaActive
                 uiShellProductName
                 navLinks {
                   name
@@ -42,15 +43,22 @@ export default function index({ location, children }) {
           }
         `}
         render={(data) => {
-          const { navLinks, standaloneMode, uiShellProductName } = data.site.siteMetadata;
+          const { navLinks, standaloneMode, uiShellProductName, isGaActive } = data.site.siteMetadata;
           return (
             <PageContainer siteMetadata={data.site.siteMetadata}>
               {standaloneMode ? (
-                <StandaloneApp location={location} navLinks={navLinks} uiShellProductName={uiShellProductName}>
+                <StandaloneApp
+                  location={location}
+                  navLinks={navLinks}
+                  uiShellProductName={uiShellProductName}
+                  isGaActive={isGaActive}
+                >
                   {children}
                 </StandaloneApp>
               ) : (
-                <App location={location}>{children}</App>
+                <App location={location} isGaActive={isGaActive}>
+                  {children}
+                </App>
               )}
             </PageContainer>
           );
