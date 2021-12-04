@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import { navigate } from "gatsby";
+// import { navigate } from "gatsby";
+import semver from "semver";
 import { Index } from "elasticlunr";
 import { Search } from "carbon-components-react";
 import Downshift from "downshift";
@@ -52,6 +53,20 @@ export default class SearchInput extends Component {
   handleOnSearch = (evt) => {
     const query = evt.target.value;
     this.index = this.getOrCreateIndex();
+
+    const getLatestVersionDoc = ({ ref }) => {
+      const doc = this.index.documentStore.getDoc(ref);
+      const docId = `${doc.category}-${doc.solution}-${doc.title}`;
+      const allDocs = Object.values(this.index.documentStore.docs).filter((searchDoc) => {
+        const searchDocId = `${searchDoc.category}-${searchDoc.solution}-${searchDoc.title}`;
+        return searchDocId === docId;
+      });
+
+      const docWithLatestVersion = allDocs.sort((a, b) => semver.rcompare(a.version, b.version))[0];
+
+      return docWithLatestVersion;
+    };
+
     this.setState({
       query,
       // Query the index with search string to get an [] of IDs
@@ -63,7 +78,7 @@ export default class SearchInput extends Component {
           expand: true,
         })
         // Map over each ID and return the full document
-        .map(({ ref }) => this.index.documentStore.getDoc(ref)),
+        .map(getLatestVersionDoc),
       resultsContent: this.index
         .search(query, {
           fields: {
@@ -71,7 +86,7 @@ export default class SearchInput extends Component {
           },
         })
         // Map over each ID and return the full document
-        .map(({ ref }) => this.index.documentStore.getDoc(ref)),
+        .map(getLatestVersionDoc),
     });
   };
 
@@ -90,9 +105,13 @@ export default class SearchInput extends Component {
       <div className={cx(styles.container, styles[theme])} ref={this.ref}>
         <Downshift
           itemToString={(doc) => doc && `${doc.solution}/${doc.category}/${kebab(doc.title)}`}
-          onChange={(doc) =>
-            doc && navigate(`${this.props.docsContext}/${doc.solution}/${kebab(doc.category)}/${kebab(doc.title)}`)
-          }
+          // Not sure why need another redirect here if we have links in the search section
+          // onChange={(doc) =>
+          //   doc &&
+          //   navigate(
+          //     `${this.props.docsContext}/${doc.solution}/${doc.version}/${kebab(doc.category)}/${kebab(doc.title)}`
+          //   )
+          // }
         >
           {(downshiftProps) => {
             const { getInputProps, getRootProps } = downshiftProps;

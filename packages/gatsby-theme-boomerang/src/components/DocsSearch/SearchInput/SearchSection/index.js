@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import { Link } from "gatsby";
+// eslint-disable-next-line import/no-unresolved
+import Link from "@gatsby-theme-boomerang/components/Link";
+// eslint-disable-next-line import/no-unresolved
 import { unKebabCase } from "@gatsby-theme-boomerang/utils";
 import * as styles from "./SearchSection.module.scss";
 
@@ -29,7 +31,7 @@ function SearchSection({ downshiftProps, docsContext, onClick, results = [], sol
           (doc, index) =>
             doc.solution &&
             doc.title && (
-              <li key={doc.id} {...getItemProps({ item: doc, index })}>
+              <li {...getItemProps({ item: doc, index })} key={doc.id}>
                 <Link className={styles.link} to={`${docsContext}${doc.slug}`} onClick={onClick}>
                   <p className={styles.linkLabel}>{`${findSolutionTitle(doc.solution)} / ${unKebabCase(
                     doc.category

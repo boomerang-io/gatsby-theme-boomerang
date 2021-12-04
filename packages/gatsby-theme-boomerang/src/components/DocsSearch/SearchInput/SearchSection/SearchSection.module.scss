@@ -64,7 +64,7 @@
   text-decoration: none;
   width: 100%;
   &:focus {
-    @include focus-outline();
+    @include focus-outline($offset: -0.125rem);
   }
 }
 
