@@ -74,7 +74,12 @@ export default function DocTemplate(props) {
         <article className={styles.container}>
           <div className={styles.metadata}>
             <span>
-              Last upated: <time>{moment.unix(markdownRemark.fields.updatedAt).format("MMM DD, YYYY")}</time>
+              Last updated:{" "}
+              <time>
+                {moment(markdownRemark.fields.updatedAt).isValid()
+                  ? moment.unix(new Date(markdownRemark.fields.updatedAt)).format("MMM DD, YYYY")
+                  : "---"}
+              </time>
             </span>
             <span>{`Version: ${markdownRemark.fields.version}`}</span>
             <Link
