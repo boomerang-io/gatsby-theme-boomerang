@@ -23,3 +23,7 @@ export const contentLabelsToImageMap = {
   [ContentLabels.ProcessDeliveryAccelerator]: ProcessDeliveryAccelerator,
   [ContentLabels.Watson]: Watson,
 };
+
+export const UserPlatformRole = {
+  Partner: "partner",
+};
