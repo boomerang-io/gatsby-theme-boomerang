@@ -1,4 +1,4 @@
-export default {
+const profile = {
   id: "59aebd0c7424530fce952fde",
   email: "trbula@us.ibm.com",
   name: "Timothy Bula",
@@ -15,3 +15,5 @@ export default {
   personalizations: {},
   notificationSettings: {},
 };
+
+export default profile;

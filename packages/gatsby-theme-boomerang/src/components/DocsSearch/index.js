@@ -24,8 +24,8 @@ const DocsSearch = ({ resultsAlignment, theme = "light" }) => (
     render={(data) => (
       <SearchInput
         docsContext={data.site.siteMetadata.docsContext}
-        searchIndex={data.siteSearchIndex.index}
         resultsAlignment={resultsAlignment}
+        searchIndex={data.siteSearchIndex.index}
         solutionsConfig={data.site.siteMetadata.solutionsConfig}
         theme={theme}
       />

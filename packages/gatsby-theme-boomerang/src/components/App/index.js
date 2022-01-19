@@ -13,7 +13,7 @@ const GET_USER_URL = serviceUrl.getUserProfile();
 const GET_NAVIGATION_URL = serviceUrl.getNavigation();
 
 export default function App({ children, location, isGaActive }) {
-  if (isGaActive) useTracking(location);
+  useTracking(location, isGaActive);
   const [isSideNavMounted, setIsSideNavMounted] = React.useState(false);
   useSideNavScrollManager({ isSideNavMounted, location });
 

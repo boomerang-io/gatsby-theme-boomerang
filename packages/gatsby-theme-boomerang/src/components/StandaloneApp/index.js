@@ -10,7 +10,7 @@ const skipToContentProps = {
 };
 
 export default function StandaloneApp({ children, location, navLinks, uiShellProductName, isGaActive }) {
-  if (isGaActive) useTracking(location);
+  useTracking(location, isGaActive);
   const [isSideNavMounted, setIsSideNavMounted] = React.useState(false);
   useSideNavScrollManager({ isSideNavMounted, location });
 

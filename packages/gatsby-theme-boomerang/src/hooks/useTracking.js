@@ -2,10 +2,10 @@
 
 import { useEffect } from "react";
 
-export default function useTracking(location) {
+export default function useTracking(location, isEnabled) {
   useEffect(() => {
-    if (global.ibmStats) {
+    if (isEnabled & global.ibmStats) {
       return ibmStats.pageview();
     }
-  }, [location]);
+  }, [location, isEnabled]);
 }
