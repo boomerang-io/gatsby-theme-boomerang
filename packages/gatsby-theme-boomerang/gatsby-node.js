@@ -93,6 +93,7 @@ exports.createPages = ({ graphql, actions }) => {
           createPage({
             path: docsContext + pathToDoc,
             component: require.resolve("./src/templates/Docs/index.js"),
+            defer: true,
             context: {
               id: node.fields.id,
               category: node.fields.category,

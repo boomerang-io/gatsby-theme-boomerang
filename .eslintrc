@@ -1,5 +1,4 @@
 {
-    "extends":["wesbos"],
     "globals": {
       "ibmStats": true
     },

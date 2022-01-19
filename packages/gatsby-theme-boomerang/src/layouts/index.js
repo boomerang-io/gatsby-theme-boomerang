@@ -1,5 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
+import { QueryClient, QueryClientProvider } from "react-query";
 import { ErrorBoundary } from "@boomerang-io/carbon-addons-boomerang-react";
 import PageContainer from "@gatsby-theme-boomerang/components/PageContainer";
 import ErrorFullPage from "@gatsby-theme-boomerang/components/ErrorFullPage";
@@ -13,11 +14,14 @@ if (process.env.NODE_ENV === "development") {
   startApiServer({ environment: "development", timing: 400 });
 }
 
+const queryClient = new QueryClient();
+
 export default function index({ location, children }) {
   if (typeof window !== "undefined") {
     // eslint-disable-next-line global-require
     require("smooth-scroll")('a[href*="#"]', { speed: 200, offset: 70 });
   }
+
   return (
     <ErrorBoundary errorComponent={() => <ErrorFullPage style={{ marginTop: "10rem" }} />}>
       <StaticQuery
@@ -25,40 +29,42 @@ export default function index({ location, children }) {
           query {
             site {
               siteMetadata {
-                title
                 description
-                socialLinks {
-                  github
-                  twitter
-                }
-                standaloneMode
                 isGaActive
+                standaloneMode
+                title
                 uiShellProductName
                 navLinks {
                   name
                   url
+                }
+                socialLinks {
+                  github
+                  twitter
                 }
               }
             }
           }
         `}
         render={(data) => {
-          const { navLinks, standaloneMode, uiShellProductName, isGaActive } = data.site.siteMetadata;
+          const { isGaActive, navLinks, standaloneMode, uiShellProductName } = data.site.siteMetadata;
           return (
             <PageContainer siteMetadata={data.site.siteMetadata}>
               {standaloneMode ? (
                 <StandaloneApp
+                  isGaActive={isGaActive}
                   location={location}
                   navLinks={navLinks}
                   uiShellProductName={uiShellProductName}
-                  isGaActive={isGaActive}
                 >
                   {children}
                 </StandaloneApp>
               ) : (
-                <App location={location} isGaActive={isGaActive}>
-                  {children}
-                </App>
+                <QueryClientProvider client={queryClient}>
+                  <App isGaActive={isGaActive} location={location}>
+                    {children}
+                  </App>
+                </QueryClientProvider>
               )}
             </PageContainer>
           );
