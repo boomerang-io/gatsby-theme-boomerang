@@ -8,7 +8,7 @@
     "@carbon/icons-react": "10.22.0",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "3.0.2",
     "app-root-path": "2.2.1",
-    "axios": "0.24.0",
+    "axios": ">=0.26.0",
     "carbon-components": "10.25.0",
     "carbon-components-react": "7.25.0",
     "carbon-icons": "7.0.7",
