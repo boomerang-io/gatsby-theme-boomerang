@@ -59,6 +59,14 @@ export default function App({ children, location, isGaActive }) {
   }
 
   if (userQuery.data && navigationQuery.data) {
+    const renderContent = () => {
+      if (userQuery.data.type === UserPlatformRole.Partner) {
+        return <Error403 />;
+      }
+
+      return children;
+    };
+
     return (
       <AppContext.Provider value={{ isSideNavMounted, setIsSideNavMounted }}>
         <Header navigation={navigationQuery.data} user={userQuery.data} />
