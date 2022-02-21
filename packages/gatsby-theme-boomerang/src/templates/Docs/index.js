@@ -60,6 +60,8 @@ export default function DocTemplate(props) {
     url: docsContext + node.fields.slug,
   }));
 
+  console.log(markdownRemark.fields.updatedAt);
+
   return (
     <Layout
       docNodes={docNodes}
@@ -76,8 +78,8 @@ export default function DocTemplate(props) {
             <span>
               Last updated:{" "}
               <time>
-                {moment(markdownRemark.fields.updatedAt).isValid()
-                  ? moment.unix(new Date(markdownRemark.fields.updatedAt)).format("MMM DD, YYYY")
+                {moment.unix(markdownRemark.fields.updatedAt).isValid()
+                  ? moment.unix(markdownRemark.fields.updatedAt).format("MMM DD, YYYY")
                   : "---"}
               </time>
             </span>
@@ -107,7 +109,7 @@ export default function DocTemplate(props) {
 }
 
 export const pageQuery = graphql`
-  query($id: String!, $solution: String!, $version: String!) {
+  query ($id: String!, $solution: String!, $version: String!) {
     site {
       pathPrefix
       siteMetadata {
