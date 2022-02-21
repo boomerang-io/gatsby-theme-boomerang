@@ -1920,10 +1920,10 @@
     warning "^4.0.3"
     window-or-global "^1.0.1"
 
-"@boomerang-io/carbon-addons-boomerang-react@1.2.3":
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-1.2.3.tgz#d54633fcf7691b2cc48a59a01994173ab52d960c"
-  integrity sha512-2LF8M2zm8IGkDMwwlMcIoqAIhvWFCsQFU7FCv0KHkEZ8onEbqLwyZqG32F/76KNnruDhfhQBKIJ2ozyO46YADA==
+"@boomerang-io/carbon-addons-boomerang-react@1.2.4":
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-1.2.4.tgz#d244be50d01c915a0220409030b75bf8ed831f07"
+  integrity sha512-JfWXmX7noE0RrhzgAyjFT0qvrvxa2Mwh0HYkvt9TigmYorfC1CPJzmf2MwcKQ0Jad13Q5a1lNLw8rocMF3KqIw==
   dependencies:
     "@carbon/elements" "^10.21.0"
     "@carbon/themes" "^10.21.0"
@@ -1946,12 +1946,10 @@
     warning "^4.0.3"
     window-or-global "^1.0.1"
 
-"@boomerang-io/gatsby-theme-boomerang@0.1.0-beta.18":
-  version "0.1.0-beta.18"
-  resolved "https://registry.yarnpkg.com/@boomerang-io/gatsby-theme-boomerang/-/gatsby-theme-boomerang-0.1.0-beta.18.tgz#173653ec32ce59fb97c10f631305156b2e6fa487"
-  integrity sha512-bx6csKtJWmhMrIscf65MORhMJc0vENG4KWBQczbAL9oGMHLqhZNtnFtLdnMW+KUaNTIoIMmBnRH1INU/wGG0Kg==
+"@boomerang-io/gatsby-theme-boomerang@0.1.0-beta.26":
+  version "0.2.0-beta.26"
   dependencies:
-    "@boomerang-io/carbon-addons-boomerang-react" "1.1.7"
+    "@boomerang-io/carbon-addons-boomerang-react" "1.2.4"
     "@carbon/icons-react" "10.22.0"
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search" "3.0.2"
     app-root-path "2.2.1"
@@ -1991,7 +1989,7 @@
     moment "2.29.1"
     node-html-parser "^1.1.15"
     node-sass "^4.14.0"
-    postcss "7.0.35"
+    postcss "8.3.0"
     prismjs "1.23.0"
     prop-types "15.7.2"
     react-helmet "6.1.0"
@@ -14919,15 +14917,6 @@ postcss@7.0.21:
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-postcss@7.0.35, postcss@^7.0.14, postcss@^7.0.2, postcss@^7.0.21, postcss@^7.0.26, postcss@^7.0.27, postcss@^7.0.32, postcss@^7.0.35, postcss@^7.0.6:
-  version "7.0.35"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.35.tgz#d2be00b998f7f211d8a276974079f2e92b970e24"
-  integrity sha512-3QT8bBJeX/S5zKTTjTCIjRF3If4avAT6kqxcASlTWEtAFCb9NH0OUxNDfgZSWdP5fJnBYCMEWkIFfWeugjzYMg==
-  dependencies:
-    chalk "^2.4.2"
-    source-map "^0.6.1"
-    supports-color "^6.1.0"
-
 postcss@8.2.6:
   version "8.2.6"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.2.6.tgz#5d69a974543b45f87e464bc4c3e392a97d6be9fe"
@@ -14945,6 +14934,15 @@ postcss@8.3.0, postcss@^8.2.9:
     colorette "^1.2.2"
     nanoid "^3.1.23"
     source-map-js "^0.6.2"
+
+postcss@^7.0.14, postcss@^7.0.2, postcss@^7.0.21, postcss@^7.0.26, postcss@^7.0.27, postcss@^7.0.32, postcss@^7.0.35, postcss@^7.0.6:
+  version "7.0.35"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.35.tgz#d2be00b998f7f211d8a276974079f2e92b970e24"
+  integrity sha512-3QT8bBJeX/S5zKTTjTCIjRF3If4avAT6kqxcASlTWEtAFCb9NH0OUxNDfgZSWdP5fJnBYCMEWkIFfWeugjzYMg==
+  dependencies:
+    chalk "^2.4.2"
+    source-map "^0.6.1"
+    supports-color "^6.1.0"
 
 postcss@^8.2.8:
   version "8.2.8"

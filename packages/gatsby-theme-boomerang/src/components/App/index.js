@@ -13,8 +13,7 @@ const GET_USER_URL = serviceUrl.getUserProfile();
 const GET_NAVIGATION_URL = serviceUrl.getNavigation();
 
 export default function App({ children, location, isGaActive }) {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  if (isGaActive) useTracking(location);
+  useTracking(location, isGaActive);
   const [isSideNavMounted, setIsSideNavMounted] = React.useState(false);
   useSideNavScrollManager({ isSideNavMounted, location });
 
@@ -71,12 +70,24 @@ export default function App({ children, location, isGaActive }) {
     return (
       <AppContext.Provider value={{ isSideNavMounted, setIsSideNavMounted }}>
         <Header navigation={navigationQuery.data} user={userQuery.data} />
-        {renderContent()}
+        <Content user={userQuery?.data}>{children}</Content>
       </AppContext.Provider>
     );
   }
 
   return null;
+}
+
+function Content(props) {
+  if (!Boolean(props.user?.hasConsented)) {
+    return null;
+  }
+
+  if (props.user?.type === UserPlatformRole.Partner) {
+    return <Error403 />;
+  }
+
+  return props.children;
 }
 
 App.propTypes = {
