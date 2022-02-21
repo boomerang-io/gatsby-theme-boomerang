@@ -1,20 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { AppContext } from "@gatsby-theme-boomerang/state";
-import { useSideNavScrollManager } from "@gatsby-theme-boomerang/hooks";
 import { useQuery } from "react-query";
-import { Loading } from "@boomerang-io/carbon-addons-boomerang-react";
+import { Error403, Loading } from "@boomerang-io/carbon-addons-boomerang-react";
 import ErrorFullPage from "@gatsby-theme-boomerang/components/ErrorFullPage";
 import Header from "@gatsby-theme-boomerang/components/Header";
-import { useTracking } from "@gatsby-theme-boomerang/hooks";
+import { useSideNavScrollManager, useTracking } from "@gatsby-theme-boomerang/hooks";
+import { UserPlatformRole } from "@gatsby-theme-boomerang/constants";
 import { resolver, serviceUrl } from "@gatsby-theme-boomerang/config/servicesConfig";
 
 const GET_USER_URL = serviceUrl.getUserProfile();
 const GET_NAVIGATION_URL = serviceUrl.getNavigation();
 
 export default function App({ children, location, isGaActive }) {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  if (isGaActive) useTracking(location);
+  useTracking(location, isGaActive);
   const [isSideNavMounted, setIsSideNavMounted] = React.useState(false);
   useSideNavScrollManager({ isSideNavMounted, location });
 
@@ -63,12 +62,24 @@ export default function App({ children, location, isGaActive }) {
     return (
       <AppContext.Provider value={{ isSideNavMounted, setIsSideNavMounted }}>
         <Header navigation={navigationQuery.data} user={userQuery.data} />
-        {!Boolean(userQuery?.data.hasConsented) ? null : children}
+        <Content user={userQuery?.data}>{children}</Content>
       </AppContext.Provider>
     );
   }
 
   return null;
+}
+
+function Content(props) {
+  if (!Boolean(props.user?.hasConsented)) {
+    return null;
+  }
+
+  if (props.user?.type === UserPlatformRole.Partner) {
+    return <Error403 />;
+  }
+
+  return props.children;
 }
 
 App.propTypes = {
