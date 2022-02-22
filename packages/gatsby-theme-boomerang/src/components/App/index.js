@@ -69,12 +69,24 @@ export default function App({ children, location, isGaActive }) {
     return (
       <AppContext.Provider value={{ isSideNavMounted, setIsSideNavMounted }}>
         <Header navigation={navigationQuery.data} user={userQuery.data} />
-        {renderContent()}
+        <Content user={userQuery?.data}>{children}</Content>
       </AppContext.Provider>
     );
   }
 
   return null;
+}
+
+function Content(props) {
+  if (!Boolean(props.user?.hasConsented)) {
+    return null;
+  }
+
+  if (props.user?.type === UserPlatformRole.Partner) {
+    return <Error403 />;
+  }
+
+  return props.children;
 }
 
 App.propTypes = {
