@@ -66,7 +66,6 @@ export default function App({ children, location, isGaActive }) {
 
       return children;
     };
-
     return (
       <AppContext.Provider value={{ isSideNavMounted, setIsSideNavMounted }}>
         <Header navigation={navigationQuery.data} user={userQuery.data} />

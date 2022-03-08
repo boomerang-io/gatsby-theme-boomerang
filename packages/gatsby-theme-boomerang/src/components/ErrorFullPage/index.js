@@ -1,6 +1,5 @@
 import React from "react";
 import { ErrorFullPage } from "@boomerang-io/carbon-addons-boomerang-react";
-// eslint-disable-next-line import/no-unresolved
 import { BASE_LAUNCH_ENV_URL } from "@gatsby-theme-boomerang/config/platformUrlConfig";
 import { container } from "./ErrorFullPage.module.scss";
 

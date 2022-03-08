@@ -28,7 +28,7 @@ function Footer({ footerLinksConfig }) {
           {socialLinks.map((link) => {
             const Icon = TypeToIcon[link.type] ?? Bee16;
             return (
-              <p className={styles.footerLink}>
+              <p className={styles.footerLink} key={link.link}>
                 <a href={link.link}>
                   <Icon className={styles.footerIcon} /> {link.title}
                 </a>
@@ -43,7 +43,7 @@ function Footer({ footerLinksConfig }) {
               {emailLinks.map((link) => {
                 const Icon = TypeToIcon[link.type] ?? Bee16;
                 return (
-                  <p className={styles.footerLink}>
+                  <p className={styles.footerLink} key={link.link}>
                     <a href={link.link}>
                       <Icon className={styles.footerIcon} /> {link.title}
                     </a>

@@ -1,13 +1,13 @@
 /* eslint-disable import/no-unresolved */
 import React from "react";
-import isAbsoluteUrl from "is-absolute-url";
 import { graphql, useStaticQuery } from "gatsby";
-import semver from "semver";
-import cx from "classnames";
-import Link from "@gatsby-theme-boomerang/components/Link";
-import PageContainer from "@gatsby-theme-boomerang/components/PageContainer";
 import DocsSearch from "@gatsby-theme-boomerang/components/DocsSearch";
 import Footer from "@gatsby-theme-boomerang/components/Footer";
+import Link from "@gatsby-theme-boomerang/components/Link";
+import PageContainer from "@gatsby-theme-boomerang/components/PageContainer";
+import cx from "classnames";
+import isAbsoluteUrl from "is-absolute-url";
+import semver from "semver";
 import { ContentLabels, contentLabelsToImageMap } from "@gatsby-theme-boomerang/constants";
 import { ArrowRight24, Launch24 } from "@carbon/icons-react";
 import * as styles from "./styles/Home.module.scss";
@@ -17,22 +17,18 @@ const pageQuery = graphql`
     site {
       pathPrefix
       siteMetadata {
+        description
         docsContext
         docsLocation
+        homeDescription
+        homeTitle
         siteUrl
         title
-        description
-        socialLinks {
-          github
-          twitter
-        }
         footerLinksConfig {
           link
           title
           type
         }
-        homeTitle
-        homeDescription
         linksConfig {
           title
           links {
@@ -42,6 +38,10 @@ const pageQuery = graphql`
             image
           }
         }
+        socialLinks {
+          github
+          twitter
+        }
       }
     }
     allMarkdownRemark {
@@ -49,9 +49,9 @@ const pageQuery = graphql`
         node {
           fields {
             category
+            slug
             solution
             title
-            slug
             version
           }
         }
@@ -129,7 +129,7 @@ function Home() {
           </header>
           <div className={styles.content}>
             {linksConfig.map((config) => (
-              <Section title={config.title}>
+              <Section title={config.title} key={config.title}>
                 <nav className={styles.sectionLinks}>
                   {config.links.map((link, index) => {
                     const isExternal = isAbsoluteUrl(link.path);
@@ -181,25 +181,12 @@ function Section({ children, title }) {
 function SimpleCard({ id, isExternal, path, description, title }) {
   const hasDescription = Boolean(description);
 
-  let titleHeight = 0;
-  const titleLineHeight = 25;
-
-  if (typeof window !== "undefined" && Boolean(window.document)) {
-    titleHeight = document?.getElementById(id)?.offsetHeight;
-  }
-
-  const titleLineNumber = Math.round(titleHeight / titleLineHeight);
-
   const Content = () => (
     <>
       <h2 id={id} className={cx(styles.simpleCardTitle, { [styles.simpleCardTitleWithDescription]: hasDescription })}>
         {title}
       </h2>
-      {hasDescription && (
-        <p className={styles.simpleCardDescription} style={{ "-webkit-line-clamp": `${5 - titleLineNumber}` }}>
-          {description}
-        </p>
-      )}
+      {hasDescription && <p className={styles.simpleCardDescription}>{description}</p>}
     </>
   );
 
@@ -214,15 +201,6 @@ function SimpleCard({ id, isExternal, path, description, title }) {
 function ImageCard({ id, image, isExternal, path, description, title }) {
   const img = contentLabelsToImageMap[image] ?? contentLabelsToImageMap[ContentLabels.ProcessDeliveryAccelerator];
 
-  let titleHeight = 0;
-  const titleLineHeight = 25;
-
-  if (typeof window !== "undefined" && Boolean(window.document)) {
-    titleHeight = document?.getElementById(id)?.offsetHeight;
-  }
-
-  const titleLineNumber = Math.round(titleHeight / titleLineHeight);
-
   const Content = () => (
     <>
       <div className={styles.imageCardImage} style={{ backgroundImage: `url("${img}")` }} />
@@ -230,7 +208,7 @@ function ImageCard({ id, image, isExternal, path, description, title }) {
         <h3 id={id} className={styles.imageCardTitle}>
           {title}
         </h3>
-        <p className={styles.imageCardDescription} style={{ "-webkit-line-clamp": `${4 - titleLineNumber}` }}>
+        <p title={description} className={styles.imageCardDescription}>
           {description}
         </p>
       </div>

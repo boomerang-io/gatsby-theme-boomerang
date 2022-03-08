@@ -10,9 +10,6 @@ import kebab from "lodash.kebabcase";
 import SearchSection from "./SearchSection";
 import * as styles from "./SearchInput.module.scss";
 
-// Search component
-/* eslint-disable no-unused-expressions */
-
 export default class SearchInput extends Component {
   constructor(props) {
     super(props);
@@ -32,7 +29,6 @@ export default class SearchInput extends Component {
   }
 
   componentWillUnmount() {
-    // document?.removeEventListener("mousedown", this.handleClickOutside);
     if (document) {
       document?.removeEventListener("mousedown", this.handleClickOutside);
     }
@@ -103,16 +99,7 @@ export default class SearchInput extends Component {
 
     return (
       <div className={cx(styles.container, styles[theme])} ref={this.ref}>
-        <Downshift
-          itemToString={(doc) => doc && `${doc.solution}/${doc.category}/${kebab(doc.title)}`}
-          // Not sure why need another redirect here if we have links in the search section
-          // onChange={(doc) =>
-          //   doc &&
-          //   navigate(
-          //     `${this.props.docsContext}/${doc.solution}/${doc.version}/${kebab(doc.category)}/${kebab(doc.title)}`
-          //   )
-          // }
-        >
+        <Downshift itemToString={(doc) => doc && `${doc.solution}/${doc.category}/${kebab(doc.title)}`}>
           {(downshiftProps) => {
             const { getInputProps, getRootProps } = downshiftProps;
             return (

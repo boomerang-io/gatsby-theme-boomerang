@@ -7,9 +7,7 @@
   flex-direction: column;
   height: calc(100vh - 3rem);
   justify-content: space-between;
-  min-width: 42rem;
 }
-
 
 /**
  * Header
@@ -17,7 +15,7 @@
 
 .header {
   align-items: flex-end;
-  background: linear-gradient(0deg, #04386D 0%, #061727 100%);;
+  background: linear-gradient(0deg, #04386d 0%, #061727 100%);
   display: flex;
   justify-content: space-between;
   height: 16rem;
@@ -46,7 +44,7 @@
 }
 
 .headerTitleDocs {
-  color: #38AFFF;
+  color: #38afff;
   font-style: italic;
 }
 
@@ -58,7 +56,6 @@
   width: 20.5rem;
 }
 
-
 /**
  * Content
  */
@@ -67,7 +64,6 @@
   padding: 0 2.5rem;
   width: 100%;
 }
-
 
 /**
  * Section
@@ -80,8 +76,13 @@
   padding-top: 2.5rem;
   width: 100%;
 
-  &+ .section {
+  & + .section {
     border-top: 0.0625rem solid var(--cds-active-ui);
+  }
+
+  @media screen and (max-width: 48rem) {
+    flex-direction: column;
+    gap: 1rem;
   }
 }
 
@@ -105,7 +106,7 @@
  * Cards
  */
 
- @keyframes fade-up {
+@keyframes fade-up {
   0% {
     opacity: 0.01;
     transform: translateY(10px);
@@ -149,7 +150,6 @@
   width: 1.125rem;
 }
 
-
 /**
  * SimpleCard
  */
@@ -178,10 +178,10 @@
   line-height: 1.125rem;
   margin-top: 1rem;
   overflow: hidden;
-  -webkit-box-orient: vertical;
   word-wrap: break-word;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
 }
-
 
 /**
  * Image Card
@@ -215,16 +215,16 @@
   letter-spacing: 0;
   line-height: 1.125rem;
   overflow: hidden;
-  -webkit-box-orient: vertical;
   word-wrap: break-word;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
 }
-
 
 /**
  * Responsiveness
  */
 
-@media (max-width: 42.5rem) {
+@media screen and (max-width: 42.5rem) {
   .header {
     padding: 2rem 1rem;
   }

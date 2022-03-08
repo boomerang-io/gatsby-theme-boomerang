@@ -10,17 +10,16 @@ const skipToContentProps = {
 };
 
 export default function StandaloneApp({ children, location, navLinks, uiShellProductName, isGaActive }) {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  if (isGaActive) useTracking(location);
+  useTracking(location, isGaActive);
   const [isSideNavMounted, setIsSideNavMounted] = React.useState(false);
   useSideNavScrollManager({ isSideNavMounted, location });
 
   return (
     <AppContext.Provider value={{ isSideNavMounted, setIsSideNavMounted }}>
       <UIShell
+        renderLogo
         headerConfig={{ navigation: navLinks }}
         productName={uiShellProductName}
-        renderLogo
         skipToContentProps={skipToContentProps}
       />
       {children}

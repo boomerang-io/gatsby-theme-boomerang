@@ -1,4 +1,4 @@
-export default {
+const navigation = {
   navigation: [
     {
       name: "Launchpad",
@@ -22,3 +22,5 @@ export default {
     sendMail: true,
   },
 };
+
+export default navigation;

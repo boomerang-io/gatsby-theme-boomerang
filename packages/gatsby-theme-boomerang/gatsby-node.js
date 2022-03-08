@@ -55,6 +55,7 @@ exports.createPages = ({ graphql, actions }) => {
          * Create redirect for latest version of doc
          */
         const allVersionsOfEachDocMap = {};
+        const latestVersionOfEachDocMap = {};
         result.data.allMarkdownRemark.edges.forEach(({ node }) => {
           const docId = `${node.fields.category}-${node.fields.solution}-${node.fields.title}`;
 
@@ -80,6 +81,7 @@ exports.createPages = ({ graphql, actions }) => {
             const latestVersion = semVersions.sort(semver.rcompare)[0];
             const latestDoc = allVersionsOfDoc.find((doc) => doc.version === latestVersion);
             const pathToLatestDoc = latestDoc.slug ? docsContext + latestDoc.slug : "/";
+            latestVersionOfEachDocMap[docId] = latestVersion;
 
             createRedirect({
               fromPath: pathToLatestDoc.replace(`/${latestVersion}`, ""),
