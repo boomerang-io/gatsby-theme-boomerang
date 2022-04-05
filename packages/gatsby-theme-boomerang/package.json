@@ -1,6 +1,6 @@
 {
   "name": "@boomerang-io/gatsby-theme-boomerang",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "author": "Timothy Bula <timrbula@gmail.com> (@timrbula)",
   "license": "MIT",
@@ -62,12 +62,12 @@
     "yup": "^0.32.11"
   },
   "peerDependencies": {
-    "gatsby": "^4.5.4",
+    "gatsby": "^4.9.3",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
   },
   "devDependencies": {
-    "gatsby": "^4.5.4",
+    "gatsby": "^4.9.3",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
   }
