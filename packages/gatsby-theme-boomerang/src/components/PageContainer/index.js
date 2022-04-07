@@ -4,8 +4,8 @@ import Boomerang from "./boomerang.png";
 
 export default function PageContainer({ children, siteMetadata = {} }) {
   const resolvedTitle = siteMetadata?.title
-    ? `${siteMetadata?.title} | IBM Services Essentials`
-    : "IBM Services Essentials";
+    ? `${siteMetadata?.title} | IBM Consulting Essentials`
+    : "IBM Consulting Essentials";
   return (
     <>
       <SEO description={siteMetadata.description} title={resolvedTitle} socialLinks={siteMetadata.socialLinks} />

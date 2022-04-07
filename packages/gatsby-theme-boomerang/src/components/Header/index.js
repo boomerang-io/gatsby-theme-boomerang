@@ -19,7 +19,7 @@ const skipToContentProps = {
 class Header extends Component {
   render() {
     const { navigation, user } = this.props;
-    const title = `Docs | ${navigation?.platform?.platformName ?? "IBM Services Essentials"}`;
+    const title = `Docs | ${navigation?.platform?.platformName ?? "IBM Consulting Essentials"}`;
     return (
       <>
         <Helmet>
@@ -31,7 +31,7 @@ class Header extends Component {
           headerConfig={navigation}
           user={user}
           renderLogo={navigation?.platform?.displayLogo}
-          companyName={navigation?.platform?.platformName ?? "IBM Services Essentials"}
+          companyName={navigation?.platform?.platformName ?? "IBM Consulting Essentials"}
           skipToContentProps={skipToContentProps}
         />
       </>
