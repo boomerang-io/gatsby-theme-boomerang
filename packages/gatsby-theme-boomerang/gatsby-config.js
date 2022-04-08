@@ -31,13 +31,13 @@ module.exports = (themeOptions) => {
     flags: { PRESERVE_WEBPACK_CACHE: true },
     pathPrefix: "/BMRG_APP_ROOT_CONTEXT",
     siteMetadata: {
-      title: "IBM Services Essentials",
-      description: "Documentation for IBM Services Essentials",
+      title: "IBM Consulting Essentials",
+      description: "Documentation for IBM Consulting Essentials",
       uiShellProductName: "",
       docsContext: "",
       docsLocation: "https://github.ibm.com/essentials-core/core.app.docs/tree/main/content",
       homeTitle: "Docs",
-      homeDescription: "Documentation for IBM Services Essentials",
+      homeDescription: "Documentation for IBM Consulting Essentials",
       githubUrl: "https://github.ibm.com/essentials-core/core.app.docs",
       siteUrl: "https://launch.boomerangplatform.net/docs",
       socialLinks: {
