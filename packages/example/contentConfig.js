@@ -90,7 +90,7 @@ const config = {
       type: "linkedin",
     },
     {
-      link: "mailto:isesupp@us.ibm.com?subject=IBM Services Essentials",
+      link: "mailto:isesupp@us.ibm.com?subject=IBM Consulting Essentials",
       title: "isesupp@us.ibm.com",
       type: "email",
     },
