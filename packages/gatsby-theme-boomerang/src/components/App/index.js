@@ -39,8 +39,10 @@ export default function App({ children, location, isGaActive }) {
     if (typeof window !== "undefined" && window._appInfo) {
       if (userQuery.data) {
         window._appInfo.attribute1 = userQuery.data?.id;
-        window._appInfo.attribute2 = userQuery.data?.email;
-        window._appInfo.attribute3 = userQuery.data?.type;
+        window._appInfo.attribute2 = userQuery.data?.type;
+        window._appInfo.attribute3 = userQuery.data?.team?.length;
+        window._appInfo.attribute4 = userQuery.data?.requestSummary?.submittedByUser;
+        window._appInfo.attribute5 = userQuery.data?.firstLoginDate;
       }
     }
   }, [userQuery]);
