@@ -40,7 +40,7 @@ export default function App({ children, location, isGaActive }) {
       if (userQuery.data) {
         window._appInfo.attribute1 = userQuery.data?.id;
         window._appInfo.attribute2 = userQuery.data?.type;
-        window._appInfo.attribute3 = userQuery.data?.team?.length;
+        window._appInfo.attribute3 = userQuery.data?.teams?.length;
         window._appInfo.attribute4 = userQuery.data?.requestSummary?.submittedByUser;
         window._appInfo.attribute5 = userQuery.data?.firstLoginDate;
       }
