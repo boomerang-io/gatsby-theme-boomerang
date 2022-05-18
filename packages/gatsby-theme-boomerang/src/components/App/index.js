@@ -45,7 +45,7 @@ export default function App({ children, location, isGaActive }) {
         window._appInfo.attribute5 = userQuery.data?.firstLoginDate;
       }
     }
-  }, [userQuery]);
+  }, [userQuery, userQuery.data]);
 
   if (userQuery.isLoading || navigationQuery.isLoading) {
     return <Loading />;
