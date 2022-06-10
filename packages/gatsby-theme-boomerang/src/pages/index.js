@@ -36,6 +36,7 @@ const pageQuery = graphql`
             description
             path
             image
+            imageHref
           }
         }
         socialLinks {
@@ -137,11 +138,12 @@ function Home() {
 
                     if (!isExternal) linkPath = returnDocPathWithVersion({ configPath: link.path });
 
-                    return link.image ? (
+                    return (link.image || link.imageHref) ? (
                       <ImageCard
                         key={`${link.title}-${link.path}-${index}`}
                         id={`${link.title}-${link.path}-${index}`}
                         isExternal={isExternal}
+                        imageHref={link.imageHref}
                         image={link.image}
                         title={link.title}
                         description={link.description}
@@ -198,8 +200,15 @@ function SimpleCard({ id, isExternal, path, description, title }) {
   );
 }
 
-function ImageCard({ id, image, isExternal, path, description, title }) {
-  const img = contentLabelsToImageMap[image] ?? contentLabelsToImageMap[ContentLabels.ProcessDeliveryAccelerator];
+function ImageCard({ id, imageHref, image, isExternal, path, description, title }) {
+  let img = imageHref;
+  if (image) {
+    const localImageAsset =
+      contentLabelsToImageMap[image] ?? contentLabelsToImageMap[ContentLabels.ProcessDeliveryAccelerator];
+    if (localImageAsset) {
+      img = localImageAsset;
+    }
+  }
 
   const Content = () => (
     <>

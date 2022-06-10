@@ -49,6 +49,12 @@ const config = {
           path: "/docs/dogs/anatomy/why-four-paws",
           image: "watson",
         },
+        {
+          title: "Linux",
+          description: "Idk, an OS",
+          path: "/docs/dogs/anatomy/why-four-paws",
+          imageHref: "/penguin.svg",
+        },
       ],
     },
     {
