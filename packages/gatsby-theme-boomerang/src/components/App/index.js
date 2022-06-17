@@ -4,6 +4,7 @@ import { AppContext } from "@gatsby-theme-boomerang/state";
 import { useQuery } from "react-query";
 import { Error403, Loading } from "@boomerang-io/carbon-addons-boomerang-react";
 import ErrorFullPage from "@gatsby-theme-boomerang/components/ErrorFullPage";
+import PageContainer from "@gatsby-theme-boomerang/components/PageContainer";
 import Header from "@gatsby-theme-boomerang/components/Header";
 import { useSideNavScrollManager, useTracking } from "@gatsby-theme-boomerang/hooks";
 import { UserPlatformRole } from "@gatsby-theme-boomerang/constants";
@@ -61,17 +62,14 @@ export default function App({ children, location, isGaActive }) {
   }
 
   if (userQuery.data && navigationQuery.data) {
-    const renderContent = () => {
-      if (userQuery.data.type === UserPlatformRole.Partner) {
-        return <Error403 />;
-      }
-
-      return children;
-    };
     return (
-      <AppContext.Provider value={{ isSideNavMounted, setIsSideNavMounted }}>
-        <Header navigation={navigationQuery.data} user={userQuery.data} />
-        <Content user={userQuery?.data}>{children}</Content>
+      <AppContext.Provider
+        value={{ isSideNavMounted, setIsSideNavMounted, platformName: navigationQuery.data.platform.platformName }}
+      >
+        <PageContainer>
+          <Header navigation={navigationQuery.data} user={userQuery.data} />
+          <Content user={userQuery.data}>{children}</Content>
+        </PageContainer>
       </AppContext.Provider>
     );
   }

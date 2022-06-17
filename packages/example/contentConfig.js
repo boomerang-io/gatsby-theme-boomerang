@@ -53,7 +53,7 @@ const config = {
           title: "Linux",
           description: "Idk, an OS",
           path: "/docs/dogs/anatomy/why-four-paws",
-          imageHref: "/penguin.svg",
+          imageHref: "/penguin.svg"
         },
       ],
     },

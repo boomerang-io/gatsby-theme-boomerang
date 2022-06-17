@@ -1,7 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Helmet } from "react-helmet";
 import { UIShell } from "@boomerang-io/carbon-addons-boomerang-react";
 import { BASE_SERVICE_URL } from "@gatsby-theme-boomerang/config/servicesConfig";
 import { BASE_LAUNCH_ENV_URL } from "@gatsby-theme-boomerang/config/platformUrlConfig";
@@ -16,22 +15,20 @@ const skipToContentProps = {
   href: "#content",
 };
 
+const defaultPlatformName = "IBM Consulting Essentials";
+
 class Header extends Component {
   render() {
     const { navigation, user } = this.props;
-    const title = `Docs | ${navigation?.platform?.platformName ?? "IBM Consulting Essentials"}`;
+
     return (
       <>
-        <Helmet>
-          <title>{title}</title>
-          <meta name="title" content={title} />
-        </Helmet>
         <UIShell
           {...defaultUIShellProps}
           headerConfig={navigation}
           user={user}
           renderLogo={navigation?.platform?.displayLogo}
-          companyName={navigation?.platform?.platformName ?? "IBM Consulting Essentials"}
+          companyName={navigation?.platform?.platformName ?? defaultPlatformName}
           skipToContentProps={skipToContentProps}
         />
       </>
@@ -41,7 +38,7 @@ class Header extends Component {
 
 Header.propTypes = {
   navigation: PropTypes.object,
-  user: PropTypes.object,
+  user: PropTypes.object
 };
 
 export default Header;

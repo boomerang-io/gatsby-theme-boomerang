@@ -166,3 +166,15 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({ node, name: "updatedAt", value: lastUpdatedTimestamp.toString() });
   }
 };
+
+// Support both imageRef and path not being used
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type SiteSiteMetadataLinksConfigLinks implements Node {
+      image: String
+      imageHref: String
+    }
+  `
+  createTypes(typeDefs)
+}

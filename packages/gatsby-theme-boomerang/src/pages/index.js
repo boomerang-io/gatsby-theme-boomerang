@@ -4,7 +4,6 @@ import { graphql, useStaticQuery } from "gatsby";
 import DocsSearch from "@gatsby-theme-boomerang/components/DocsSearch";
 import Footer from "@gatsby-theme-boomerang/components/Footer";
 import Link from "@gatsby-theme-boomerang/components/Link";
-import PageContainer from "@gatsby-theme-boomerang/components/PageContainer";
 import cx from "classnames";
 import isAbsoluteUrl from "is-absolute-url";
 import semver from "semver";
@@ -17,13 +16,9 @@ const pageQuery = graphql`
     site {
       pathPrefix
       siteMetadata {
-        description
         docsContext
-        docsLocation
         homeDescription
         homeTitle
-        siteUrl
-        title
         footerLinksConfig {
           link
           title
@@ -111,7 +106,6 @@ function Home() {
     allDocsPaths.find((doc) => doc.configPath === configPath)?.path ?? configPath;
 
   return (
-    <PageContainer siteMetadata={siteMetadata}>
       <main id="content" className={styles.container}>
         <div>
           <header className={styles.header}>
@@ -167,7 +161,6 @@ function Home() {
         </div>
         <Footer footerLinksConfig={footerLinksConfig} />
       </main>
-    </PageContainer>
   );
 }
 

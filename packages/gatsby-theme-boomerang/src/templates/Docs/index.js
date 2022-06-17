@@ -60,7 +60,6 @@ export default function DocTemplate(props) {
     url: docsContext + node.fields.slug,
   }));
 
-  console.log(markdownRemark.fields.updatedAt);
 
   return (
     <Layout
@@ -71,7 +70,8 @@ export default function DocTemplate(props) {
       siteMetadata={props.data.site.siteMetadata}
     >
       <PageContainer
-        siteMetadata={{ ...props.data.site.siteMetadata, title: `${markdownRemark.fields.title} | ${productTitle}` }}
+        siteMetadata={{ title: `${markdownRemark.fields.title} | ${productTitle}` }}
+        slug={`${docsContext ?? ""}${markdownRemark.fields.slug}`}
       >
         <article className={styles.container}>
           <div className={styles.metadata}>
@@ -115,12 +115,7 @@ export const pageQuery = graphql`
       siteMetadata {
         docsContext
         docsLocation
-        siteUrl
-        title
-        socialLinks {
-          github
-          twitter
-        }
+        platformName
         solutionsConfig {
           title
           solution

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import PageContainer from "@gatsby-theme-boomerang/components/PageContainer";
 import { AppContext } from "@gatsby-theme-boomerang/state";
 import { useSideNavScrollManager } from "@gatsby-theme-boomerang/hooks";
 import { useTracking } from "@gatsby-theme-boomerang/hooks";
@@ -15,15 +16,17 @@ export default function StandaloneApp({ children, location, navLinks, uiShellPro
   useSideNavScrollManager({ isSideNavMounted, location });
 
   return (
-    <AppContext.Provider value={{ isSideNavMounted, setIsSideNavMounted }}>
-      <UIShell
-        renderLogo
-        headerConfig={{ navigation: navLinks }}
-        productName={uiShellProductName}
-        skipToContentProps={skipToContentProps}
-      />
-      {children}
-    </AppContext.Provider>
+    <PageContainer>
+      <AppContext.Provider value={{ isSideNavMounted, setIsSideNavMounted }}>
+        <UIShell
+          renderLogo
+          headerConfig={{ navigation: navLinks }}
+          productName={uiShellProductName}
+          skipToContentProps={skipToContentProps}
+        />
+        {children}
+      </AppContext.Provider>
+    </PageContainer>
   );
 }
 
