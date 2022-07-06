@@ -4,7 +4,7 @@ import { AppContext } from "@gatsby-theme-boomerang/state";
 import Link from "@gatsby-theme-boomerang/components/Link";
 import { Dropdown } from "carbon-components-react";
 import cx from "classnames";
-import sortBy from "lodash.sortby";
+import semver from "semver";
 import { useWindowSize } from "@gatsby-theme-boomerang/hooks";
 import { unKebabCase } from "@gatsby-theme-boomerang/utils";
 import { ArrowLeft16 } from "@carbon/icons-react";
@@ -46,7 +46,9 @@ function SideNav({ location, pageContext, docNodes, isOpen, productTitle, siteMe
             <Dropdown
               id="version-dropdown"
               initialSelectedItem={allDocVersions.find((item) => item.version === version)}
-              items={sortBy(allDocVersions, "version", "").reverse()}
+              items={allDocVersions.sort((a, b) => {
+                return semver.gt(a.version, b.version) ? -1 : 1
+              })}
               itemToString={(item) => (item ? item.version : "")}
               label="versions"
               onChange={({ selectedItem }) => navigate(siteMetadata.docsContext + selectedItem.slug)}
