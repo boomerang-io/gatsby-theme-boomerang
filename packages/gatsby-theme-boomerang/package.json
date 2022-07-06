@@ -1,6 +1,6 @@
 {
   "name": "@boomerang-io/gatsby-theme-boomerang",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "main": "index.js",
   "author": "Timothy Bula <timrbula@gmail.com> (@timrbula)",
   "license": "MIT",
@@ -52,7 +52,7 @@
     "prop-types": "15.8.1",
     "react-helmet": "6.1.0",
     "react-query": "3.34.8",
-    "react-router-dom": "5.2.0",
+    "react-router-dom": "5.3.0",
     "sass": "1.52.3",
     "semver": "7.3.5",
     "smooth-scroll": "16.1.3",
