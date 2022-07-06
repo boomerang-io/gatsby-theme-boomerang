@@ -7,7 +7,7 @@
   },
   "license": "Apache 2.0",
   "engines": {
-    "node": ">=12.13.0"
+    "node": ">=14"
   },
   "workspaces": [
     "packages/*"
@@ -24,7 +24,9 @@
     "format": "prettier --write \"**/*.{css,scss,json,html,yaml,mdx}\"",
     "lint:js": "eslint . --fix",
     "lint:scss": "stylelint \"packages/**/*.scss\" --fix",
-    "release": "lerna publish"
+    "release": "lerna publish",
+    "prepare": "husky install",
+    "precommit": "lint-staged"
   },
   "eslintIgnore": [
     "**/node_modules/",
@@ -49,18 +51,20 @@
     ]
   },
   "dependencies": {
+    "@commitlint/cli": "17.0.3",
+    "@commitlint/config-conventional": "17.0.3",
     "eslint-config-react-app": "7.0.0",
     "eslint-plugin-cypress": "^2.11.1",
     "eslint-plugin-jest": "^23.11.0",
     "eslint-plugin-jest-dom": "3.0.1",
     "eslint-plugin-testing-library": "3.3.0",
-    "husky": "4.2.3",
-    "lerna": "4.0.0",
+    "husky": "8.0.1",
+    "lerna": "5.1.7",
     "lint-staged": "12.2.1",
-    "prettier": "2.5.1",
+    "prettier": "2.7.1",
     "stylelint": "14.2.0",
     "stylelint-config-recommended-scss": "5.0.2",
     "stylelint-scss": "4.1.0",
-    "yarn": "1.22.17"
+    "yarn": "1.22.19"
   }
 }
