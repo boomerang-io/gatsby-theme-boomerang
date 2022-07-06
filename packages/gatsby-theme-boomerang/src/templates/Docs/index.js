@@ -70,7 +70,7 @@ export default function DocTemplate(props) {
       siteMetadata={props.data.site.siteMetadata}
     >
       <PageContainer
-        siteMetadata={{ title: `${markdownRemark.fields.title} | ${productTitle}` }}
+        siteMetadata={{ title: `${markdownRemark.fields.title} - ${productTitle}` }}
         slug={`${docsContext ?? ""}${markdownRemark.fields.slug}`}
       >
         <article className={styles.container}>
