@@ -48,7 +48,7 @@ exports.createPages = ({ graphql, actions }) => {
 
         // If the docs are not hosted on the root
         const docsContext = result.data.site.siteMetadata.docsContext || "";
-
+        
         /**
          * Create pages for docs
          * Get all of the versions of each doc
@@ -56,8 +56,10 @@ exports.createPages = ({ graphql, actions }) => {
          */
         const allVersionsOfEachDocMap = {};
         const latestVersionOfEachDocMap = {};
+    
         result.data.allMarkdownRemark.edges.forEach(({ node }) => {
           const docId = `${node.fields.category}-${node.fields.solution}-${node.fields.title}`;
+          let latestVersion;
 
           // Must be performed before the page creation because each doc needs to know about
           // the other versions of itself
@@ -78,7 +80,7 @@ exports.createPages = ({ graphql, actions }) => {
 
             allVersionsOfEachDocMap[docId] = allVersionsOfDoc;
             const semVersions = allVersionsOfDoc.map((nodes) => nodes.version);
-            const latestVersion = semVersions.sort(semver.rcompare)[0];
+            latestVersion = semVersions.sort(semver.rcompare)[0];
             const latestDoc = allVersionsOfDoc.find((doc) => doc.version === latestVersion);
             const pathToLatestDoc = latestDoc.slug ? docsContext + latestDoc.slug : "/";
             latestVersionOfEachDocMap[docId] = latestVersion;
@@ -93,6 +95,7 @@ exports.createPages = ({ graphql, actions }) => {
 
           const pathToDoc = node.fields.slug || "/";
           createPage({
+            defer: latestVersion !== node.fields.version,
             path: docsContext + pathToDoc,
             component: require.resolve("./src/templates/Docs/index.js"),
             context: {
