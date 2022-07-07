@@ -1,4 +1,5 @@
 import React from "react";
+import { useIsomorphicLayoutEffect } from "./useIsomorphicLayoutEffect";
 
 /**
  * Hook to scroll sidenav in to place after change, relies on element ids bleh
@@ -36,7 +37,7 @@ export default function useSidebarScrollManager({ isSideNavMounted, location }) 
   }, [isSideNavMounted, location]);
 
   // Use layout effect here to prevent flickering
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const sideNav = document?.querySelector("#sidenav");
     if (typeof window !== "undefined" && isSideNavMounted && sideNav) {
       sideNav.scrollTop = scrollPosition;
@@ -44,7 +45,7 @@ export default function useSidebarScrollManager({ isSideNavMounted, location }) 
   }, [location, isSideNavMounted, scrollPosition]);
 
   // Scroll into view the sidenav if its below the fold on initial load
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const sideNav = document?.querySelector("#sidenav");
     const activeElementRef = document?.querySelector("#active-sidenav-page-link");
 
