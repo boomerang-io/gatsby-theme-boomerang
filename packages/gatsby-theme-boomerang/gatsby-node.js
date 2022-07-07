@@ -59,7 +59,6 @@ exports.createPages = ({ graphql, actions }) => {
     
         result.data.allMarkdownRemark.edges.forEach(({ node }) => {
           const docId = `${node.fields.category}-${node.fields.solution}-${node.fields.title}`;
-          let latestVersion;
 
           // Must be performed before the page creation because each doc needs to know about
           // the other versions of itself
@@ -80,7 +79,7 @@ exports.createPages = ({ graphql, actions }) => {
 
             allVersionsOfEachDocMap[docId] = allVersionsOfDoc;
             const semVersions = allVersionsOfDoc.map((nodes) => nodes.version);
-            latestVersion = semVersions.sort(semver.rcompare)[0];
+            const latestVersion = semVersions.sort(semver.rcompare)[0];
             const latestDoc = allVersionsOfDoc.find((doc) => doc.version === latestVersion);
             const pathToLatestDoc = latestDoc.slug ? docsContext + latestDoc.slug : "/";
             latestVersionOfEachDocMap[docId] = latestVersion;
@@ -95,7 +94,6 @@ exports.createPages = ({ graphql, actions }) => {
 
           const pathToDoc = node.fields.slug || "/";
           createPage({
-            defer: latestVersion !== node.fields.version,
             path: docsContext + pathToDoc,
             component: require.resolve("./src/templates/Docs/index.js"),
             context: {
