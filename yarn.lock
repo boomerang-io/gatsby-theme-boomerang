@@ -1081,13 +1081,13 @@
     "@babel/helper-validator-identifier" "^7.18.6"
     to-fast-properties "^2.0.0"
 
-"@boomerang-io/carbon-addons-boomerang-react@2.0.10":
-  version "2.0.10"
-  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-2.0.10.tgz#2bde9cf5956d659ad478e44e235271b7469df539"
-  integrity sha512-D4VX1f6KC2C4sZ6ihAHOpkv80i+BGUXMOXGZJ3lQFiBTl1d8A+7TvwdPqJAGKuRtg/trvCsJLWnubxKoO/Y8DQ==
+"@boomerang-io/carbon-addons-boomerang-react@2.0.11":
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-2.0.11.tgz#e7cf0a6fae06f3e95a0f60bba52c0c935bc5ed37"
+  integrity sha512-gP2LlkClzsxJT9+ycs5ukod/iSqQ1Ft/j55TUheZagZyr+sZpcA2rbFNugh0n/443cYa4PUgXi4GWP5AplzeYg==
   dependencies:
     "@babel/runtime" "7.18.3"
-    "@carbon/themes" "10.52.0"
+    "@carbon/themes" "10.54.0"
     "@stomp/stompjs" "6.1.2"
     "@tippyjs/react" "4.2.6"
     classnames "2.3.1"
@@ -1186,20 +1186,20 @@
   resolved "https://registry.yarnpkg.com/@carbon/telemetry/-/telemetry-0.1.0.tgz#57b331cd5a855b4abbf55457456da8211624d879"
   integrity sha512-kNWt0bkgPwGW0i5h7HFuljbKRXPvIhsKbB+1tEURAYLXoJg9iJLF1eGvWN5iVoFCS2zje4GR3OGOsvvKVe7Hlg==
 
-"@carbon/themes@10.52.0":
-  version "10.52.0"
-  resolved "https://registry.yarnpkg.com/@carbon/themes/-/themes-10.52.0.tgz#417d539d2b89c1564f8a34713447c9f8ef5da493"
-  integrity sha512-cQGShDLWHffV7k2+HRVJht8VxcaS6zopJUkmF74W+jIUrNq0St7cb7f/pT2IMlHVp0XdjCYJ8OLAAAWVonKWlQ==
+"@carbon/themes@10.54.0":
+  version "10.54.0"
+  resolved "https://registry.yarnpkg.com/@carbon/themes/-/themes-10.54.0.tgz#2d310382298bf711eef18757acbab19f16b1b345"
+  integrity sha512-Q//XENDqFcgJbide0QbaAvAOKg/u3HIR3na0DsmoWtX4ZWrSz8zpUdvN8Yy9ybJBg1dT+IOfNCdjjhjbCVikKA==
   dependencies:
     "@carbon/colors" "^10.37.0"
     "@carbon/layout" "^10.37.0"
-    "@carbon/type" "^10.42.0"
+    "@carbon/type" "^10.44.0"
     color "^3.1.2"
 
-"@carbon/type@^10.42.0":
-  version "10.44.0"
-  resolved "https://registry.yarnpkg.com/@carbon/type/-/type-10.44.0.tgz#f70944fe25b225d2dc44cea31fa2e7a400d4772c"
-  integrity sha512-sLe4e9gu2QuM8k6PrXWc9xWpH6W9Q/FJ+/IHNFpx+8zBLkBsM6dbf4o76Zw9OcV2HuAA+8K3JOpZJ4r76fw8kg==
+"@carbon/type@^10.44.0":
+  version "10.45.0"
+  resolved "https://registry.yarnpkg.com/@carbon/type/-/type-10.45.0.tgz#78d388a2b8b45e427de1dfab7328625899b737ab"
+  integrity sha512-ObeozCPbGJveztkz30avGoGlNsFsRtQ8RUpOCaCqa7PPN9hXjN2wonlwdOGExSbUqHVHkwONJQlNSwWnJlE9PA==
   dependencies:
     "@carbon/grid" "^10.43.0"
     "@carbon/import-once" "^10.7.0"
