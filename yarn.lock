@@ -1081,10 +1081,10 @@
     "@babel/helper-validator-identifier" "^7.18.6"
     to-fast-properties "^2.0.0"
 
-"@boomerang-io/carbon-addons-boomerang-react@2.0.11":
-  version "2.0.11"
-  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-2.0.11.tgz#e7cf0a6fae06f3e95a0f60bba52c0c935bc5ed37"
-  integrity sha512-gP2LlkClzsxJT9+ycs5ukod/iSqQ1Ft/j55TUheZagZyr+sZpcA2rbFNugh0n/443cYa4PUgXi4GWP5AplzeYg==
+"@boomerang-io/carbon-addons-boomerang-react@2.0.12":
+  version "2.0.12"
+  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-2.0.12.tgz#b7693ba9f78fb9e5c2812427c0ade5f7acd361e0"
+  integrity sha512-gUGTrEHRJTOa5EqOA12PihrqCRrfUF10pQ7oKrU3BXlSTlj3lGVv1WZtrUY4ZQmC+39iCZLKgo5Yt0uPWCKEPQ==
   dependencies:
     "@babel/runtime" "7.18.3"
     "@carbon/themes" "10.54.0"
