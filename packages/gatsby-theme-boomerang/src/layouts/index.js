@@ -1,6 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { Theme as GlobalTheme } from "@carbon/react";
 import { ErrorBoundary } from "@boomerang-io/carbon-addons-boomerang-react";
 import ErrorFullPage from "@gatsby-theme-boomerang/components/ErrorFullPage";
 import App from "@gatsby-theme-boomerang/components/App";
@@ -15,7 +16,7 @@ if (process.env.NODE_ENV === "development") {
 
 const queryClient = new QueryClient();
 
-export default function index({ location, children }) {
+export default function Main({ location, children }) {
   if (typeof window !== "undefined") {
     // eslint-disable-next-line global-require
     require("smooth-scroll")('a[href*="#"]', { speed: 200, offset: 70 });
@@ -31,6 +32,7 @@ export default function index({ location, children }) {
                 isGaActive
                 standaloneMode
                 uiShellProductName
+                theme
                 navLinks {
                   name
                   url
@@ -40,33 +42,42 @@ export default function index({ location, children }) {
           }
         `}
         render={(data) => {
-          const { isGaActive, navLinks, standaloneMode, uiShellProductName } =
-            data.site.siteMetadata;
           return (
-            <>
-              {standaloneMode ? (
-                <StandaloneApp
-                  isGaActive={isGaActive}
-                  location={location}
-                  navLinks={navLinks}
-                  uiShellProductName={uiShellProductName}
-                >
-                  {children}
-                </StandaloneApp>
-              ) : (
-                <QueryClientProvider client={queryClient}>
-                  <App
-                    isGaActive={isGaActive}
-                    location={location}
-                  >
-                    {children}
-                  </App>
-                </QueryClientProvider>
-              )}
-            </>
+            <AppMode siteMetadata={data.site.siteMetadata} location={location}>
+              {children}
+            </AppMode>
           );
         }}
       />
     </ErrorBoundary>
+  );
+}
+
+function AppMode(props) {
+  const { isGaActive, location, navLinks, standaloneMode, uiShellProductName, theme } = props.siteMetadata;
+
+  React.useEffect(() => {
+    document.documentElement.setAttribute("data-carbon-theme", theme);
+  }, [theme]);
+
+  return (
+    <GlobalTheme>
+      {standaloneMode ? (
+        <StandaloneApp
+          isGaActive={isGaActive}
+          location={location}
+          navLinks={navLinks}
+          uiShellProductName={uiShellProductName}
+        >
+          {props.children}
+        </StandaloneApp>
+      ) : (
+        <QueryClientProvider client={queryClient}>
+          <App isGaActive={isGaActive} location={location} theme={theme}>
+            {props.children}
+          </App>
+        </QueryClientProvider>
+      )}
+    </GlobalTheme>
   );
 }

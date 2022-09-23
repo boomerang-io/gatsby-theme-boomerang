@@ -2,12 +2,12 @@ import React from "react";
 import { navigate } from "gatsby";
 import { AppContext } from "@gatsby-theme-boomerang/state";
 import Link from "@gatsby-theme-boomerang/components/Link";
-import { Dropdown } from "carbon-components-react";
+import { Dropdown, Layer } from "@carbon/react";
 import cx from "classnames";
 import semver from "semver";
 import { useWindowSize } from "@gatsby-theme-boomerang/hooks";
 import { unKebabCase } from "@gatsby-theme-boomerang/utils";
-import { ArrowLeft16 } from "@carbon/icons-react";
+import { ArrowLeft } from "@carbon/react/icons";
 import * as styles from "./SideNav.module.scss";
 
 function SideNav({ location, pageContext, docNodes, isOpen, productTitle, siteMetadata }) {
@@ -39,10 +39,11 @@ function SideNav({ location, pageContext, docNodes, isOpen, productTitle, siteMe
       <header className={styles.header}>
         <div className={styles.headerNav}>
           <Link className={styles.backLink} to={siteMetadata.docsContext || "/"}>
-            <ArrowLeft16 />
+            <ArrowLeft />
             Home
           </Link>
           <div className={styles.versionDropdown}>
+            <Layer>
             <Dropdown
               id="version-dropdown"
               initialSelectedItem={allDocVersions.find((item) => item.version === version)}
@@ -53,6 +54,7 @@ function SideNav({ location, pageContext, docNodes, isOpen, productTitle, siteMe
               label="versions"
               onChange={({ selectedItem }) => navigate(siteMetadata.docsContext + selectedItem.slug)}
             />
+            </Layer>
           </div>
         </div>
         <h1 className={styles.productTitle}>{productTitle || unKebabCase(solution)}</h1>

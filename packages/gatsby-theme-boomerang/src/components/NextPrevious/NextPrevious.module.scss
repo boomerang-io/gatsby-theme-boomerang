@@ -22,9 +22,9 @@
   flex-direction: row;
   align-items: center;
   place-self: stretch;
-  color: rgb(36, 42, 49);
-  background-color: rgb(255, 255, 255);
-  border-radius: 0.1875rem;
+  color: var(--cds-text-01);
+  background-color: var(--cds-background);
+  border-radius: var(--cds-border-radius, 0);
   border: 1px solid rgb(230, 236, 241);
   transition: border 200ms ease 0s;
   box-shadow: 0 1px 0.25rem 0 rgba(0, 0, 0, 0.1);
@@ -86,9 +86,9 @@
   flex-direction: row;
   align-items: center;
   place-self: stretch;
-  color: rgb(36, 42, 49);
-  background-color: rgb(255, 255, 255);
-  border-radius: 0.1875rem;
+  color: var(--cds-text-01);
+  background-color: var(--cds-background);
+  border-radius: var(--cds-border-radius, 0);
   border: 1px solid rgb(230, 236, 241);
   transition: border 200ms ease 0s;
   box-shadow: 0 1px 0.25rem 0 rgba(0, 0, 0, 0.1);
@@ -114,13 +114,13 @@
 
 .nextBtn:hover,
 .previousBtn:hover {
-  color: #1d364d;
+  color: var(--cds-text-secondary);
   text-decoration: none;
 }
 
 .nextBtn:hover .rightArrow,
 .previousBtn:hover .leftArrow {
-  color: #1d364d;
+  color: var(--cds-text-secondary);
 }
 
 .nextBtn:focus,
