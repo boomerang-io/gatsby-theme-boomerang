@@ -122,7 +122,7 @@
   width: 100%;
 
   &:focus {
-    outline-color: var(--cds-bmrg-active);
+    outline-color: var(--cds-bmrg-active, var(--cds-interactive));
   }
 
   &:hover {
@@ -145,7 +145,7 @@
   background-color: var(--cds-ui-03);
   &:before {
     content: "";
-    background: var(--cds-bmrg-active);
+    background: var(--cds-bmrg-active, var(--cds-interactive));
     height: 100%;
     left: 0;
     top: 0;
