@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Theme as GlobalTheme } from "@carbon/react";
@@ -53,8 +54,14 @@ export default function Main({ location, children }) {
   );
 }
 
+AppMode.propTypes = {
+  children: PropTypes.element,
+  location: PropTypes.object,
+  siteMetadata: PropTypes.object,
+}
+
 function AppMode(props) {
-  const { isGaActive, location, navLinks, standaloneMode, uiShellProductName, theme } = props.siteMetadata;
+  const { isGaActive, navLinks, standaloneMode, uiShellProductName, theme } = props.siteMetadata;
 
   React.useEffect(() => {
     document.documentElement.setAttribute("data-carbon-theme", theme);
@@ -65,7 +72,7 @@ function AppMode(props) {
       {standaloneMode ? (
         <StandaloneApp
           isGaActive={isGaActive}
-          location={location}
+          location={props.location}
           navLinks={navLinks}
           uiShellProductName={uiShellProductName}
         >
@@ -73,7 +80,7 @@ function AppMode(props) {
         </StandaloneApp>
       ) : (
         <QueryClientProvider client={queryClient}>
-          <App isGaActive={isGaActive} location={location} theme={theme}>
+          <App isGaActive={isGaActive} location={props.location} theme={theme}>
             {props.children}
           </App>
         </QueryClientProvider>
