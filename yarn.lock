@@ -1101,10 +1101,10 @@
     react-toastify "9.0.7"
     window-or-global "1.0.1"
 
-"@boomerang-io/carbon-addons-boomerang-react@3.0.0-beta.15":
-  version "3.0.0-beta.15"
-  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-3.0.0-beta.15.tgz#c1fa0e5260c103c85c48f64154768d153d8c1c09"
-  integrity sha512-KdKrrqzUZhn0+cWENANSJFm33kKmn9PMxBHxGdrKiUt5avZPghcWYMTt0vL2AmmgovMZzBegIheno8Ebc04zUA==
+"@boomerang-io/carbon-addons-boomerang-react@3.0.0-beta.20":
+  version "3.0.0-beta.20"
+  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-3.0.0-beta.20.tgz#91065b99951ef3031204a199640eee458e645f7c"
+  integrity sha512-0tLlScSh02gYANsBOxwqkkLDq84rvHxAym7/pWMsWc8nSSFNFrfw/fUyHoBRzJ52ao4E0XfTZoqK8SHP5pW/Kg==
   dependencies:
     "@babel/runtime" "7.18.9"
     "@stomp/stompjs" "6.1.2"
@@ -1120,6 +1120,7 @@
     match-sorter "6.3.1"
     react-autosuggest "10.1.0"
     react-modal "3.15.1"
+    react-query "3.34.12"
     react-toastify "9.0.7"
 
 "@boomerang-io/gatsby-theme-boomerang@1.3.0-beta.2":
@@ -12610,6 +12611,15 @@ react-modal@3.15.1:
     prop-types "^15.7.2"
     react-lifecycles-compat "^3.0.0"
     warning "^4.0.3"
+
+react-query@3.34.12:
+  version "3.34.12"
+  resolved "https://registry.yarnpkg.com/react-query/-/react-query-3.34.12.tgz#dcaaf7b629f0868aae8afef9fb7692f6ea7643bf"
+  integrity sha512-flDdudQVH4CqE+kNYYYyo4g2Yjek3H/36G3b9bK5oe26jD5gFnx+PPwnq0gayq5z2dcSfr2z4+drvuyeZ3A5QQ==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    broadcast-channel "^3.4.1"
+    match-sorter "^6.0.2"
 
 react-query@3.34.8:
   version "3.34.8"
