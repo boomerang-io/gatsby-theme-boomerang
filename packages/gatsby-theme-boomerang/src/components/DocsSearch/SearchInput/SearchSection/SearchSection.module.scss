@@ -32,7 +32,7 @@
     }
 
     .linkLabel {
-      color: var(--cds-text-02);
+      color: var(--cds-text-01);
     }
   }
 
@@ -42,21 +42,21 @@
     }
 
     .link {
-      border-bottom: 0.0625rem solid #04386d;
+      border-bottom: 0.0625rem solid var(--cds-bmrg-header-hover-background);
     }
 
     .linkValue {
-      color: var(--cds-ui-02);
+      color: #fff;
     }
 
     .linkLabel {
-      color: var(--cds-ui-03);
+      color: #fff;
     }
   }
 }
 
 .link {
-  border-radius: 0.125rem;
+  border-radius: var(--cds-border-radius, 0);
   display: block;
   max-width: 28rem;
   padding: 0.5rem 1rem;

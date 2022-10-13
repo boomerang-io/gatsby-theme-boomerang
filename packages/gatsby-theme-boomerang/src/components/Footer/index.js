@@ -1,5 +1,5 @@
 import React from "react";
-import { Email16, LogoLinkedin16, LogoTwitter16, Wikis16, Bee16 } from "@carbon/icons-react";
+import { Email, LogoLinkedin, LogoTwitter, Wikis, Bee } from "@carbon/react/icons";
 import * as styles from "./Footer.module.scss";
 
 const LinkType = {
@@ -10,10 +10,10 @@ const LinkType = {
 };
 
 const TypeToIcon = {
-  [LinkType.Twitter]: LogoTwitter16,
-  [LinkType.Website]: Wikis16,
-  [LinkType.Linkedin]: LogoLinkedin16,
-  [LinkType.Email]: Email16,
+  [LinkType.Twitter]: LogoTwitter,
+  [LinkType.Website]: Wikis,
+  [LinkType.Linkedin]: LogoLinkedin,
+  [LinkType.Email]: Email,
 };
 
 function Footer({ footerLinksConfig }) {
@@ -26,7 +26,7 @@ function Footer({ footerLinksConfig }) {
       <div className={styles.footerContent}>
         <div className={styles.footerLinks}>
           {socialLinks.map((link) => {
-            const Icon = TypeToIcon[link.type] ?? Bee16;
+            const Icon = TypeToIcon[link.type] ?? Bee;
             return (
               <p className={styles.footerLink} key={link.link}>
                 <a href={link.link}>
@@ -41,7 +41,7 @@ function Footer({ footerLinksConfig }) {
             <>
               <p className={styles.footerText}>Questions? Send us an email!</p>
               {emailLinks.map((link) => {
-                const Icon = TypeToIcon[link.type] ?? Bee16;
+                const Icon = TypeToIcon[link.type] ?? Bee;
                 return (
                   <p className={styles.footerLink} key={link.link}>
                     <a href={link.link}>

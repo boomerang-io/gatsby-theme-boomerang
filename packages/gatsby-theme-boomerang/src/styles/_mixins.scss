@@ -6,7 +6,7 @@
 }
 
 @mixin border-radius() {
-  border-radius: 0.25rem;
+  border-radius: var(--cds-border-radius, 0);
 }
 
 @mixin focus-outline($color: var(--cds-interactive-01), $offset: 0.125rem) {

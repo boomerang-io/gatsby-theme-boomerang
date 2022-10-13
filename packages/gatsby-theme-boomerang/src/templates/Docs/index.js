@@ -7,7 +7,7 @@ import NextPrevious from "@gatsby-theme-boomerang/components/NextPrevious";
 import sortBy from "lodash.sortby";
 import moment from "moment";
 import PageContainer from "@gatsby-theme-boomerang/components/PageContainer";
-import { Launch16 } from "@carbon/icons-react";
+import { Launch } from "@carbon/react/icons";
 import Layout from "./Layout";
 import * as styles from "./Docs.module.scss";
 
@@ -91,7 +91,7 @@ export default function DocTemplate(props) {
               rel="nofollow noopener"
               to={`${docsLocation}/${markdownRemark.parent.relativePath}`}
             >
-              Edit on GitHub <Launch16 />
+              Edit on GitHub <Launch />
             </Link>
           </div>
           <div
