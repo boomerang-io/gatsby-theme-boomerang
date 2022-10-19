@@ -8,7 +8,7 @@ import cx from "classnames";
 import isAbsoluteUrl from "is-absolute-url";
 import semver from "semver";
 import { ContentLabels, contentLabelsToImageMap } from "@gatsby-theme-boomerang/constants";
-import { ArrowRight24, Launch24 } from "@carbon/icons-react";
+import { ArrowRight, Launch } from "@carbon/react/icons";
 import * as styles from "./styles/Home.module.scss";
 
 const pageQuery = graphql`
@@ -188,7 +188,7 @@ function SimpleCard({ id, isExternal, path, description, title }) {
   return (
     <Link className={cx(styles.card, styles.simpleCard)} to={path}>
       <Content />
-      {isExternal ? <Launch24 className={styles.cardLaunchIcon} /> : <ArrowRight24 className={styles.cardArrowIcon} />}
+      {isExternal ? <Launch size={24} className={styles.cardLaunchIcon} /> : <ArrowRight size={24} className={styles.cardArrowIcon} />}
     </Link>
   );
 }
@@ -220,7 +220,7 @@ function ImageCard({ id, imageHref, image, isExternal, path, description, title 
   return (
     <Link className={cx(styles.card, styles.imageCard)} to={path}>
       <Content />
-      {isExternal ? <Launch24 className={styles.cardLaunchIcon} /> : <ArrowRight24 className={styles.cardArrowIcon} />}
+      {isExternal ? <Launch className={styles.cardLaunchIcon} /> : <ArrowRight className={styles.cardArrowIcon} />}
     </Link>
   );
 }

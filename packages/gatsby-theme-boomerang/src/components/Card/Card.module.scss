@@ -15,7 +15,7 @@
 .container {
   animation: fade-up 0.15s ease-in;
   background: var(--cds-ui-01);
-  border-radius: 0.25rem;
+  border-radius: var(--cds-border-radius, 0);
   height: 25rem;
   text-decoration: none;
   transition: all 0.15s ease-in-out;

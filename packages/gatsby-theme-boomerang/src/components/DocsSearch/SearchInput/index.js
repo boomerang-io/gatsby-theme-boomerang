@@ -4,7 +4,7 @@ import cx from "classnames";
 // import { navigate } from "gatsby";
 import semver from "semver";
 import { Index } from "elasticlunr";
-import { Search } from "carbon-components-react";
+import { Layer, Search } from "@carbon/react";
 import Downshift from "downshift";
 import kebab from "lodash.kebabcase";
 import SearchSection from "./SearchSection";
@@ -105,16 +105,16 @@ export default class SearchInput extends Component {
             return (
               <div>
                 <div {...getRootProps({ style: { width: "100%" } }, { suppressRefError: true })}>
-                  <Search
-                    {...getInputProps({
-                      autoComplete: "off",
-                      labelText: "Search all docs",
-                      onChange: this.handleOnSearch,
-                      onCancel: this.resetState,
-                      placeHolderText: "Search all docs",
-                      value: this.state.query,
-                    })}
-                  />
+                    <Search
+                      {...getInputProps({
+                        autoComplete: "off",
+                        labelText: "Search all docs",
+                        onChange: this.handleOnSearch,
+                        onCancel: this.resetState,
+                        placeholder: "Search all docs",
+                        value: this.state.query,
+                      })}
+                    />
                 </div>
                 <div
                   className={`${styles.resultsContainer} ${styles[this.props.resultsAlignment]} ${

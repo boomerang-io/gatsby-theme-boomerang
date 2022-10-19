@@ -15,7 +15,7 @@
 
 .header {
   align-items: flex-end;
-  background: linear-gradient(0deg, #04386d 0%, #061727 100%);
+  background: linear-gradient(0deg, var(--cds-bmrg-header-menu-options-active-background) 0%, var(--cds-bmrg-primary) 100%);
   display: flex;
   justify-content: space-between;
   height: 16rem;
@@ -31,7 +31,7 @@
 }
 
 .headerText {
-  color: var(--cds-ui-02);
+  color: #fff;
   font-weight: 300;
   letter-spacing: 0;
   line-height: 2.3125rem;
@@ -44,12 +44,11 @@
 }
 
 .headerTitleDocs {
-  color: #38afff;
   font-style: italic;
 }
 
 .headerSubtitle {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
 }
 
 .headerSearch {
@@ -120,7 +119,7 @@
 .card {
   animation: fade-up 0.15s ease-in;
   background-color: var(--cds-ui-01);
-  border-radius: 0.25rem;
+  border-radius: var(--cds-border-radius, 0);
   color: var(--cds-text-01);
   position: relative;
   transition: all 0.15s ease-in-out;
@@ -194,7 +193,7 @@
 .imageCardImage {
   background-size: cover;
   background-position: top;
-  border-radius: 0.25rem 0.25rem 0 0;
+  border-radius: var(--cds-border-radius, 0) var(--cds-border-radius, 0) 0 0;
   height: 16.75rem;
 }
 
