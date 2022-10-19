@@ -7,7 +7,7 @@
 
 .metadata {
   align-items: baseline;
-  display:flex;
+  display: flex;
   flex-flow: row wrap;
   margin: 0 1rem;
   span {
@@ -20,14 +20,15 @@
 .gitHubLink {
   align-items: center;
   display: inline-flex;
+  font-size: 0.75rem;
+  height: 1rem;
   margin-top: 0.875rem;
+  gap: 0.25rem;
   svg {
-    height: 0.875rem;
-    width: 0.875rem;
-    margin-left: 0.25rem;
+    height: 0.75rem;
+    width: 0.75rem;
   }
 }
-
 
 .nextPreviousContainer {
   padding: 3.125rem 0;

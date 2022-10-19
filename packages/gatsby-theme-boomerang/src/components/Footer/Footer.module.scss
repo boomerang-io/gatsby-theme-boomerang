@@ -1,5 +1,5 @@
 .footer {
-  background-color: #061727;
+  background-color: var(--cds-bmrg-primary);
   height: 8.4375rem;
   width: 100%;
 }
@@ -33,7 +33,7 @@
 
   a {
     align-items: center;
-    color: var(--cds-ui-01);
+    color: var(--cds-text-on-color);
     display: flex;
     letter-spacing: 0.01rem;
   }
@@ -47,7 +47,7 @@
   margin-left: 1.5rem;
 
   a {
-    color: var(--cds-ui-02);
+    color: var(--cds-text-on-color);
     color: #f2f4f8;
     font-size: 0.875rem;
     letter-spacing: 0.01rem;
@@ -56,7 +56,7 @@
 }
 
 .footerText {
-  color: var(--cds-ui-02);
+  color: var(--cds-text-on-color);
   display: flex;
   font-size: 0.75rem;
   letter-spacing: 0.02rem;

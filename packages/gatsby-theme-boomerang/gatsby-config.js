@@ -57,6 +57,7 @@ module.exports = (themeOptions) => {
       lunrSearch,
       standaloneMode: true,
       isGaActive: true,
+      theme: "g10"
     },
     plugins: [
       "gatsby-plugin-catch-links",

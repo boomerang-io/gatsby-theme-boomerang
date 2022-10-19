@@ -22,6 +22,7 @@ module.exports = {
     footerLinksConfig: contentConfig.footerLinksConfig,
     standaloneMode: true,
     isGaActive: false,
+    theme: "g10",
     navLinks: [
       {
         name: "Docs",
