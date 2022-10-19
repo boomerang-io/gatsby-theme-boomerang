@@ -1,13 +1,13 @@
 {
   "name": "@boomerang-io/gatsby-theme-boomerang",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "main": "index.js",
   "author": "Timothy Bula <timrbula@gmail.com> (@timrbula)",
   "license": "MIT",
   "dependencies": {
-    "@boomerang-io/carbon-addons-boomerang-react": "3.0.0",
+    "@boomerang-io/carbon-addons-boomerang-react": "3.1.0",
     "@boomerang-io/styles": "^1.1.0",
-    "@carbon/react": "1.13.0",
+    "@carbon/react": "1.15.0",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "3.0.2",
     "app-root-path": "2.2.1",
     "axios": "0.27.2",
