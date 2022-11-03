@@ -1079,28 +1079,6 @@
     "@babel/helper-validator-identifier" "^7.18.6"
     to-fast-properties "^2.0.0"
 
-"@boomerang-io/carbon-addons-boomerang-react@3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-3.0.0.tgz#04c639638ed2f3453361f57ea9d377b3eefb94d9"
-  integrity sha512-WH1InVbWkbwBrDEBOmMfZRO635wdH+7hgDWF2Rz5k7jlT9ly0Sj7+9ovsvKvVoK+/aDar3NvvrYwftwF3JHLUg==
-  dependencies:
-    "@babel/runtime" "7.18.9"
-    "@stomp/stompjs" "6.1.2"
-    "@tippyjs/react" "4.2.6"
-    classnames "2.3.1"
-    date-fns "2.29.1"
-    dompurify "2.3.10"
-    downshift "6.1.7"
-    focus-trap-react "9.0.2"
-    lodash.get "4.4.2"
-    lodash.isequal "4.5.0"
-    lodash.sortby "4.7.0"
-    match-sorter "6.3.1"
-    react-autosuggest "10.1.0"
-    react-modal "3.15.1"
-    react-query "3.39.2"
-    react-toastify "9.0.7"
-
 "@boomerang-io/carbon-addons-boomerang-react@3.1.2":
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-3.1.2.tgz#7fe4dfa0673d30ce94448e0cef552e4b4b7ab91e"
@@ -1123,64 +1101,6 @@
     react-query "3.39.2"
     react-toastify "9.0.7"
 
-"@boomerang-io/gatsby-theme-boomerang@1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@boomerang-io/gatsby-theme-boomerang/-/gatsby-theme-boomerang-1.3.0.tgz#d80d4f601e9cfb13215be04e47b4915e0608bd38"
-  integrity sha512-rfCUL71er31gNra92xrqwNhW/jqReznoYADwN3e9nJC2GSajZRqO/3T/Ne28MR5DWuxKvEK9jrEClf2LGt4g/Q==
-  dependencies:
-    "@boomerang-io/carbon-addons-boomerang-react" "3.0.0"
-    "@boomerang-io/styles" "^1.1.0"
-    "@carbon/react" "1.13.0"
-    "@gatsby-contrib/gatsby-plugin-elasticlunr-search" "3.0.2"
-    app-root-path "2.2.1"
-    axios "0.27.2"
-    classnames "2.3.1"
-    core-js "2.6.11"
-    dotenv "14.2.0"
-    downshift "6.1.7"
-    elasticlunr "0.9.5"
-    formik "2.2.9"
-    gatsby-alias-imports "1.0.6"
-    gatsby-plugin-catch-links "4.23.0"
-    gatsby-plugin-layout "3.18.0"
-    gatsby-plugin-manifest "4.23.1"
-    gatsby-plugin-meta-redirect "1.1.1"
-    gatsby-plugin-react-helmet "5.23.0"
-    gatsby-plugin-sass "5.23.1"
-    gatsby-plugin-sharp "4.23.1"
-    gatsby-plugin-sitemap "5.23.1"
-    gatsby-remark-autolink-headers "5.23.1"
-    gatsby-remark-copy-linked-files "5.23.0"
-    gatsby-remark-external-links "0.0.4"
-    gatsby-remark-images "6.23.1"
-    gatsby-remark-prismjs "6.23.0"
-    gatsby-source-filesystem "4.23.0"
-    gatsby-transformer-remark "5.23.1"
-    husky "4.2.3"
-    is-absolute-url "4.0.1"
-    lint-staged "12.2.1"
-    lodash.capitalize "4.2.1"
-    lodash.flatten "4.4.0"
-    lodash.kebabcase "4.1.1"
-    lodash.sortby "4.7.0"
-    lodash.startcase "4.4.0"
-    miragejs "0.1.43"
-    moment "2.29.1"
-    node-html-parser "5.2.0"
-    postcss "8.4.5"
-    prismjs "1.27.0"
-    prop-types "15.8.1"
-    react-helmet "6.1.0"
-    react-query "3.34.8"
-    react-router-dom "5.3.0"
-    react-toastify "9.0.8"
-    sass "1.55.0"
-    semver "7.3.5"
-    smooth-scroll "16.1.3"
-    typeface-ibm-plex-sans "1.1.13"
-    window-or-global "1.0.1"
-    yup "^0.32.11"
-
 "@boomerang-io/styles@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@boomerang-io/styles/-/styles-1.1.0.tgz#bea0a6eb7d9239d69016542d73e21c01efb11d7e"
@@ -1200,11 +1120,6 @@
   resolved "https://registry.yarnpkg.com/@carbon/colors/-/colors-11.6.0.tgz#fe6f806c20fa4ad60eaeb2d9700c5de684d37b05"
   integrity sha512-LE3aaQvRVR9zI2ao4+SHP8vfEaXtfffq4wXHvbPwoTK+I3Db745XuNWeWxC3Rte2uNPS9sjeEyCid2Q0wY/tSw==
 
-"@carbon/colors@^11.7.0":
-  version "11.7.0"
-  resolved "https://registry.yarnpkg.com/@carbon/colors/-/colors-11.7.0.tgz#c4af834ff133035803c4233f54587d77683149c9"
-  integrity sha512-2B57vtirYTpxGg7p9yIO+s4cwL5QB8ogGQB5Pz+zdaHoVxrLsGlxAg28CQgk7yxw7doqST79bRVYS6FaJq+qJw==
-
 "@carbon/feature-flags@^0.9.0":
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/@carbon/feature-flags/-/feature-flags-0.9.0.tgz#13ad061bf7977d65326b35ff87d70419f6132587"
@@ -1222,7 +1137,7 @@
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.34.0.tgz#04b2957d07e0a98bb66c97c6b71430a955243887"
   integrity sha512-Ov9EBc1tR/DDrMI0pN1drj2jb27ISmYFBLdDji+aivVJkLPy8R/jikJOsOBgIq2kUjQJYNN199k2acHKjZdYIg==
 
-"@carbon/icons-react@^11.10.0", "@carbon/icons-react@^11.8.0":
+"@carbon/icons-react@^11.10.0":
   version "11.10.0"
   resolved "https://registry.yarnpkg.com/@carbon/icons-react/-/icons-react-11.10.0.tgz#2508768cd2ebf6ff64a713d19b52de6ee4cd060c"
   integrity sha512-807RWTfbvVzmsDg2DJ4FjwYNbJSgkrEd1Ui8I07YheJVb3sbYGGZMG7aCS0qXVlrQOhB2hggtxSW1w9NksUXNA==
@@ -1231,7 +1146,7 @@
     "@carbon/telemetry" "0.1.0"
     prop-types "^15.7.2"
 
-"@carbon/layout@^11.6.0", "@carbon/layout@^11.7.0":
+"@carbon/layout@^11.7.0":
   version "11.7.0"
   resolved "https://registry.yarnpkg.com/@carbon/layout/-/layout-11.7.0.tgz#55689dd65a36c33bf40c668e240252fd08c240f4"
   integrity sha512-p4YQvW8U5Go0Tz1PZZgllGSPmoq8xBB5PHByuHiAjzwGclxPsBmY6Ea7tftINFW8VlcjDcampyT8VfZXhP2lFg==
@@ -1240,33 +1155,6 @@
   version "11.5.0"
   resolved "https://registry.yarnpkg.com/@carbon/motion/-/motion-11.5.0.tgz#f54c0eb3298e3ea88bda789f02b4c5ef22a0a8d4"
   integrity sha512-5QEALh+xZzICdgVLanSpiDfBTErzVgEze/xUKs7ZdSbd6p1FaDKDGvCmj9RCsaz/CMVHIWo65MshIglSWX5Xvw==
-
-"@carbon/react@1.13.0":
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/@carbon/react/-/react-1.13.0.tgz#49efebe8e367b4a37f9abc6a410ee222a634945a"
-  integrity sha512-NTmSPCwg7mSSGrVnhao09WAntnd/qXcerLyuuMzuDWAg94QT3RXW4OKRhTUFOLBUUmbLyy1p9ZD43xcUXb4Gaw==
-  dependencies:
-    "@babel/runtime" "^7.18.3"
-    "@carbon/feature-flags" "^0.9.0"
-    "@carbon/icons-react" "^11.8.0"
-    "@carbon/layout" "^11.6.0"
-    "@carbon/styles" "^1.13.0"
-    "@carbon/telemetry" "0.1.0"
-    classnames "2.3.1"
-    copy-to-clipboard "^3.3.1"
-    downshift "5.2.1"
-    flatpickr "4.6.9"
-    invariant "^2.2.3"
-    lodash.debounce "^4.0.8"
-    lodash.findlast "^4.5.0"
-    lodash.isequal "^4.5.0"
-    lodash.omit "^4.5.0"
-    lodash.throttle "^4.1.1"
-    prop-types "^15.7.2"
-    react-is "^17.0.2"
-    use-resize-observer "^6.0.0"
-    wicg-inert "^3.1.1"
-    window-or-global "^1.0.1"
 
 "@carbon/react@1.15.0":
   version "1.15.0"
@@ -1294,20 +1182,6 @@
     use-resize-observer "^6.0.0"
     wicg-inert "^3.1.1"
     window-or-global "^1.0.1"
-
-"@carbon/styles@^1.13.0":
-  version "1.16.0"
-  resolved "https://registry.yarnpkg.com/@carbon/styles/-/styles-1.16.0.tgz#635d7350c076c7f962b1aff6e7d61589c11383cb"
-  integrity sha512-LSjRw2Ws8rWI1a96KYUuX10jG+rpSn68dHlZhhDq+RJWsMGpjFhKUxPoTiJli2hHXyxey6rXV0hfr7oBJ0ud7w==
-  dependencies:
-    "@carbon/colors" "^11.7.0"
-    "@carbon/feature-flags" "^0.9.0"
-    "@carbon/grid" "^11.7.0"
-    "@carbon/layout" "^11.7.0"
-    "@carbon/motion" "^11.5.0"
-    "@carbon/themes" "^11.11.0"
-    "@carbon/type" "^11.11.0"
-    "@ibm/plex" "6.0.0-next.6"
 
 "@carbon/styles@^1.15.0":
   version "1.15.0"
@@ -1338,28 +1212,10 @@
     "@carbon/type" "^11.10.0"
     color "^4.0.0"
 
-"@carbon/themes@^11.11.0":
-  version "11.11.0"
-  resolved "https://registry.yarnpkg.com/@carbon/themes/-/themes-11.11.0.tgz#596968d1cf5384853f65cbe3af0c3ca8a47a68ad"
-  integrity sha512-EhLizr2oMqJXNubI2zWw09qcSPLZdWoBOQ6uNcjHzpXgoGNMwbVJE/qGMy/ivr+EOs6Fe0z5T0u97v+ZhSmRhg==
-  dependencies:
-    "@carbon/colors" "^11.7.0"
-    "@carbon/layout" "^11.7.0"
-    "@carbon/type" "^11.11.0"
-    color "^4.0.0"
-
 "@carbon/type@^11.10.0":
   version "11.10.0"
   resolved "https://registry.yarnpkg.com/@carbon/type/-/type-11.10.0.tgz#aeceeda9a4ad69009974b53c0969bd7a98ae1a33"
   integrity sha512-LjhhJchI0Vpnmq2IkNtHy7HIW/WjiOEVXH+bDKf0Laay0EQtwxagQSI41W2+0dNtcK4zJBKjfm1uorsxmR5/Qw==
-  dependencies:
-    "@carbon/grid" "^11.7.0"
-    "@carbon/layout" "^11.7.0"
-
-"@carbon/type@^11.11.0":
-  version "11.11.0"
-  resolved "https://registry.yarnpkg.com/@carbon/type/-/type-11.11.0.tgz#b731506b2417baf943abe201fda9a41c79634764"
-  integrity sha512-eX6z8BibP1En1xBm2wUd01Nzk0Tm1jftR2QSD4JBn4xhnkGR824gpcbLTAIMGx9/Mr3R65Enbam3uFO0OOaH8g==
   dependencies:
     "@carbon/grid" "^11.7.0"
     "@carbon/layout" "^11.7.0"
