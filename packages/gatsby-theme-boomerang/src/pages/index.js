@@ -106,61 +106,56 @@ function Home() {
     allDocsPaths.find((doc) => doc.configPath === configPath)?.path ?? configPath;
 
   return (
-      <main id="content" className={styles.container}>
-        <div>
-          <header className={styles.header}>
-            <div className={styles.headerText}>
-              <div className={styles.headerTitle}>
-                <h1>
-                  {`${homeTitle} `}
-                  <span className={styles.headerTitleDocs}>Docs</span>
-                </h1>
-              </div>
-              <p className={styles.headerSubtitle}>{homeDescription}</p>
-            </div>
-            <div className={styles.headerSearch}>
-              <DocsSearch resultsAlignment="left" theme="dark" />
-            </div>
-          </header>
-          <div className={styles.content}>
-            {linksConfig.map((config) => (
-              <Section title={config.title} key={config.title}>
-                <nav className={styles.sectionLinks}>
-                  {config.links.map((link, index) => {
-                    const isExternal = isAbsoluteUrl(link.path);
-                    let linkPath = link.path;
-
-                    if (!isExternal) linkPath = returnDocPathWithVersion({ configPath: link.path });
-
-                    return (link.image || link.imageHref) ? (
-                      <ImageCard
-                        key={`${link.title}-${link.path}-${index}`}
-                        id={`${link.title}-${link.path}-${index}`}
-                        isExternal={isExternal}
-                        imageHref={link.imageHref}
-                        image={link.image}
-                        title={link.title}
-                        description={link.description}
-                        path={linkPath}
-                      />
-                    ) : (
-                      <SimpleCard
-                        key={`${link.title}-${link.path}-${index}`}
-                        id={`${link.title}-${link.path}-${index}`}
-                        isExternal={isExternal}
-                        title={link.title}
-                        description={link.description}
-                        path={linkPath}
-                      />
-                    );
-                  })}
-                </nav>
-              </Section>
-            ))}
+    <main id="content" className={styles.container}>
+      <div>
+        <header className={styles.header}>
+          <div className={styles.headerText}>
+            <h1 className={styles.headerTitle}>{homeTitle}</h1>
+            {homeDescription && <p className={styles.headerSubtitle}>{homeDescription}</p>}
           </div>
+          <div className={styles.headerSearch}>
+            <DocsSearch resultsAlignment="left" theme="dark" />
+          </div>
+        </header>
+        <div className={styles.content}>
+          {linksConfig.map((config) => (
+            <Section title={config.title} key={config.title}>
+              <nav className={styles.sectionLinks}>
+                {config.links.map((link, index) => {
+                  const isExternal = isAbsoluteUrl(link.path);
+                  let linkPath = link.path;
+
+                  if (!isExternal) linkPath = returnDocPathWithVersion({ configPath: link.path });
+
+                  return link.image || link.imageHref ? (
+                    <ImageCard
+                      key={`${link.title}-${link.path}-${index}`}
+                      id={`${link.title}-${link.path}-${index}`}
+                      isExternal={isExternal}
+                      imageHref={link.imageHref}
+                      image={link.image}
+                      title={link.title}
+                      description={link.description}
+                      path={linkPath}
+                    />
+                  ) : (
+                    <SimpleCard
+                      key={`${link.title}-${link.path}-${index}`}
+                      id={`${link.title}-${link.path}-${index}`}
+                      isExternal={isExternal}
+                      title={link.title}
+                      description={link.description}
+                      path={linkPath}
+                    />
+                  );
+                })}
+              </nav>
+            </Section>
+          ))}
         </div>
-        <Footer footerLinksConfig={footerLinksConfig} />
-      </main>
+      </div>
+      <Footer footerLinksConfig={footerLinksConfig} />
+    </main>
   );
 }
 
@@ -188,7 +183,11 @@ function SimpleCard({ id, isExternal, path, description, title }) {
   return (
     <Link className={cx(styles.card, styles.simpleCard)} to={path}>
       <Content />
-      {isExternal ? <Launch size={24} className={styles.cardLaunchIcon} /> : <ArrowRight size={24} className={styles.cardArrowIcon} />}
+      {isExternal ? (
+        <Launch size={24} className={styles.cardLaunchIcon} />
+      ) : (
+        <ArrowRight size={24} className={styles.cardArrowIcon} />
+      )}
     </Link>
   );
 }
