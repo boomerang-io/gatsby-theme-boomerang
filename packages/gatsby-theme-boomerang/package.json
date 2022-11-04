@@ -33,7 +33,7 @@
     "gatsby-remark-prismjs": "6.23.0",
     "gatsby-source-filesystem": "4.23.0",
     "gatsby-transformer-remark": "5.23.1",
-    "husky": "4.2.3",
+    "husky": "8.0.1",
     "is-absolute-url": "4.0.1",
     "lint-staged": "12.2.1",
     "lodash.capitalize": "4.2.1",
