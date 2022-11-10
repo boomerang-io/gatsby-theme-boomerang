@@ -19,7 +19,7 @@
     "formik": "2.2.9",
     "gatsby-alias-imports": "1.0.6",
     "gatsby-plugin-catch-links": "5.0.0",
-    "gatsby-plugin-layout": "3.18.0",
+    "gatsby-plugin-layout": "4.0.0",
     "gatsby-plugin-manifest": "5.0.0",
     "gatsby-plugin-meta-redirect": "1.1.1",
     "gatsby-plugin-react-helmet": "6.0.0",
