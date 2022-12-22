@@ -13,7 +13,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@boomerang-io/gatsby-theme-boomerang": "1.4.2",
+    "@boomerang-io/gatsby-theme-boomerang": "1.5.0",
     "gatsby": "5.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
