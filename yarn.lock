@@ -1069,10 +1069,10 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
-"@boomerang-io/carbon-addons-boomerang-react@4.0.0-rc.5":
-  version "4.0.0-rc.5"
-  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-4.0.0-rc.5.tgz#0dc3e07752510632df47dc641721c7c981176e07"
-  integrity sha512-5qwg3ui5RBcGNjeSjtz/YSXfBF19SF3rxFsV2apkF5VXUz6BuQtx6kqra82GYLf8wsbwiFeplOqRPuCFTX+7kA==
+"@boomerang-io/carbon-addons-boomerang-react@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-4.0.0.tgz#ad78756273851195da35d488a3e99bfff3c1dbf8"
+  integrity sha512-8beWq9TuvoE6BmRuDp433DL5UgNZ3wrrouC2BioWY0VsGksxm5s671H986sc05wHoos44RBiKg3zuZnoNX2a6w==
   dependencies:
     "@stomp/stompjs" "6.1.2"
     "@tippyjs/react" "4.2.6"
