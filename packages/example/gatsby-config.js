@@ -6,6 +6,7 @@ module.exports = {
     title: "Boomerang Docs",
     description: "Example Boomerang Site",
     uiShellProductName: "OSS",
+    uiShellPlatformName: "Boomerang",
     platformName: "Hello",
     docsContext: "/docs",
     docsLocation: "https://github.ibm.com/essentials-core/core.app.docs/tree/main/content",

@@ -1069,10 +1069,10 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
-"@boomerang-io/carbon-addons-boomerang-react@3.2.1":
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-3.2.1.tgz#8759995e6ad8ab69317c8e34cab248e48d35fdb8"
-  integrity sha512-qT5FJn5+GD8dzt8PN2JEDx8RlzPz4LX4e5VDvEjLWiOvl1o1ddaItJU18anL33Al32DfGhevrTB83xuJySviLg==
+"@boomerang-io/carbon-addons-boomerang-react@4.0.0-rc.5":
+  version "4.0.0-rc.5"
+  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-4.0.0-rc.5.tgz#0dc3e07752510632df47dc641721c7c981176e07"
+  integrity sha512-5qwg3ui5RBcGNjeSjtz/YSXfBF19SF3rxFsV2apkF5VXUz6BuQtx6kqra82GYLf8wsbwiFeplOqRPuCFTX+7kA==
   dependencies:
     "@stomp/stompjs" "6.1.2"
     "@tippyjs/react" "4.2.6"
@@ -1080,7 +1080,6 @@
     dayjs "^1.11.7"
     dompurify "2.4.1"
     downshift "6.1.7"
-    focus-trap-react "10.0.2"
     lodash.get "4.4.2"
     lodash.isequal "4.5.0"
     lodash.sortby "4.7.0"
@@ -1089,6 +1088,7 @@
     react-modal "3.16.1"
     react-query "^3.34.12"
     react-toastify "9.1.1"
+    wicg-inert "^3.1.2"
 
 "@boomerang-io/styles@^1.1.0":
   version "1.1.0"
@@ -7150,21 +7150,6 @@ flatted@^3.1.0:
   version "3.2.7"
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.2.7.tgz"
   integrity sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==
-
-focus-trap-react@10.0.2:
-  version "10.0.2"
-  resolved "https://registry.yarnpkg.com/focus-trap-react/-/focus-trap-react-10.0.2.tgz#eed4ce5b508bf3a0ce2ce63151c5c0f34a8f8529"
-  integrity sha512-MnN2cmdgpY7NY74ePOio4kbO5A3ILhrg1g5OGbgIQjcWEv1hhcbh6e98K0a+df88hNbE+4i9r8ji9aQnHou6GA==
-  dependencies:
-    focus-trap "^7.2.0"
-    tabbable "^6.0.1"
-
-focus-trap@^7.2.0:
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-7.2.0.tgz#25af61b5635d3c18cd2fd176087db7b60be72c6b"
-  integrity sha512-v4wY6HDDYvzkBy4735kW5BUEuw6Yz9ABqMYLuTNbzAFPcBOGiGHwwcNVMvUz4G0kgSYh13wa/7TG3XwTeT4O/A==
-  dependencies:
-    tabbable "^6.0.1"
 
 follow-redirects@^1.14.0, follow-redirects@^1.14.9:
   version "1.15.2"
@@ -13993,11 +13978,6 @@ swap-case@^2.0.2:
   dependencies:
     tslib "^2.0.3"
 
-tabbable@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-6.0.1.tgz#427a09b13c83ae41eed3e88abb76a4af28bde1a6"
-  integrity sha512-SYJSIgeyXW7EuX1ytdneO5e8jip42oHWg9xl/o3oTYhmXusZVgiA+VlPvjIN+kHii9v90AmzTZEBcsEvuAY+TA==
-
 table@^6.0.9, table@^6.7.5:
   version "6.8.1"
   resolved "https://registry.npmjs.org/table/-/table-6.8.1.tgz"
@@ -14944,7 +14924,7 @@ which@^2.0.1, which@^2.0.2:
   dependencies:
     isexe "^2.0.0"
 
-wicg-inert@^3.1.1:
+wicg-inert@^3.1.1, wicg-inert@^3.1.2:
   version "3.1.2"
   resolved "https://registry.npmjs.org/wicg-inert/-/wicg-inert-3.1.2.tgz"
   integrity sha512-Ba9tGNYxXwaqKEi9sJJvPMKuo063umUPsHN0JJsjrs2j8KDSzkWLMZGZ+MH1Jf1Fq4OWZ5HsESJID6nRza2ang==
