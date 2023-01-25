@@ -32,8 +32,9 @@ export default function Main({ location, children }) {
               siteMetadata {
                 isGaActive
                 standaloneMode
-                uiShellProductName
                 theme
+                uiShellPlatformName
+                uiShellProductName
                 navLinks {
                   name
                   url
@@ -58,10 +59,17 @@ AppMode.propTypes = {
   children: PropTypes.element,
   location: PropTypes.object,
   siteMetadata: PropTypes.object,
-}
+};
 
 function AppMode(props) {
-  const { isGaActive, navLinks, standaloneMode, uiShellProductName, theme } = props.siteMetadata;
+  const {
+    isGaActive,
+    navLinks,
+    standaloneMode,
+    uiShellProductName,
+    uiShellPlatformName = "",
+    theme,
+  } = props.siteMetadata;
 
   React.useEffect(() => {
     document.documentElement.setAttribute("data-carbon-theme", theme);
@@ -74,6 +82,7 @@ function AppMode(props) {
           isGaActive={isGaActive}
           location={props.location}
           navLinks={navLinks}
+          uiShellPlatformName={uiShellPlatformName}
           uiShellProductName={uiShellProductName}
         >
           {props.children}
