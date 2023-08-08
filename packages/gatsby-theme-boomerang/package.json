@@ -1,6 +1,6 @@
 {
   "name": "@boomerang-io/gatsby-theme-boomerang",
-  "version": "1.6.4-beta.0",
+  "version": "1.6.4-beta.1",
   "main": "index.js",
   "author": "Timothy Bula <timrbula@gmail.com> (@timrbula)",
   "license": "MIT",
@@ -68,11 +68,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "pnpm": {
-    "overrides": {
-      "braces": "^2.3.1",
-      "glob-parent": "^5.1.2",
-      "word-wrap": "^1.2.4"
-    }
+  "overrides": {
+    "braces": "^2.3.1",
+    "glob-parent": "^5.1.2",
+    "word-wrap": "^1.2.4"
   }
 }
