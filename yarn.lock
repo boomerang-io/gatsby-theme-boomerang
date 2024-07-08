@@ -1189,15 +1189,15 @@
     react-toastify "9.1.1"
     wicg-inert "^3.1.2"
 
-"@boomerang-io/carbon-addons-boomerang-react@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-4.1.0.tgz#80c511e7adcee799fa965fad30c9c3b9f9116002"
-  integrity sha512-8/F/YgjvdWTD/8RPCDqg6f76HugIbXltkanAyPBKdnvkN9wPNJQTkdw6Wz1THwS8i9KUZIGbNAeOklSn/FXLbA==
+"@boomerang-io/carbon-addons-boomerang-react@4.1.2-beta.4":
+  version "4.1.2-beta.4"
+  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-4.1.2-beta.4.tgz#52d6bf85ff195da77807d0b5eb3169ba21a3e8cb"
+  integrity sha512-n1CJQkK1aRGjx2QjxJROvyIEC8ilSS6BOSHLqULDb15uwJR3vwqtqQNq4HyP4xp3CjXgm7B+jrc8bGkxxnc24A==
   dependencies:
     "@stomp/stompjs" "6.1.2"
     "@tippyjs/react" "4.2.6"
     classnames "2.3.2"
-    dayjs "^1.11.7"
+    dayjs "^1.11.11"
     dompurify "2.4.1"
     downshift "6.1.7"
     lodash.get "4.4.2"
@@ -6257,6 +6257,11 @@ dateformat@^3.0.0:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/dateformat/-/dateformat-3.0.3.tgz#a6e37499a4d9a9cf85ef5872044d62901c9889ae"
   integrity sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==
+
+dayjs@^1.11.11:
+  version "1.11.11"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.11.tgz#dfe0e9d54c5f8b68ccf8ca5f72ac603e7e5ed59e"
+  integrity sha512-okzr3f11N6WuqYtZSvm+F776mB41wRZMhKP+hc34YdW+KmtYYK9iqvHSwo2k9FEH3fhGXvOPV6yz2IcSrfRUDg==
 
 dayjs@^1.11.7:
   version "1.11.10"
