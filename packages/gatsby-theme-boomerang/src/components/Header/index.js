@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { UIShell } from "@boomerang-io/carbon-addons-boomerang-react";
+import Sidenav from "./Sidenav";
 import { BASE_SERVICE_URL } from "@gatsby-theme-boomerang/config/servicesConfig";
 import { BASE_LAUNCH_ENV_URL } from "@gatsby-theme-boomerang/config/platformUrlConfig";
 
@@ -19,11 +20,18 @@ const skipToContentProps = {
 
 class Header extends Component {
   render() {
-    const { navigation, user } = this.props;
-    if (navigation && user) {
+    const { navigation, user, userTeams } = this.props;
+    if (navigation && user && userTeams) {
       return (
         <div style={{ height: "3rem" }}>
-          <UIShell config={navigation} user={user} skipToContentProps={skipToContentProps} />
+          <UIShell 
+            config={navigation}
+            user={user}
+            skipToContentProps={skipToContentProps}
+            leftPanel={({isOpen, navLinks}) => (
+              <Sidenav isOpen={isOpen} navigation={navigation} user={user} userTeams={userTeams} navLinks={navLinks} />
+            )}
+          />
         </div>
       );
     }
@@ -34,6 +42,7 @@ class Header extends Component {
 Header.propTypes = {
   navigation: PropTypes.object,
   user: PropTypes.object,
+  userTeams: PropTypes.object,
 };
 
 export default Header;

@@ -10,10 +10,13 @@ const BASE_SERVICE_ENV_URL =
 
 export const BASE_SERVICE_USERS_URL = `${BASE_SERVICE_ENV_URL}/users`;
 export const BASE_SERVICE_URL = BASE_SERVICE_ENV_URL;
+export const BASE_SERVICE_PRODUCT_URL = `${BASE_SERVICE_ENV_URL}/launchpad`;
 
 export const serviceUrl = {
+  getClientNames: (args) => `${BASE_SERVICE_PRODUCT_URL}/client/cash/autocomplete/${args.query}`,
   getNavigation: () => `${BASE_SERVICE_USERS_URL}/navigation`,
   getUserProfile: () => `${BASE_SERVICE_USERS_URL}/profile`,
+  getUserTeamsServices: () => `${BASE_SERVICE_ENV_URL}/users/teams/services`,
 };
 
 export const resolver = {
