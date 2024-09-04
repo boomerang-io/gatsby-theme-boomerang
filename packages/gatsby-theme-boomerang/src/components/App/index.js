@@ -12,7 +12,7 @@ import { resolver, serviceUrl } from "@gatsby-theme-boomerang/config/servicesCon
 
 const GET_USER_URL = serviceUrl.getUserProfile();
 const GET_NAVIGATION_URL = serviceUrl.getNavigation();
-const GET_USER_SERVICES_TEAMS_URL = serviceUrl.getNavigation();
+const GET_USER_SERVICES_TEAMS_URL = serviceUrl.getUserTeamsServices();
 
 export default function App({ children, location, isGaActive }) {
   useTracking(location, isGaActive);
