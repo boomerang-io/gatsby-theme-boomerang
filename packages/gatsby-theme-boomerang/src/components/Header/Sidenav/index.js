@@ -1,5 +1,4 @@
 import React from "react";
-import { useQueryClient } from "react-query";
 import {
   AdvantageSideNav,
 } from "@boomerang-io/carbon-addons-boomerang-react";
@@ -11,7 +10,7 @@ import * as Hooks from "../../../hooks";
 import { TeamTypes } from "../../../constants";
 import { resolver, serviceUrl } from "../../../config/servicesConfig";
 
-export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams}) {
+export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams, queryClient}) {
   const queryClient = useQueryClient();
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 

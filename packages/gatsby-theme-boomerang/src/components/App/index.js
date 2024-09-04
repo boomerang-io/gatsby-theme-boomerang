@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { AppContext } from "@gatsby-theme-boomerang/state";
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 import { Error403, Loading } from "@boomerang-io/carbon-addons-boomerang-react";
 import ErrorFullPage from "@gatsby-theme-boomerang/components/ErrorFullPage";
 import PageContainer from "@gatsby-theme-boomerang/components/PageContainer";
@@ -18,6 +18,7 @@ export default function App({ children, location, isGaActive }) {
   useTracking(location, isGaActive);
   const [isSideNavMounted, setIsSideNavMounted] = React.useState(false);
   useSideNavScrollManager({ isSideNavMounted, location });
+  const queryClient = useQueryClient();
 
   const userQuery = useQuery({
     queryKey: GET_USER_URL,
@@ -79,7 +80,7 @@ export default function App({ children, location, isGaActive }) {
         }}
       >
         <PageContainer>
-          <Header navigation={navigationQuery.data} user={userQuery.data} userTeams={teamsQuery.data}/>
+          <Header navigation={navigationQuery.data} user={userQuery.data} userTeams={teamsQuery.data} queryClient={queryClient} />
           <Content user={userQuery.data}>{children}</Content>
         </PageContainer>
       </AppContext.Provider>
