@@ -25,7 +25,7 @@ class Header extends Component {
       return (
         <div style={{ height: "3rem" }}>
           <UIShell 
-            config={navigation}
+            config={{...navigation, features: {...navigation.features, "appSwitcher.enabled": false}}}
             user={user}
             skipToContentProps={skipToContentProps}
             leftPanel={({isOpen, navLinks}) => (
