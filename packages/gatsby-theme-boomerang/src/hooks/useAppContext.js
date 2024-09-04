@@ -1,6 +1,5 @@
 import React from "react";
 import { useContext } from "react";
-import { AppContext } from "State/context";
 
 
 const AppContext = React.createContext(null);
