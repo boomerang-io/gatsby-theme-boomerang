@@ -25,6 +25,7 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
   return(
     <>
       <CreateJoinTeam
+        appElement="#___gatsby"
         teamType={TeamTypes.STANDARD}
         isOpen={isModalOpen}
         onCloseModal={() => setIsModalOpen(false)}
