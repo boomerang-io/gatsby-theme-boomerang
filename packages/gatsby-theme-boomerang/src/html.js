@@ -16,6 +16,7 @@ export default class HTML extends React.Component {
           {this.props.preBodyComponents}
           <div key="body" id="___gatsby" dangerouslySetInnerHTML={{ __html: this.props.body }} />
           {this.props.postBodyComponents}
+          <div id="app"></div>
           <div hidden>
             <span id="new-window-aria-desc-0">Opens in a new tab</span>
           </div>
