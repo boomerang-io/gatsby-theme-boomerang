@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { UIShell } from "@boomerang-io/carbon-addons-boomerang-react";
-import Sidenav from "@gatsby-theme-boomerang/components/Sidenav";
+import Sidenav from "@gatsby-theme-boomerang/components/Header/Sidenav";
 import { BASE_SERVICE_URL } from "@gatsby-theme-boomerang/config/servicesConfig";
 import { BASE_LAUNCH_ENV_URL } from "@gatsby-theme-boomerang/config/platformUrlConfig";
 
