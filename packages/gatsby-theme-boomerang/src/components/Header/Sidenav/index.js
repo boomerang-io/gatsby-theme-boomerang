@@ -4,11 +4,11 @@ import {
 } from "@boomerang-io/carbon-addons-boomerang-react";
 //@ts-ignore
 import { CreateJoinTeam } from "@boomerang/core-lib-components";
-import * as Components from "../../../components";
-import * as Constants from "../../../constants";
-import * as Hooks from "../../../hooks";
-import { TeamTypes } from "../../../constants";
-import { resolver, serviceUrl } from "../../../config/servicesConfig";
+import * as Components from "@gatsby-theme-boomerang/components";
+import * as Constants from "@gatsby-theme-boomerang/constants";
+import * as Hooks from "@gatsby-theme-boomerang/hooks";
+import { TeamTypes } from "@gatsby-theme-boomerang/constants";
+import { resolver, serviceUrl } from "@gatsby-theme-boomerang/config/servicesConfig";
 
 export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams, queryClient}) {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
