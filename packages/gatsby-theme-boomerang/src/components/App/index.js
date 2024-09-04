@@ -30,7 +30,7 @@ export default function App({ children, location, isGaActive }) {
     queryFn: resolver.query(GET_NAVIGATION_URL),
   });
 
-  const teamsQuery = useQuery<UserTeams>({
+  const teamsQuery = useQuery({
     queryKey: GET_USER_SERVICES_TEAMS_URL,
     queryFn: resolver.query(GET_USER_SERVICES_TEAMS_URL),
   });
