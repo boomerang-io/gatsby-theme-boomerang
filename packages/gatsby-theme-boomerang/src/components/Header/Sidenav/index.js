@@ -11,7 +11,6 @@ import { TeamTypes } from "../../../constants";
 import { resolver, serviceUrl } from "../../../config/servicesConfig";
 
 export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams, queryClient}) {
-  const queryClient = useQueryClient();
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   const standardTeams = userTeams?.standardTeams ?? [];
