@@ -8,7 +8,7 @@ import { CreateJoinTeam } from "@boomerang/core-lib-components";
 import * as Components from "../../../components";
 import * as Constants from "../../../constants";
 import * as Hooks from "../../../hooks";
-import { TeamTypes } from "Constants";
+import { TeamTypes } from "../../../constants";
 import { resolver, serviceUrl } from "../../../config/servicesConfig";
 
 export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams}) {
