@@ -4,7 +4,7 @@ import {
 } from "@boomerang-io/carbon-addons-boomerang-react";
 //@ts-ignore
 import { CreateJoinTeam } from "@boomerang/core-lib-components";
-import * as Components from "@gatsby-theme-boomerang/components/AutocompleteInput";
+import AutocompleteInput from "@gatsby-theme-boomerang/components/AutocompleteInput";
 import * as Constants from "@gatsby-theme-boomerang/constants";
 import * as Hooks from "@gatsby-theme-boomerang/hooks";
 import { TeamTypes } from "@gatsby-theme-boomerang/constants";
@@ -31,7 +31,7 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
         onCloseModal={() => setIsModalOpen(false)}
         onCreateTeam={handleCreateJoinTeam}
         onJoinTeam={handleCreateJoinTeam}
-        components={Components}
+        components={{AutocompleteInput}}
         constants={Constants}
         hooks={Hooks}
         resolver={resolver}
