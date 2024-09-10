@@ -2,28 +2,7 @@ import React from "react";
 import { useContext } from "react";
 
 
-const AppContext = React.createContext(null);
-
-export function AppContextProvider({
-  user,
-  navigation,
-  children,
-  gaEnabled,
-  trackEvent
-}) {
-  return (
-    <AppContext.Provider
-      value={{
-        user: user,
-        navigation: navigation,
-        gaEnabled: gaEnabled,
-        trackEvent: trackEvent
-      }}
-    >
-      {children}
-    </AppContext.Provider>
-  );
-}
+const AppContext = React.createContext({isSideNavMounted: false, setIsSideNavMounted: false, platformName: "", user: {}, navigation:{} , trackEvent: () => {}});
 
 function useAppContext() {
   return useContext(AppContext);
