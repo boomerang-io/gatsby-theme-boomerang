@@ -6,7 +6,7 @@ import { useQuery } from "react-query";
 import { InlineLoading } from "@carbon/react";
 import { TextInput } from "@boomerang-io/carbon-addons-boomerang-react";
 import { resolver, serviceUrl } from "@gatsby-theme-boomerang/config/servicesConfig";
-import styles from "./AutocompleteInput.module.scss";
+import * as styles from "./AutocompleteInput.module.scss";
 
 export default function AutocompleteInput(props) {
   const {
