@@ -1,6 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import { NotificationsContainer } from "@boomerang-io/carbon-addons-boomerang-react";
 import DocsSearch from "@gatsby-theme-boomerang/components/DocsSearch";
 import Footer from "@gatsby-theme-boomerang/components/Footer";
 import Link from "@gatsby-theme-boomerang/components/Link";
@@ -155,6 +156,7 @@ function Home() {
         </div>
       </div>
       <Footer footerLinksConfig={footerLinksConfig} />
+      <NotificationsContainer enableMultiContainer />
     </main>
   );
 }

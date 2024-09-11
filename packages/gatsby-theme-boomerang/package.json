@@ -5,7 +5,7 @@
   "author": "Timothy Bula <timrbula@gmail.com> (@timrbula)",
   "license": "MIT",
   "dependencies": {
-    "@boomerang-io/carbon-addons-boomerang-react": "4.3.0-beta.23",
+    "@boomerang-io/carbon-addons-boomerang-react": "4.3.0-beta.24",
     "@boomerang-io/styles": "^1.1.0",
     "@boomerang/core-lib-components": "2.2.35",
     "@carbon/react": "1.53.0",
