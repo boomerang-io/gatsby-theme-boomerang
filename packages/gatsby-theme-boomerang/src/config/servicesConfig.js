@@ -28,13 +28,27 @@ export const serviceUrl = {
   postJoinTeamRequest: () => `${BASE_SERVICE_ADMIN_URL}/multirequests/joingroup`,
 };
 
+export const cancelableResolver = ({ method, url, body, ...config }) => {
+  // Create a new CancelToken source for this request
+  const source = axios.CancelToken.source();
+  const promise = axios({
+    method,
+    url,
+    data: body,
+    // Pass the source token to your request
+    cancelToken: source.token,
+    ...config,
+  });
+  return { promise, cancel: () => source.cancel("cancel") };
+};
+
 export const resolver = {
   query: (url) => () => axios.get(url).then((response) => response.data),
   postMutation: (request) => axios.post(request),
   patchMutation: (request) => axios.patch(request),
   postCreateTeamRequest: ({ body }) =>
-    cancelableResolver({ method: HTTPMethod.Post, url: serviceUrl.postCreateTeamRequest(), body }),
+    cancelableResolver({ method: "post", url: serviceUrl.postCreateTeamRequest(), body }),
   postJoinTeamRequest: ({ body }) =>
-    cancelableResolver({ method: HTTPMethod.Post, url: serviceUrl.postJoinTeamRequest(), body }),
+    cancelableResolver({ method: "post", url: serviceUrl.postJoinTeamRequest(), body }),
   putMutation: (request) => axios.put(request),
 };
