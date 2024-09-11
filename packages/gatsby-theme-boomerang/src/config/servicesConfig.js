@@ -18,17 +18,23 @@ export const serviceUrl = {
   getNavigation: () => `${BASE_SERVICE_USERS_URL}/navigation`,
   getTeams: () => `${BASE_SERVICE_PRODUCT_URL}/teams`,
   getTeamsLabels: () => `${BASE_SERVICE_PRODUCT_URL}/teams/labels`,
+  getUser: () => `${BASE_SERVICE_USERS_URL}/profile`,
   getUserJoinRequests: () => `${BASE_SERVICE_ADMIN_URL}/requests/joingroup/mine`,
   getUserProfile: () => `${BASE_SERVICE_USERS_URL}/profile`,
   getUserTeamsServices: () => `${BASE_SERVICE_ENV_URL}/users/teams/services`,
   getValidateOpportunityId: (args) =>
     `${BASE_SERVICE_PRODUCT_URL}/client/opportunity/${args.opportunityId}`,
+  postCreateTeamRequest: () => `${BASE_SERVICE_ADMIN_URL}/requests/creategroup`,
+  postJoinTeamRequest: () => `${BASE_SERVICE_ADMIN_URL}/multirequests/joingroup`,
 };
 
 export const resolver = {
   query: (url) => () => axios.get(url).then((response) => response.data),
   postMutation: (request) => axios.post(request),
   patchMutation: (request) => axios.patch(request),
-  postCreateTeamRequest: () => `${BASE_SERVICE_ADMIN_URL}/requests/creategroup`,
+  postCreateTeamRequest: ({ body }) =>
+    cancelableResolver({ method: HTTPMethod.Post, url: serviceUrl.postCreateTeamRequest(), body }),
+  postJoinTeamRequest: ({ body }) =>
+    cancelableResolver({ method: HTTPMethod.Post, url: serviceUrl.postJoinTeamRequest(), body }),
   putMutation: (request) => axios.put(request),
 };
