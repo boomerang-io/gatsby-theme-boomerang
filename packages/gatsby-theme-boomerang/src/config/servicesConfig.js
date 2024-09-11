@@ -21,11 +21,14 @@ export const serviceUrl = {
   getUserJoinRequests: () => `${BASE_SERVICE_ADMIN_URL}/requests/joingroup/mine`,
   getUserProfile: () => `${BASE_SERVICE_USERS_URL}/profile`,
   getUserTeamsServices: () => `${BASE_SERVICE_ENV_URL}/users/teams/services`,
+  getValidateOpportunityId: (args) =>
+    `${BASE_SERVICE_PRODUCT_URL}/client/opportunity/${args.opportunityId}`,
 };
 
 export const resolver = {
   query: (url) => () => axios.get(url).then((response) => response.data),
   postMutation: (request) => axios.post(request),
   patchMutation: (request) => axios.patch(request),
+  postCreateTeamRequest: () => `${BASE_SERVICE_ADMIN_URL}/requests/creategroup`,
   putMutation: (request) => axios.put(request),
 };
