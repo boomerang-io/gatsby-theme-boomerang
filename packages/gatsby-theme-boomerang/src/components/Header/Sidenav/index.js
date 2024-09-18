@@ -55,6 +55,7 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
             : "This button has been disabled until you add Consulting Assistants back to your personal workspace to use this feature. "
         }
         //temporary url for tests
+        assistantLink={assistantLink}
         joinCreateTrigger={() => setIsModalOpen(true)}
         teams={standardTeams} 
         personalTeams={personalTeam}
