@@ -15,12 +15,20 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
 
   const standardTeams = userTeams?.standardTeams ?? [];
   const accountTeams = userTeams?.accountTeams ?? [];
-  const personalTeams = userTeams?.personalTeams ?? [];
+  const personalTeam = userTeams?.personalTeam ?? [];
+  const chatRequestPending =
+    !user?.personalTeamAssistantsAccess &&
+    (user?.hasPersonalTeam || (!user?.hasPersonalTeam && user?.hasOpenPersonalTeamRequest));
 
-  const handleCreateJoinTeam = () => {
-    queryClient.invalidateQueries(serviceUrl.getUserTeamsServices());
+  const assistantLink =
+    personalTeam.length > 0
+      ? `${navigation?.platform.baseEnvUrl}/curatorai/apps/ui/?teamName=${personalTeam[0].name}&teamId=${personalTeam[0].id}`
+      : `${navigation?.platform.baseEnvUrl}/curatorai/apps/ui`;
+
+  const handleCreateJoinTeam = async () => {
+    await queryClient.invalidateQueries(serviceUrl.getUserTeamsServices());
     setIsModalOpen(false);
-  }
+  };
   
   return(
     <>
@@ -38,9 +46,15 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
         serviceUrl={serviceUrl}
       />
       <AdvantageSideNav
-        homeLink={`${navigation?.platform.baseEnvUrl}/launchpad`}
+        homeLink={`${navigation?.platform.baseEnvUrl}/launchpad/`}
+        showChatTooltip={chatRequestPending}
+        enableChatButton={user?.personalTeamAssistantsAccess}
+        tooltipMessage={
+          user?.personalTeamAssistantsAccessRequested || user?.hasOpenPersonalTeamRequest
+            ? "Chat request is being reviewed. Please try again later."
+            : "This button has been disabled until you add Consulting Assistants back to your personal workspace to use this feature. "
+        }
         //temporary url for tests
-        assistantLink={`${navigation?.platform.baseEnvUrl}/curatorai/apps/ui/`}
         joinCreateTrigger={() => setIsModalOpen(true)}
         teams={standardTeams} 
         personalTeams={personalTeams}
