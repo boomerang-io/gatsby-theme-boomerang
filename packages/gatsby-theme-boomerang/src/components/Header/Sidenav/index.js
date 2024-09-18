@@ -57,7 +57,7 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
         //temporary url for tests
         joinCreateTrigger={() => setIsModalOpen(true)}
         teams={standardTeams} 
-        personalTeams={personalTeams}
+        personalTeams={personalTeam}
         accounts={accountTeams}
         baseEnvUrl={navigation?.platform.baseEnvUrl} 
         app="launchpad" 
