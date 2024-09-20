@@ -13,6 +13,7 @@ import { resolver, serviceUrl } from "@gatsby-theme-boomerang/config/servicesCon
 export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams, queryClient}) {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
+  const newChatRedirect = () => `${BASE_LAUNCH_ENV_URL}/curatorai/apps/ui`;
   const standardTeams = userTeams?.standardTeams ?? [];
   const accountTeams = userTeams?.accountTeams ?? [];
   const personalTeam = userTeams?.personalTeam ?? [];
@@ -22,8 +23,8 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
 
   const assistantLink =
     personalTeam.length > 0
-      ? `${navigation?.platform.baseEnvUrl}/curatorai/apps/ui/?teamName=${personalTeam[0].name}&teamId=${personalTeam[0].id}`
-      : `${navigation?.platform.baseEnvUrl}/curatorai/apps/ui`;
+      ? `${newChatRedirect()}/?teamName=${personalTeam[0].displayName || personalTeam[0].name}&teamId=${personalTeam[0].id}`
+      : newChatRedirect();
 
   const handleCreateJoinTeam = async () => {
     await queryClient.invalidateQueries(serviceUrl.getUserTeamsServices());
