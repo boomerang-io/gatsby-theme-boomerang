@@ -13,6 +13,10 @@ import { resolver, serviceUrl } from "@gatsby-theme-boomerang/config/servicesCon
 export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams, queryClient}) {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
+  const localUrl = "http://127.0.0.1:3000";
+  const BASE_LAUNCH_ENV_URL =
+  window._SERVER_DATA && window._SERVER_DATA.BASE_LAUNCH_ENV_URL ? window._SERVER_DATA.BASE_LAUNCH_ENV_URL : localUrl;
+
   const newChatRedirect = () => `${BASE_LAUNCH_ENV_URL}/curatorai/apps/ui`;
   const standardTeams = userTeams?.standardTeams ?? [];
   const accountTeams = userTeams?.accountTeams ?? [];
