@@ -17,6 +17,13 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
   const BASE_LAUNCH_ENV_URL =
   window._SERVER_DATA && window._SERVER_DATA.BASE_LAUNCH_ENV_URL ? window._SERVER_DATA.BASE_LAUNCH_ENV_URL : localUrl;
 
+  const StartChatTooltips = {
+    ChatPending:
+      "Start a new chat requires a personal workspace which is being created, please refresh and try again later.",
+    AssistantNotAvailable:
+      "This button has been disabled until you add Consulting Assistants back to your personal workspace to use this feature.",
+  };
+
   const newChatRedirect = () => `${BASE_LAUNCH_ENV_URL}/curatorai/apps/ui`;
   const standardTeams = userTeams?.standardTeams ?? [];
   const accountTeams = userTeams?.accountTeams ?? [];
@@ -56,8 +63,8 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
         enableChatButton={user?.personalTeamAssistantsAccess}
         tooltipMessage={
           user?.personalTeamAssistantsAccessRequested || user?.hasOpenPersonalTeamRequest
-            ? "Chat request is being reviewed. Please try again later."
-            : "This button has been disabled until you add Consulting Assistants back to your personal workspace to use this feature. "
+            ? StartChatTooltips.ChatPending
+            : StartChatTooltips.AssistantNotAvailable
         }
         //temporary url for tests
         assistantLink={assistantLink}
