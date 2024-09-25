@@ -7,7 +7,7 @@ import { CreateJoinTeam } from "@boomerang/core-lib-components";
 import AutocompleteInput from "@gatsby-theme-boomerang/components/AutocompleteInput";
 import * as Constants from "@gatsby-theme-boomerang/constants";
 import * as Hooks from "@gatsby-theme-boomerang/hooks";
-import { TeamTypes } from "@gatsby-theme-boomerang/constants";
+import { TeamTypes, UserPlatformRole } from "@gatsby-theme-boomerang/constants";
 import { resolver, serviceUrl } from "@gatsby-theme-boomerang/config/servicesConfig";
 
 export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams, queryClient}) {
@@ -16,6 +16,7 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
   const localUrl = "http://127.0.0.1:3000";
   const BASE_LAUNCH_ENV_URL =
   window._SERVER_DATA && window._SERVER_DATA.BASE_LAUNCH_ENV_URL ? window._SERVER_DATA.BASE_LAUNCH_ENV_URL : localUrl;
+  const isPartner = user?.type === UserPlatformRole.Partner;
 
   const StartChatTooltips = {
     ChatPending:
@@ -29,8 +30,16 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
   const accountTeams = userTeams?.accountTeams ?? [];
   const personalTeam = userTeams?.personalTeam ?? [];
   const chatRequestPending =
+    !isPartner &&
     !user?.personalTeamAssistantsAccess &&
     (user?.hasPersonalTeam || (!user?.hasPersonalTeam && user?.hasOpenPersonalTeamRequest));
+
+  const firstTimeUser =
+    !isPartner &&
+    !user?.personalTeamAssistantsAccess &&
+    !user?.personalTeamAssistantsAccessRequested &&
+    !user?.hasPersonalTeam &&
+    !user?.hasOpenPersonalTeamRequest;
 
   const assistantLink =
     personalTeam.length > 0
@@ -59,10 +68,10 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
       />
       <AdvantageSideNav
         homeLink={`${navigation?.platform.baseEnvUrl}/launchpad/`}
-        showChatTooltip={chatRequestPending}
+        showChatTooltip={chatRequestPending || firstTimeUser}
         enableChatButton={user?.personalTeamAssistantsAccess}
         tooltipMessage={
-          user?.personalTeamAssistantsAccessRequested || user?.hasOpenPersonalTeamRequest
+          user?.personalTeamAssistantsAccessRequested || user?.hasOpenPersonalTeamRequest || firstTimeUser
             ? StartChatTooltips.ChatPending
             : StartChatTooltips.AssistantNotAvailable
         }
