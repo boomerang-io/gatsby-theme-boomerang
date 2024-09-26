@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { AppContext } from "@gatsby-theme-boomerang/state";
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 import { Error403, Loading } from "@boomerang-io/carbon-addons-boomerang-react";
 import ErrorFullPage from "@gatsby-theme-boomerang/components/ErrorFullPage";
 import PageContainer from "@gatsby-theme-boomerang/components/PageContainer";
@@ -12,11 +12,13 @@ import { resolver, serviceUrl } from "@gatsby-theme-boomerang/config/servicesCon
 
 const GET_USER_URL = serviceUrl.getUserProfile();
 const GET_NAVIGATION_URL = serviceUrl.getNavigation();
+const GET_USER_SERVICES_TEAMS_URL = serviceUrl.getUserTeamsServices();
 
 export default function App({ children, location, isGaActive }) {
   useTracking(location, isGaActive);
   const [isSideNavMounted, setIsSideNavMounted] = React.useState(false);
   useSideNavScrollManager({ isSideNavMounted, location });
+  const queryClient = useQueryClient();
 
   const userQuery = useQuery({
     queryKey: GET_USER_URL,
@@ -26,6 +28,11 @@ export default function App({ children, location, isGaActive }) {
   const navigationQuery = useQuery({
     queryKey: GET_NAVIGATION_URL,
     queryFn: resolver.query(GET_NAVIGATION_URL),
+  });
+
+  const teamsQuery = useQuery({
+    queryKey: GET_USER_SERVICES_TEAMS_URL,
+    queryFn: resolver.query(GET_USER_SERVICES_TEAMS_URL),
   });
 
   React.useEffect(() => {
@@ -48,11 +55,11 @@ export default function App({ children, location, isGaActive }) {
     }
   }, [userQuery]);
 
-  if (userQuery.isLoading || navigationQuery.isLoading) {
+  if (userQuery.isLoading || navigationQuery.isLoading || teamsQuery.isLoading) {
     return <Loading />;
   }
 
-  if (userQuery.isError || navigationQuery.isError) {
+  if (userQuery.isError || navigationQuery.isError || teamsQuery.isError) {
     return (
       <>
         <Header />
@@ -61,13 +68,19 @@ export default function App({ children, location, isGaActive }) {
     );
   }
 
-  if (userQuery.data && navigationQuery.data) {
+  if (userQuery.data && navigationQuery.data && teamsQuery.data) {
     return (
       <AppContext.Provider
-        value={{ isSideNavMounted, setIsSideNavMounted, platformName: navigationQuery.data.platform.platformName }}
+        value={{ 
+          isSideNavMounted,
+          setIsSideNavMounted,
+          platformName: navigationQuery.data.platform.platformName,
+          user: userQuery.data,
+          navigation: navigationQuery.data,
+        }}
       >
         <PageContainer>
-          <Header navigation={navigationQuery.data} user={userQuery.data} />
+          <Header navigation={navigationQuery.data} user={userQuery.data} userTeams={teamsQuery.data} queryClient={queryClient} />
           <Content user={userQuery.data}>{children}</Content>
         </PageContainer>
       </AppContext.Provider>

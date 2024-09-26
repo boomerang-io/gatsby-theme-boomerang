@@ -27,3 +27,36 @@ export const contentLabelsToImageMap = {
 export const UserPlatformRole = {
   Partner: "partner",
 };
+
+export const TeamTypes = {
+  ACCOUNT: "account",
+  PROJECT: "project",
+  STANDARD: "standard",
+};
+
+export const TeamLabels = {
+  CoreExtProjectId: "coreExtProjectId",
+  OpportunityId: "opportunityId",
+  Organization: "Organization",
+  TeamType: "project-type",
+};
+
+export const QueryStatus = {
+  Idle: "idle",
+  Loading: "loading",
+  Error: "error",
+  Success: "success",
+};
+
+export const RequestType = {
+  JoinTeam: "joingroup",
+  CreateTeam: "creategroup",
+  LeaveTeam: "leavegroup",
+  RemoveTeam: "removegroup",
+  JoinTool: "jointool",
+  CreateTool: "createtool",
+  LeaveTool: "leavetool",
+  RemoveTool: "removetool",
+  LeavePlatform: "leaveplatform",
+};
+
