@@ -20,7 +20,7 @@ const skipToContentProps = {
 
 class Header extends Component {
   render() {
-    const { navigation, user, userTeams, queryClient } = this.props;
+    const { navigation, user, userTeams, queryClient, userTeamsError , userTeamsLoading } = this.props;
     if (navigation && user && userTeams) {
       return (
         <div style={{ height: "3rem" }}>
@@ -29,7 +29,16 @@ class Header extends Component {
             user={user}
             skipToContentProps={skipToContentProps}
             leftPanel={({isOpen, navLinks}) => (
-              <Sidenav isOpen={isOpen} navigation={navigation} user={user} userTeams={userTeams} navLinks={navLinks} queryClient={queryClient} />
+              <Sidenav
+                isOpen={isOpen}
+                navigation={navigation}
+                user={user}
+                userTeams={userTeams}
+                navLinks={navLinks}
+                queryClient={queryClient}
+                userTeamsError={userTeamsError}
+                userTeamsLoading={userTeamsLoading}
+              />
             )}
           />
         </div>

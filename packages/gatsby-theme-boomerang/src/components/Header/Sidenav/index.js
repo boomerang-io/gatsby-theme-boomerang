@@ -10,7 +10,7 @@ import * as Hooks from "@gatsby-theme-boomerang/hooks";
 import { TeamTypes, UserPlatformRole } from "@gatsby-theme-boomerang/constants";
 import { resolver, serviceUrl } from "@gatsby-theme-boomerang/config/servicesConfig";
 
-export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams, queryClient}) {
+export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams, queryClient, userTeamsError , userTeamsLoading }) {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   const localUrl = "http://127.0.0.1:3000";
@@ -75,7 +75,6 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
             ? StartChatTooltips.ChatPending
             : StartChatTooltips.AssistantNotAvailable
         }
-        //temporary url for tests
         assistantLink={assistantLink}
         joinCreateTrigger={() => setIsModalOpen(true)}
         teams={standardTeams} 
@@ -86,6 +85,8 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
         isOpen={isOpen}
         navLinks={navLinks}
         user={user}
+        userTeamsError={userTeamsError}
+        userTeamsLoading={userTeamsLoading}
       />
     </>
   );
