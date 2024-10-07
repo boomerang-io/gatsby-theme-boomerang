@@ -55,11 +55,11 @@ export default function App({ children, location, isGaActive }) {
     }
   }, [userQuery]);
 
-  if (userQuery.isLoading || navigationQuery.isLoading || teamsQuery.isLoading) {
+  if (userQuery.isLoading || navigationQuery.isLoading) {
     return <Loading />;
   }
 
-  if (userQuery.isError || navigationQuery.isError || teamsQuery.isError) {
+  if (userQuery.isError || navigationQuery.isError) {
     return (
       <>
         <Header />
@@ -80,7 +80,14 @@ export default function App({ children, location, isGaActive }) {
         }}
       >
         <PageContainer>
-          <Header navigation={navigationQuery.data} user={userQuery.data} userTeams={teamsQuery.data} queryClient={queryClient} />
+          <Header 
+            navigation={navigationQuery.data}
+            user={userQuery.data}
+            userTeams={teamsQuery.data}
+            queryClient={queryClient}
+            userTeamsError={Boolean(teamsQuery?.error)}
+            userTeamsLoading={Boolean(teamsQuery?.isLoading)}
+          />
           <Content user={userQuery.data}>{children}</Content>
         </PageContainer>
       </AppContext.Provider>

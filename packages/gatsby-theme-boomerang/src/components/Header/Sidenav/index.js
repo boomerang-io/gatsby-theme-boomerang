@@ -10,7 +10,7 @@ import * as Hooks from "@gatsby-theme-boomerang/hooks";
 import { TeamTypes, UserPlatformRole } from "@gatsby-theme-boomerang/constants";
 import { resolver, serviceUrl } from "@gatsby-theme-boomerang/config/servicesConfig";
 
-export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams, queryClient}) {
+export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams, queryClient, userTeamsError , userTeamsLoading }) {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   const localUrl = "http://127.0.0.1:3000";
@@ -25,7 +25,7 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
       "This button has been disabled until you add Consulting Assistants back to your personal workspace to use this feature.",
   };
 
-  const newChatRedirect = () => `${BASE_LAUNCH_ENV_URL}/curatorai/apps/ui`;
+  const newChatRedirect = () => `${BASE_LAUNCH_ENV_URL}/curatorai/apps/ui/new-chat/start-new-chat`;
   const standardTeams = userTeams?.standardTeams ?? [];
   const accountTeams = userTeams?.accountTeams ?? [];
   const personalTeam = userTeams?.personalTeam ?? [];
@@ -75,7 +75,6 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
             ? StartChatTooltips.ChatPending
             : StartChatTooltips.AssistantNotAvailable
         }
-        //temporary url for tests
         assistantLink={assistantLink}
         joinCreateTrigger={() => setIsModalOpen(true)}
         teams={standardTeams} 
@@ -86,6 +85,8 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
         isOpen={isOpen}
         navLinks={navLinks}
         user={user}
+        userTeamsError={userTeamsError}
+        userTeamsLoading={userTeamsLoading}
       />
     </>
   );
