@@ -25,7 +25,7 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
       "This button has been disabled until you add Consulting Assistants back to your personal workspace to use this feature.",
   };
 
-  const newChatRedirect = () => `${BASE_LAUNCH_ENV_URL}/curatorai/apps/ui/new-chat/start-new-chat`;
+  const newChatRedirect = () => `${BASE_LAUNCH_ENV_URL}/curatorai/apps/ui/new-chat/`;
   const standardTeams = userTeams?.standardTeams ?? [];
   const accountTeams = userTeams?.accountTeams ?? [];
   const personalTeam = userTeams?.personalTeam ?? [];
@@ -76,6 +76,7 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
             : StartChatTooltips.AssistantNotAvailable
         }
         assistantLink={assistantLink}
+        defaultAssistantLink={newChatRedirect()}
         joinCreateTrigger={() => setIsModalOpen(true)}
         teams={standardTeams} 
         personalTeams={personalTeam}
