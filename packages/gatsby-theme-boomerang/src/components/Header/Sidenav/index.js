@@ -70,6 +70,7 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
         homeLink={`${navigation?.platform.baseEnvUrl}/launchpad/`}
         showChatTooltip={chatRequestPending || firstTimeUser}
         enableChatButton={user?.personalTeamAssistantsAccess}
+        showChatButton={!!navigation?.platform?.startChatEnabled}
         tooltipMessage={
           user?.personalTeamAssistantsAccessRequested || user?.hasOpenPersonalTeamRequest || firstTimeUser
             ? StartChatTooltips.ChatPending

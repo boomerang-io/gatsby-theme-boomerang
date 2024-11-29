@@ -5,9 +5,9 @@
   "author": "Timothy Bula <timrbula@gmail.com> (@timrbula)",
   "license": "MIT",
   "dependencies": {
-    "@boomerang-io/carbon-addons-boomerang-react": "4.4.0",
+    "@boomerang-io/carbon-addons-boomerang-react": "4.4.7-beta.1",
     "@boomerang-io/styles": "^1.1.0",
-    "@boomerang/core-lib-components": "2.2.47",
+    "@boomerang/core-lib-components": "2.2.64",
     "@carbon/react": "1.53.0",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "3.0.2",
     "app-root-path": "2.2.1",
