@@ -28,7 +28,13 @@ class Header extends Component {
             config={{...navigation, features: {...navigation.features, "notificationsCount.enabled": true}}}
             user={user}
             skipToContentProps={skipToContentProps}
-            userTeams={{data: userTeams, isLoading: userTeamsLoading, error: userTeamsError}}
+            userTeams={
+              {
+                data: navigation?.platform?.personalTeamEnabled ? userTeams : {...userTeams, personalTeam:[]}, 
+                isLoading: userTeamsLoading, 
+                error: userTeamsError
+              }
+            }
             leftPanel={({isOpen, navLinks}) => (
               <Sidenav
                 isOpen={isOpen}

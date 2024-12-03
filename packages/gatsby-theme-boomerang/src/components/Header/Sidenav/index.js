@@ -70,7 +70,7 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
         homeLink={`${navigation?.platform.baseEnvUrl}/launchpad/`}
         showChatTooltip={chatRequestPending || firstTimeUser}
         enableChatButton={user?.personalTeamAssistantsAccess}
-        showChatButton={!!navigation?.platform?.startChatEnabled}
+        showChatButton={!!navigation?.platform?.personalTeamEnabled}
         tooltipMessage={
           user?.personalTeamAssistantsAccessRequested || user?.hasOpenPersonalTeamRequest || firstTimeUser
             ? StartChatTooltips.ChatPending
@@ -80,7 +80,7 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
         defaultAssistantLink={newChatRedirect()}
         joinCreateTrigger={() => setIsModalOpen(true)}
         teams={standardTeams} 
-        personalTeams={personalTeam}
+        personalTeams={navigation?.platform?.personalTeamEnabled ? personalTeam : []}
         accounts={accountTeams}
         baseEnvUrl={navigation?.platform.baseEnvUrl} 
         app="launchpad" 
