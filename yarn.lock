@@ -1189,10 +1189,10 @@
     react-toastify "9.1.1"
     wicg-inert "^3.1.2"
 
-"@boomerang-io/carbon-addons-boomerang-react@4.4.7-beta.1":
-  version "4.4.7-beta.1"
-  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-4.4.7-beta.1.tgz#b9b42d7d79bf2f50f2ec474189ba98676a36abce"
-  integrity sha512-Efb5i0U3NkxWJtSPlSbIZ1A3v3jcOwKBL1JWnnasmN+1V1EMZ6OdP1nk0nnwjUDH9EqOmFgN5LYo1VK3ecgYLg==
+"@boomerang-io/carbon-addons-boomerang-react@4.4.7-beta.7":
+  version "4.4.7-beta.7"
+  resolved "https://registry.yarnpkg.com/@boomerang-io/carbon-addons-boomerang-react/-/carbon-addons-boomerang-react-4.4.7-beta.7.tgz#f8e0d6372eb5bf72f5610b098d88801ef6e463eb"
+  integrity sha512-gP+JsIF6rOQfTxjiVUCZDOpWHK/B2Hq6+JjF1NJpclkgAivY1qp1pW/Z1b13RQwHZyybRMK0PEbbVvDCqdYVvg==
   dependencies:
     "@stomp/stompjs" "6.1.2"
     "@tippyjs/react" "4.2.6"
