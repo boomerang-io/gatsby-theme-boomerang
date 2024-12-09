@@ -50,6 +50,10 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
     await queryClient.invalidateQueries(serviceUrl.getUserTeamsServices());
     setIsModalOpen(false);
   };
+
+  const templateMeteringEvent = async ({ service, team }) => {
+    await resolver.putMeteringEvent({ templateId: service.templateId, teamId: team.id });
+  }
   
   return(
     <>
@@ -71,6 +75,7 @@ export function SidenavContainer({isOpen, user, navigation, navLinks, userTeams,
         showChatTooltip={chatRequestPending || firstTimeUser}
         enableChatButton={user?.personalTeamAssistantsAccess}
         showChatButton={!!navigation?.platform?.personalTeamEnabled}
+        templateMeteringEvent={templateMeteringEvent}
         tooltipMessage={
           user?.personalTeamAssistantsAccessRequested || user?.hasOpenPersonalTeamRequest || firstTimeUser
             ? StartChatTooltips.ChatPending
