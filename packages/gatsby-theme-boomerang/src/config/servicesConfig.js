@@ -26,6 +26,8 @@ export const serviceUrl = {
     `${BASE_SERVICE_PRODUCT_URL}/client/opportunity/${args.opportunityId}`,
   postCreateTeamRequest: () => `${BASE_SERVICE_ADMIN_URL}/requests/creategroup`,
   postJoinTeamRequest: () => `${BASE_SERVICE_ADMIN_URL}/multirequests/joingroup`,
+  putMeteringEvent: (args) =>
+    `${BASE_SERVICE_PRODUCT_URL}/metering/event/${args.templateId}${args.teamId ? `?team-id=${args.teamId}` : ""}`
 };
 
 export const cancelableResolver = ({ method, url, body, ...config }) => {
@@ -50,5 +52,16 @@ export const resolver = {
     cancelableResolver({ method: "post", url: serviceUrl.postCreateTeamRequest(), body }),
   postJoinTeamRequest: ({ body }) =>
     cancelableResolver({ method: "post", url: serviceUrl.postJoinTeamRequest(), body }),
+  putMeteringEvent: ({ templateId, teamId }) =>
+    new Promise((resolve, reject) => {
+      return axios.put(serviceUrl.putMeteringEvent({ templateId, teamId })).then(
+        (response) => {
+          resolve(response);
+        },
+        (error) => {
+          resolve(undefined);
+        }
+      );
+    }),
   putMutation: (request) => axios.put(request),
 };
