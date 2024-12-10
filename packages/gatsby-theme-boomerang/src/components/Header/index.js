@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { UIShell } from "@boomerang-io/carbon-addons-boomerang-react";
 import Sidenav from "@gatsby-theme-boomerang/components/Header/Sidenav";
-import { BASE_SERVICE_URL } from "@gatsby-theme-boomerang/config/servicesConfig";
+import { BASE_SERVICE_URL, resolver } from "@gatsby-theme-boomerang/config/servicesConfig";
 import { BASE_LAUNCH_ENV_URL } from "@gatsby-theme-boomerang/config/platformUrlConfig";
 
 const DEFAULT_PLATFORM_NAME = "IBM Consulting Essentials";
@@ -22,12 +22,17 @@ class Header extends Component {
   render() {
     const { navigation, user, userTeams, queryClient, userTeamsError , userTeamsLoading } = this.props;
     if (navigation && user && userTeams) {
+      const templateMeteringEvent = async ({ service, team }) => {
+        await resolver.putMeteringEvent({ templateId: service.templateId, teamId: team.id });
+      }
+
       return (
         <div style={{ height: "3rem" }}>
           <UIShell 
             config={{...navigation, features: {...navigation.features, "notificationsCount.enabled": true}}}
             user={user}
             skipToContentProps={skipToContentProps}
+            templateMeteringEvent={templateMeteringEvent}
             userTeams={
               {
                 data: navigation?.platform?.personalTeamEnabled ? userTeams : {...userTeams, personalTeam:[]}, 
