@@ -1276,13 +1276,14 @@
     normalize-scss "^7.0.1"
     rimraf "^3.0.2"
 
-"@boomerang/core-lib-components@2.2.65":
-  version "2.2.65"
-  resolved "https://tools.boomerangplatform.net/artifactory/api/npm/boomeranglib-npm/@boomerang/core-lib-components/-/@boomerang/core-lib-components-2.2.65.tgz#e64e0c62a4f0a77e52ff99a65e668ba276cba17f"
-  integrity sha512-dYAVuxzDxg8++q57/X+futDx0GfT7FATKLP84L6+Ixt49TBPNLqCAp+GhKZ8YIHeBQvJctxXfgiH2MClzSlprg==
+"@boomerang/core-lib-components@2.3.4-beta.1":
+  version "2.3.4-beta.1"
+  resolved "https://tools.boomerangplatform.net/artifactory/api/npm/boomeranglib-npm/@boomerang/core-lib-components/-/@boomerang/core-lib-components-2.3.4-beta.1.tgz#06da1bb62e29fff8c844ba42c5e7d3d36105b7df"
+  integrity sha512-aFTMnROKQbs6Je9bFJI5ESrlr1M7EMKQkH4GPrBiMvON3ZcEkuXqFFxRXEcHiUsagznP42h11i29KIpme5JXKg==
   dependencies:
     react-markdown "^6.0.3"
     remark-gfm "^1.0.0"
+    sanitize-html "^2.14.0"
     style-inject "^0.3.0"
 
 "@builder.io/partytown@^0.7.5":
@@ -13897,6 +13898,18 @@ sanitize-html@^2.11.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/sanitize-html/-/sanitize-html-2.11.0.tgz#9a6434ee8fcaeddc740d8ae7cd5dd71d3981f8f6"
   integrity sha512-BG68EDHRaGKqlsNjJ2xUB7gpInPA8gVx/mvjO743hZaeMCZ2DwzW7xvsqZ+KNU4QKwj86HJ3uu2liISf2qBBUA==
+  dependencies:
+    deepmerge "^4.2.2"
+    escape-string-regexp "^4.0.0"
+    htmlparser2 "^8.0.0"
+    is-plain-object "^5.0.0"
+    parse-srcset "^1.0.2"
+    postcss "^8.3.11"
+
+sanitize-html@^2.14.0:
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/sanitize-html/-/sanitize-html-2.14.0.tgz#bd2a7b97ee1d86a7f0e0babf3a4468f639c3a429"
+  integrity sha512-CafX+IUPxZshXqqRaG9ZClSlfPVjSxI0td7n07hk8QO2oO+9JDnlcL8iM8TWeOXOIBFgIOx6zioTzM53AOMn3g==
   dependencies:
     deepmerge "^4.2.2"
     escape-string-regexp "^4.0.0"
