@@ -17,7 +17,7 @@ export const serviceUrl = {
   getClientNames: (args) => `${BASE_SERVICE_PRODUCT_URL}/client/cash/autocomplete/${args.query}`,
   getNavigation: () => `${BASE_SERVICE_USERS_URL}/navigation`,
   getTeams: () => `${BASE_SERVICE_PRODUCT_URL}/teams`,
-  getTeamsLabels: () => `${BASE_SERVICE_PRODUCT_URL}/teams/labels`,
+  getTeamsLabels: (args) => `${BASE_SERVICE_PRODUCT_URL}/teams/labels${args?.teamPurpose ? "?teamPurpose=" + args.teamPurpose : ""}`,
   getTeamsPurposes: () => `${BASE_SERVICE_PRODUCT_URL}/teams/purposes`,
   getTeamsTermsOfUsePurpose: ({ teamPurpose }) => `${BASE_SERVICE_PRODUCT_URL}/teams/termsOfUse/${teamPurpose}`,
   getUser: () => `${BASE_SERVICE_USERS_URL}/profile`,
