@@ -1276,10 +1276,10 @@
     normalize-scss "^7.0.1"
     rimraf "^3.0.2"
 
-"@boomerang/core-lib-components@2.3.5-beta.0":
-  version "2.3.5-beta.0"
-  resolved "https://tools.boomerangplatform.net/artifactory/api/npm/boomeranglib-npm/@boomerang/core-lib-components/-/@boomerang/core-lib-components-2.3.5-beta.0.tgz#4d8fcb383633dd39733f80d37e408168e4e3e255"
-  integrity sha512-4tDQ42wo34pg8gMUUhcn2qJDbBhdjkjRXkLB58AT0Swx3VcVVKf6izAXMTHJEjJ8QQ9CfyIuJ4jW6GOsFronZw==
+"@boomerang/core-lib-components@2.3.5-beta.1":
+  version "2.3.5-beta.1"
+  resolved "https://tools.boomerangplatform.net/artifactory/api/npm/boomeranglib-npm/@boomerang/core-lib-components/-/@boomerang/core-lib-components-2.3.5-beta.1.tgz#59ed2712b32b96872ff0d4ab2ee06bb36f5ef3c4"
+  integrity sha512-++WZ09oe4k4NPGdFYuawSuYeRU7A1R58Tr5TkEws+uMxL8gh1CSe8xy31hDeckKycmIdNUeV3QoRy3PZ9S/f9Q==
   dependencies:
     react-markdown "^6.0.3"
     remark-gfm "^1.0.0"
