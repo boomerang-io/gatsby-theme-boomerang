@@ -69,7 +69,7 @@ module.exports = (themeOptions) => {
       {
         resolve: "gatsby-plugin-manifest",
         options: {
-          icon: "./src/favicon.png",
+          icon: "./src/IBMConsultingBrowserIcon.png",
         },
       },
       {
