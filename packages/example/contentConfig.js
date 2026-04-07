@@ -31,6 +31,12 @@ const config = {
           image: "flow",
         },
         {
+          title: "Frogs",
+          description: "Ribbit ribbit",
+          path: "/docs/frogs/anatomy/so-slippery",
+          image: "bosun",
+        },
+        {
           title: "Waves",
           description: "Where fishes hide",
           path: "/docs/pandas/dragonwarrior/po",

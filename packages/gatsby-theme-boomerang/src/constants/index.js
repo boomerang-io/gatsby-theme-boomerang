@@ -3,6 +3,7 @@ import AutomationControlCenter from "@gatsby-theme-boomerang/assets/img/automati
 import AutomationPlatform from "@gatsby-theme-boomerang/assets/img/automation-platform.png";
 import Cicd from "@gatsby-theme-boomerang/assets/img/cicd.png";
 import Flow from "@gatsby-theme-boomerang/assets/img/flow.png";
+import Bosun from "@gatsby-theme-boomerang/assets/img/bosun.png";
 import ProcessDeliveryAccelerator from "@gatsby-theme-boomerang/assets/img/process-delivery-accelerator.png";
 import Watson from "@gatsby-theme-boomerang/assets/img/watson.png";
 
@@ -11,6 +12,7 @@ export const ContentLabels = {
   AutomationPlatform: "automation-platform",
   Cicd: "cicd",
   Flow: "flow",
+  Bosun: "bosun",
   ProcessDeliveryAccelerator: "process-delivery-accelerator",
   Watson: "watson",
 };
@@ -20,6 +22,7 @@ export const contentLabelsToImageMap = {
   [ContentLabels.AutomationPlatform]: AutomationPlatform,
   [ContentLabels.Cicd]: Cicd,
   [ContentLabels.Flow]: Flow,
+  [ContentLabels.Bosun]: Bosun,
   [ContentLabels.ProcessDeliveryAccelerator]: ProcessDeliveryAccelerator,
   [ContentLabels.Watson]: Watson,
 };
